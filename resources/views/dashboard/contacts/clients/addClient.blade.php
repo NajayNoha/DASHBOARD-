@@ -1,1 +1,6 @@
-<h1>Add client</h1>
+@extends('...layout.app')
+
+@section('content')
+
+ajouter 
+@endsection

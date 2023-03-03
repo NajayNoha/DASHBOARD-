@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Controller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +18,7 @@ use App\Http\Controllers\ContactController;
 Route::get('/', function () {
     return view('index');
 });
-
+Route::get('/app/{op}', [Controller::class , 'index'])->name('/app/{op}');
 
 Route::get('/contacts/clients', [ContactController::class, 'clients'])->name('/contacts/clients');
 
