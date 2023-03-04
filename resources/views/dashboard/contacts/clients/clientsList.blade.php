@@ -5,7 +5,6 @@
 @section("ClientContent")
 <div class="content-body">
     <!-- row -->
-    <h1>Clients List</h1>
 
     <div class="container-fluid">
         <div class="row page-titles mx-0">
@@ -21,7 +20,10 @@
                 </ol>
             </div>
         </div>
-
+        <div class="mb-2">
+            <a href="{{Route('/contacts/ajouter_client')}}" class="btn btn-success px-4 text-white">
+                <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
+        </div>
     <div class="row">
         <div class="col-12">
             <div class="card">
