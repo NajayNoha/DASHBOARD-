@@ -14,4 +14,9 @@ class Controller extends BaseController
     {
         return view('./layouts/app', ["operation" => $op]);
     }
+
+    public function error404()
+    {
+        return view('./errors/404');
+    }
 }

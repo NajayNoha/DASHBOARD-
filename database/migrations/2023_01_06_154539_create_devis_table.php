@@ -19,13 +19,13 @@ return new class extends Migration
             $table->string('attention')->nullable(false);
             $table->string('ref')->nullable(false);
             $table->string('devise')->nullable(false);
-            $table->string('taxes')->nullable(false);
+            $table->json('taxes')->nullable(false);
             $table->string('price_level')->nullable(false);
             $table->string('adresse_facturation')->nullable(false);
             $table->string('adresse_livraison')->nullable(false);
             $table->date('date_livraison')->nullable(false);
-            $table->string('products')->nullable(false);
-            $table->string('notes')->nullable(false);
+            $table->json('products')->nullable(false);
+            $table->string('notes');
             $table->timestamps();
         });
     }

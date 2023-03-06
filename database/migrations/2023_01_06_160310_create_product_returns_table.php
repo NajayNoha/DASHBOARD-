@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('id', 30)->primary();
             $table->string('client');
             $table->string('products');
+            $table->date('date_return');
             $table->string('notes');
             $table->timestamps();
         });
