@@ -40,7 +40,7 @@
             <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
             </button> WOW! Eveything looks OK
          </div>
-         
+
          <div class="row">
 
             <div class="col-md-8">

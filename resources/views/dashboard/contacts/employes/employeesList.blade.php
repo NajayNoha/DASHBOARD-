@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="mb-2">
-            <a href="{{Route('/contacts/employes/ajouter_employe')}}" class="btn btn-success px-4 text-white">
+            <a href="{{Route('/contacts/employes/ajouter_employe')}}" class="btn px-4 text-white" style="background: #57ae74;">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
         </div>
 
