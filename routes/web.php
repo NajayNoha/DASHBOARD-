@@ -25,13 +25,13 @@ Route::get('/contacts/clients', [ContactController::class, 'clients'])->name('/c
 
 Route::get('/contacts/ajouter_client', [ContactController::class, 'add_client'])->name('/contacts/ajouter_client');
 
-Route::get('/contacts/clients/{id}', [ContactController::class, 'client_profile'])->name('/contacts/clients/{id}');
+Route::get('/contacts/clients/{id}', [ContactController::class, 'client_profile'])->name('/contacts/clients/profile');
 
 Route::get('/contacts/employes', [ContactController::class, 'employes'])->name('/contacts/employes');
 
 Route::get('/contacts/employes/ajouter_employe', [ContactController::class, 'add_employe'])->name('/contacts/employes/ajouter_employe');
 
-Route::get('/contacts/employes/{id}', [ContactController::class, 'employee_profile'])->name('contacts/employes/{id}');
+Route::get('/contacts/employes/{id}', [ContactController::class, 'employee_profile'])->name('contacts/employes/profile');
 
 
 
@@ -39,5 +39,5 @@ Route::get('/contacts/fournisseur', [ContactController::class, 'fournisseurs'])-
 
 Route::get('/contacts/fournisseurs/ajouter_fournisseur', [ContactController::class, 'add_fournisseur'])->name('/contacts/fournisseurs/ajouter_fournisseur');
 
-Route::get('/contacts/fournisseurs/{id}', [ContactController::class, 'fournisseur_profile'])->name('contacts/fournisseurs/{id}');
+Route::get('/contacts/fournisseurs/{id}', [ContactController::class, 'fournisseur_profile'])->name('contacts/fournisseurs/profile');
 

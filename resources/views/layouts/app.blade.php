@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
+    {{-- DATA TABLE  --}}
+    <link href="../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -309,6 +313,19 @@
 
     <script src="./../../js/dashboard/dashboard-1.js"></script>
     <script src="./../../js/dashboard/dashboard.js"></script>
+
+    {{-- DATA TABLE  --}}
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="./../../vendor/global/global.min.js"></script>
+    <script src="./../../js/quixnav-init.js"></script>
+    <script src="./../../js/custom.min.js"></script>
+    
+
+
+    <!-- Datatable -->
+    <script src="./../../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="./../../js/plugins-init/datatables.init.js"></script>
 
 </body>
 
