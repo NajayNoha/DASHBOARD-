@@ -21,7 +21,7 @@ class ContactController extends Controller
 
     public function employes()
     {
-        return view('./dashboard/contacts/employes/employesList');
+        return view('./dashboard/contacts/employes/employeesList');
     }
 
     public function add_employe()
@@ -36,7 +36,7 @@ class ContactController extends Controller
 
     public function fournisseurs()
     {
-        return view('./dashboard/contacts/fournisseur/fournisseursList');
+        return view('./dashboard/contacts/fournisseurs/fournisseursList');
     }
 
     public function add_fournisseur()

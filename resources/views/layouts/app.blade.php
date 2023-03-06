@@ -12,7 +12,14 @@
     <link rel="stylesheet" href={{asset("../../vendor/owl-carousel/css/owl.theme.default.min.css")}}>
     <link href={{asset("../../vendor/jqvmap/css/jqvmap.min.css")}} rel="stylesheet">
     <link href={{asset("../../css/style.css")}} rel="stylesheet">
+    <link href={{asset("../../css/style-dashborad.css")}} rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    {{-- DATA TABLE  --}}
+    <link href="../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
 
 </head>
 
@@ -170,7 +177,7 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="quixnav">
+        <div class="quixnav" style="position: fixed">
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Menu Principal</li>
@@ -184,10 +191,10 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="bi bi-person-rolodex"></i><span class="nav-text">Contacts</span></a>
                         <ul aria-expanded="false">
-                            <li><a href=" {{ route('/contacts/clients') }}">Clients</a></li>
-                            <li><a href="./app-profile.html">Fournisseurs</a></li>
-                            <li><a href="./app-calender.html">Employés</a></li>
-                            <li><a href="./app-calender.html">Paramètres des contacts</a></li>
+                            <li><a href=" {{ route('/contacts/clients')}}">Clients</a></li>
+                            <li><a href="{{Route('/contacts/fournisseurs')}}">Fournisseurs</a></li>
+                            <li><a href="{{Route('/contacts/employes')}}">Employés</a></li>
+                            <li><a href="#">Paramètres des contacts</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -305,6 +312,20 @@
 
 
     <script src="./../../js/dashboard/dashboard-1.js"></script>
+    <script src="./../../js/dashboard/dashboard.js"></script>
+
+    {{-- DATA TABLE  --}}
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="./../../vendor/global/global.min.js"></script>
+    <script src="./../../js/quixnav-init.js"></script>
+    <script src="./../../js/custom.min.js"></script>
+    
+
+
+    <!-- Datatable -->
+    <script src="./../../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="./../../js/plugins-init/datatables.init.js"></script>
 
 </body>
 
