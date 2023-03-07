@@ -51,14 +51,14 @@ Route::get('/produits-et-services/liste-produits', [ ProduitController::class, '
 
 Route::get('/produits-et-services/produits/ajouter-produit', [ProduitController::class, 'add_product'])->name('/produits-et-services/produits/ajouter-produit');
 
-Route::get('/produits-et-services/produits/{id}', [ProduitController::class, 'product_profile'])->name('/produits-et-services/produits/{id}');
+Route::get('/produits-et-services/produits/{id}', [ProduitController::class, 'product_profile'])->name('/produits-et-services/produits/edit');
 
 // SERVICES
 Route::get('/produits-et-services/services/liste-services', [ProduitController::class, 'services'])->name('/produits-et-services/produits/services');
 
-Route::get('/produits-et-services/service/ajouter_service', [ProduitController::class, 'add_services'])->name('/produits-et-services/service/ajouter_service');
+Route::get('/produits-et-services/service/ajouter_service', [ProduitController::class, 'add_service'])->name('/produits-et-services/service/ajouter_service');
 
-Route::get('/produits-et-services/services/{id}', [ProduitController::class, 'service_profile'])->name('/produits-et-services/services/{id}');
+Route::get('/produits-et-services/services/{id}', [ProduitController::class, 'service_profile'])->name('/produits-et-services/services/edit');
 
 
 Route::fallback([Controller::class , 'error404']);

@@ -21,14 +21,14 @@ class ProduitController extends Controller
 
     public function services()
     {
-        return view('./dashboard/produits/produits/servicesList');
+        return view('./dashboard/produits/services/servicesList');
     }
     public function add_service()
     {
-        return view('./dashboard/produits/produits/addService');
+        return view('./dashboard/produits/services/addService');
     }
     public function service_profile($id)
     {
-        return view('./dashboard/produits/produits/serviceProfile', ['id'=> $id ]);
+        return view('./dashboard/produits/services/serviceProfile', ['id'=> $id ]);
     }
 }

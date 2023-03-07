@@ -21,6 +21,8 @@
     <link href="../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="../../css/style.css" rel="stylesheet">
 
+    {{-- css --}}
+    @yield('css')
 </head>
 
 <body>
@@ -200,8 +202,8 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="bi bi-box-seam"></i><span class="nav-text">Produits</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Produits</a></li>
-                            <li><a href="./chart-morris.html">Services</a></li>
+                            <li><a href="{{Route('/produits-et-services/liste-produits')}}">Produits</a></li>
+                            <li><a href="{{Route('/produits-et-services/produits/services')}}">Services</a></li>
                             <li><a href="./chart-chartjs.html">Mise à jour des prix</a></li>
                             <li><a href="./chart-chartist.html">Lots</a></li>
                             <li><a href="./chart-sparkline.html">Règles de prix</a></li>
@@ -326,7 +328,7 @@
     <!-- Datatable -->
     <script src="./../../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="./../../js/plugins-init/datatables.init.js"></script>
-
+    @yield('scripts')
 </body>
 
 </html>
