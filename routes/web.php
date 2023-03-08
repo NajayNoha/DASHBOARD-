@@ -61,4 +61,7 @@ Route::get('/produits-et-services/service/ajouter_service', [ProduitController::
 Route::get('/produits-et-services/services/{id}', [ProduitController::class, 'service_profile'])->name('/produits-et-services/services/edit');
 
 
+// price-update
+Route::get('/produits-et-services/mise-a-jour-prix',[ProduitController::class,'price_update'])->name('/produits-et-services/price-update/edit');
+
 Route::fallback([Controller::class , 'error404']);

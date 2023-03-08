@@ -204,7 +204,7 @@
                         <ul aria-expanded="false">
                             <li><a href="{{Route('/produits-et-services/liste-produits')}}">Produits</a></li>
                             <li><a href="{{Route('/produits-et-services/produits/services')}}">Services</a></li>
-                            <li><a href="./chart-chartjs.html">Mise à jour des prix</a></li>
+                            <li><a href="{{Route('/produits-et-services/price-update/edit')}}">Mise à jour des prix</a></li>
                             <li><a href="./chart-chartist.html">Lots</a></li>
                             <li><a href="./chart-sparkline.html">Règles de prix</a></li>
                             <li><a href="./chart-peity.html">Paramètres des produits</a></li>

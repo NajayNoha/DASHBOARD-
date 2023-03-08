@@ -31,4 +31,8 @@ class ProduitController extends Controller
     {
         return view('./dashboard/produits/services/serviceProfile', ['id'=> $id ]);
     }
+
+    public function price_update(){
+        return view('./dashboard/produits/price-update/price-update');
+    }
 }
