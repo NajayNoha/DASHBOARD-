@@ -18,7 +18,7 @@
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                <div class="btns mb-3 text-right">
-                  <button type="reset" class="btn btn-danger px-4" style="font-weight: bolder">CANCEL</button>
+                  <button type="reset" class="btn btn-danger px-4" style="font-weight: bolder">ANNULER</button>
                   <button type="submit" class="btn btn-success text-white px-4" style="font-weight: bolder">AJOUTER</button>
                </div>
          </div>

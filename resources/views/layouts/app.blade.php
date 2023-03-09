@@ -206,8 +206,8 @@
                             <li><a href="{{Route('/produits-et-services/produits/services')}}">Services</a></li>
                             <li><a href="{{Route('/produits-et-services/price-update/edit')}}">Mise à jour des prix</a></li>
                             <li><a href="./chart-chartist.html">Lots</a></li>
-                            <li><a href="./chart-sparkline.html">Règles de prix</a></li>
-                            <li><a href="./chart-peity.html">Paramètres des produits</a></li>
+                            <li><a href="{{Route('/produits-et-services/regles-de-prix/list')}}">Règles de prix</a></li>
+                            <li><a href="{{Route('produits-et-services/products-settings/product-tags')}}">Paramètres des produits</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-cart-dash"></i>

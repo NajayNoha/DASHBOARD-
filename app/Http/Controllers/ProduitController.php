@@ -31,8 +31,26 @@ class ProduitController extends Controller
     {
         return view('./dashboard/produits/services/serviceProfile', ['id'=> $id ]);
     }
-
     public function price_update(){
         return view('./dashboard/produits/price-update/price-update');
+    }
+
+    //---------------------------         price_rules   -------------------------------------
+    public function price_rules(){
+        return view('./dashboard/produits/price-rules/price-rules');
+    }
+
+    public function add_price_rule(){
+        return view('./dashboard/produits/price-rules/addPriceRule');
+    }
+
+    public function price_rule_profile(){
+        return view('./dashboard/produits/price-rules/priceRuleProfile');
+    }
+
+    // -----------------------   product_tags -----------------------------------------
+
+    public function product_tags(){
+        return view('/dashboard/produits/products_settings/product_tags');
     }
 }
