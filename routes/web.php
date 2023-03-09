@@ -28,7 +28,7 @@ Route::get('/contacts/clients', [ContactController::class, 'clients'])->name('/c
 
 Route::get('/contacts/ajouter-client', [ContactController::class, 'add_client'])->name('/contacts/ajouter_client');
 
-Route::get('/contacts/clients/{id}', [ContactController::class, 'client_profile'])->name('/contacts/clients/profile');
+Route::get('/contacts/clients/{id}', [ContactController::class, 'client_profile'])->name('/contacts/clients');
 
 // EMPLOYEES
 Route::get('/contacts/employes', [ContactController::class, 'employes'])->name('/contacts/employes');
@@ -38,7 +38,7 @@ Route::get('/contacts/employes/ajouter-employe', [ContactController::class, 'add
 Route::get('/contacts/employes/{id}', [ContactController::class, 'employee_profile'])->name('contacts/employes/profile');
 
 // FOURNISSUERS
-Route::get('/contacts/fournisseur', [ContactController::class, 'fournisseurs'])->name('/contacts/fournisseurs');
+Route::get('/contacts/fournisseurs', [ContactController::class, 'fournisseurs'])->name('/contacts/fournisseurs');
 
 Route::get('/contacts/fournisseurs/ajouter-fournisseur', [ContactController::class, 'add_fournisseur'])->name('/contacts/fournisseurs/ajouter_fournisseur');
 
@@ -56,9 +56,18 @@ Route::get('/produits-et-services/produits/{id}', [ProduitController::class, 'pr
 // SERVICES
 Route::get('/produits-et-services/services/liste-services', [ProduitController::class, 'services'])->name('/produits-et-services/produits/services');
 
-Route::get('/produits-et-services/service/ajouter_service', [ProduitController::class, 'add_services'])->name('/produits-et-services/service/ajouter_service');
+Route::get('/produits-et-services/services/ajouter_service', [ProduitController::class, 'add_services'])->name('/produits-et-services/services/ajouter_service');
 
 Route::get('/produits-et-services/services/{id}', [ProduitController::class, 'service_profile'])->name('/produits-et-services/services/{id}');
+
+// MISE A JOUR DES PRIX
+Route::get('/produits-et-services/maj_prix', [ProduitController::class, 'maj_prix'])->name('/produits-et-services/maj_prix');
+
+
+// VENTES
+//
+
+
 
 
 Route::fallback([Controller::class , 'error404']);
