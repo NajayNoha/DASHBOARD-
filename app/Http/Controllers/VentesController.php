@@ -29,3 +29,6 @@ class VentesController extends Controller
     }
 
 }
+
+
+
