@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('facture', function (Blueprint $table) {
             $table->string('id', 30)->primary();
             $table->string('client')->references('id')->on('product');
-            $table->string('attention')->nullable(false);
+            $table->string('attention');
             $table->string('ref')->nullable(false);
             $table->string('devise')->nullable(false);
             $table->integer('remise');
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('cout_livraison');
             $table->string('taxes_livraison');
             $table->string('adresse_livraison')->nullable(false);
-            $table->foreign('products')->references('id')->on('product');
+            $table->foreignId('product_id')->constrained();
             $table->string('notes');
             $table->timestamps();
         });

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('price_level');
             $table->date('date_facturation')->nullable(false);
             $table->string('adresse_facturation');
-            $table->string('cout_livraison')
+            $table->string('cout_livraison');
             $table->string('taxes_livraison');
             $table->string('adresse_livraison')->nullable(false);
             $table->string('products')->references('id')->on('product');
