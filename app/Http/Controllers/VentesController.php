@@ -23,11 +23,39 @@ class VentesController extends Controller
     {
         return view('./dashboard/ventes/bons_commande/bonCommandeProfile', ['societe'=>$societe, 'idBon'=>$idBon]);
     }
-    public function devis($id)
+    // DEVIS
+    public function create_devis(){
+        return view('./dashboard/ventes/devis/createDevis');
+    }
+    public function list_devis(){
+        return view('./dashboard/ventes/devis/listDevis');
+    }
+    public function devisProfile($id)
     {
-        return view('./dashboard/ventes/deivs/devis', ['id'=>$id]);
+        return view('./dashboard/ventes/devis/devisEdite', ['id'=>$id]);
     }
 
+    public function imprimerPdf(){
+        return view('./dashboard/ventes/devis/pdf');
+    }
+
+    //Bons de commande
+    public function bonsCommande(){
+        return view('./dashboard/ventes/bons_commande/bonsCommande');
+    }
+    public function bonCommandeProfile($id)
+    {
+        return view('./dashboard/ventes/bons_commande/bonCommandeProfile', ['id'=>$id]);
+    }
+
+    public function createBonCommande(){
+        return view('./dashboard/ventes/bons_commande/createBonCommande');
+    }
+
+    public function imprimerPdfBonCommande()
+    {
+        return view('./dashboard/ventes/bons_commande/bonCommandePdf');
+    }
 }
 
 

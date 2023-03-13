@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\VentesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,7 @@ Route::get('/contacts/clients', [ContactController::class, 'clients'])->name('/c
 
 Route::get('/contacts/ajouter-client', [ContactController::class, 'add_client'])->name('/contacts/ajouter_client');
 
-Route::get('/contacts/clients/{id}', [ContactController::class, 'client_profile'])->name('/contacts/clients');
+Route::get('/contacts/clients/{id}', [ContactController::class, 'client_profile'])->name('/contacts/clients/profile');
 
 // EMPLOYEES
 Route::get('/contacts/employes', [ContactController::class, 'employes'])->name('/contacts/employes');
@@ -80,8 +81,20 @@ Route::get('/produits-et-services/maj_prix', [ProduitController::class, 'maj_pri
 
 // VENTES
 //
+Route::get('/ventes/devis',[VentesController::class,'list_devis'])->name('ventes.devis.list');
+
+Route::get('/ventes/devis/ajouter_devis',[VentesController::class,'create_devis'])->name('ventes.devis.create_devis');
+
+Route::get('/ventes/devis/edit/{id}',[VentesController::class,'devisProfile'])->name('ventes.devis.devisProfile');
+
+Route::get('/ventes/devis/pdf',[VentesController::class,'imprimerPdf'])->name('ventes.devis.pdf');
 
 
+//Bons de commande  
+Route::get('/ventes/bons-commande',[VentesController::class,'bonsCommande'])->name('ventes.bons-commande');
+Route::get('/ventes/bons-commande/{id}',[VentesController::class,'bonCommandeProfile'])->name('ventes.bons-commande.edit');
+Route::get('/ventes/bons-commande/ajouter-bon-commande',[VentesController::class,'createBonCommande'])->name('ventes.bons-commande.ajouter-bon-commande');
+Route::get('/ventes/bons-commande/pdf',[VentesController::class,'imprimerPdfBonCommande'])->name('ventes.bons-commande.pdf');
 
-
+//Factures
 Route::fallback([Controller::class , 'error404']);

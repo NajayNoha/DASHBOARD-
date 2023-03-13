@@ -21,6 +21,8 @@
     <link href="../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="../../css/style.css" rel="stylesheet">
 
+    <!-- Summernote -->
+    <link href="./../../vendor/summernote/summernote.css" rel="stylesheet">
     {{-- css --}}
     @yield('css')
 </head>
@@ -213,8 +215,8 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-cart-dash"></i>
                         <span class="nav-text">Ventes</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.html">Devis</a></li>
-                            <li><a href="./ui-alert.html">Bons de commande</a></li>
+                            <li><a href="{{Route('ventes.devis.list')}}">Devis</a></li>
+                            <li><a href="{{Route('ventes.bons-commande')}}">Bons de commande</a></li>
                             <li><a href="./ui-badge.html">Bons de livraison</a></li>
                             <li><a href="./ui-button.html">Factures</a></li>
                             <li><a href="./ui-modal.html">Retours produits</a></li>
@@ -280,38 +282,29 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
-    <script src="./../../vendor/global/global.min.js"></script>
-    <script src="./../../js/quixnav-init.js"></script>
-    <script src="./../../js/custom.min.js"></script>
-
-
-    <!-- Vectormap -->
-    <script src="./../../vendor/raphael/raphael.min.js"></script>
-    <script src="./../../vendor/morris/morris.min.js"></script>
-
-
-    <script src="./../../vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="./../../vendor/chart.js/Chart.bundle.min.js"></script>
-
-    <script src="./../../vendor/gaugeJS/dist/gauge.min.js"></script>
-
-    <!--  flot-chart js -->
-    <script src="./../../vendor/flot/jquery.flot.js"></script>
-    <script src="./../../vendor/flot/jquery.flot.resize.js"></script>
-
-    <!-- Owl Carousel -->
-    <script src="./../../vendor/owl-carousel/js/owl.carousel.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Counter Up -->
     <script src="./../../vendor/jqvmap/js/jquery.vmap.min.js"></script>
     <script src="./../../vendor/jqvmap/js/jquery.vmap.usa.js"></script>
     <script src="./../../vendor/jquery.counterup/jquery.counterup.min.js"></script>
 
+
+    <!-- Vectormap -->
+    {{-- <script src="./../../vendor/raphael/raphael.min.js"></script> --}}
+    <script src="./../../vendor/morris/morris.min.js"></script>
+    <!--**********************************
+        Scripts
+    ***********************************--
+
+    <script src="./../../vendor/circle-progress/circle-progress.min.js"></script>
+        <!--  flot-chart js -->
+    <script src="./../../vendor/flot/jquery.flot.js"></script>
+    <script src="./../../vendor/flot/jquery.flot.resize.js"></script>
+    <!-- Owl Carousel -->
+    <script src="./../../vendor/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="./../../vendor/chart.js/Chart.bundle.min.js"></script>
+
+    <script src="./../../vendor/gaugeJS/dist/gauge.min.js"></script>
 
     <script src="./../../js/dashboard/dashboard-1.js"></script>
     <script src="./../../js/dashboard/dashboard.js"></script>
@@ -329,6 +322,13 @@
     <script src="./../../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="./../../js/plugins-init/datatables.init.js"></script>
     @yield('scripts')
+    <script src="./../../vendor/select2/js/select2.full.min.js"></script>
+    <script src="./../../js/plugins-init/select2-init.js"></script>
+
+    <!-- Summernote -->
+    <script src="./../../vendor/summernote/js/summernote.min.js"></script>
+    <!-- Summernote init -->
+    <script src="./../../js/plugins-init/summernote-init.js"></script>
 </body>
 
 </html>
