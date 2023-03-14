@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\VentesController;
+use Illuminate\Routing\Events\Routing;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,5 +97,16 @@ Route::get('/ventes/bons-commande/{id}',[VentesController::class,'bonCommandePro
 Route::get('/ventes/bons-commande/ajouter-bon-commande',[VentesController::class,'createBonCommande'])->name('ventes.bons-commande.ajouter-bon-commande');
 Route::get('/ventes/bons-commande/pdf',[VentesController::class,'imprimerPdfBonCommande'])->name('ventes.bons-commande.pdf');
 
-//Factures
+
+//Factures 
+Route::get('/ventes/factures',[VentesController::class,'factures'])->name('ventes.factures');
+Route::get('/ventes/factures/pdf',[VentesController::class,'imprimerPdffacture'])->name('ventes.factures.pdf');
+Route::get('/ventes/factures/ajouter-facture',[VentesController::class,'createFacture'])->name('ventes.factures.ajouter-facture');
+Route::get('/ventes/factures/{id}',[VentesController::class,'factureProfile'])->name('ventes.factures.edit');
+
+// Bons de livraison
+Route::get('/ventes/bons-livraison',[VentesController::class,'bonslivraison'])->name('ventes.Bons-livraison');
+Route::get('/ventes/bons-livraison/pdf',[VentesController::class,'bonsLivrainsonPdf'])->name('ventes.Bons-livraison.pdf');
+Route::get('/ventes/bons-livraison/edit/{id}',[VentesController::class,'editBonLivraison'])->name('ventes.Bons-livraison.edit');
+Route::get('/ventes/bons-livraison/{id}',[VentesController::class,'profileBonLivraison'])->name('ventes.Bons-livraison.profileBonsLivraison');
 Route::fallback([Controller::class , 'error404']);

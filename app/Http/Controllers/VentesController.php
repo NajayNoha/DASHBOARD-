@@ -54,7 +54,40 @@ class VentesController extends Controller
 
     public function imprimerPdfBonCommande()
     {
-        return view('./dashboard/ventes/bons_commande/bonCommandePdf');
+        return view('./dashboard/ventes/fatures/bonCommandePdf');
+    }
+
+    //Factures 
+    public function factures(){
+        return view('./dashboard/ventes/factures/listeFactures');
+    }
+    public function factureProfile($id)
+    {
+        return view('./dashboard/ventes/factures/factureProfile', ['id'=>$id]);
+    }
+
+    public function createFacture(){
+        return view('./dashboard/ventes/factures/createFacture');
+    }
+
+    public function imprimerPdffacture()
+    {
+        return view('./dashboard/ventes/factures/facturePdf');
+    }
+    //Bons livraison
+      
+    public function bonslivraison(){
+        return view('./dashboard/ventes/bons_livraison/listeBonsLivraison');
+    }
+    public function editBonLivraison(){
+        return view('./dashboard/ventes/bons_livraison/editbonLivraison');
+        return 'editBonLivraison';
+    }
+    public function profileBonLivraison(){
+        return view('./dashboard/ventes/bons_livraison/bonLivraisonProfile');
+    }
+    public function bonsLivrainsonPdf(){
+        return view('./dashboard/ventes/bons_livraison/bonsLivrainsonPdf');
     }
 }
 

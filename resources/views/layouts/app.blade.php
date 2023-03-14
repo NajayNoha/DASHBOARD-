@@ -217,8 +217,8 @@
                         <ul aria-expanded="false">
                             <li><a href="{{Route('ventes.devis.list')}}">Devis</a></li>
                             <li><a href="{{Route('ventes.bons-commande')}}">Bons de commande</a></li>
-                            <li><a href="./ui-badge.html">Bons de livraison</a></li>
-                            <li><a href="./ui-button.html">Factures</a></li>
+                            <li><a href="{{Route('ventes.Bons-livraison')}}">Bons de livraison</a></li>
+                            <li><a href="{{Route('ventes.factures')}}">Factures</a></li>
                             <li><a href="./ui-modal.html">Retours produits</a></li>
                             <li><a href="./ui-button-group.html">Avoirs</a></li>
                             <li><a href="./ui-list-group.html">Remboursements</a></li>
