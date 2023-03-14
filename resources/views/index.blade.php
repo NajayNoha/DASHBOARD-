@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,14 +13,7 @@
     <link rel="stylesheet" href={{asset("../../vendor/owl-carousel/css/owl.theme.default.min.css")}}>
     <link href={{asset("../../vendor/jqvmap/css/jqvmap.min.css")}} rel="stylesheet">
     <link href={{asset("../../css/style.css")}} rel="stylesheet">
-    <link href={{asset("../../css/style-dashborad.css")}} rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-
-    {{-- DATA TABLE  --}}
-    <link href="../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="../../css/style.css" rel="stylesheet">
 
 </head>
 
@@ -52,9 +44,9 @@
         ***********************************-->
         <div class="nav-header">
             <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="./../../images/logo.png" alt="">
-                <img class="logo-compact" src="./../../images/logo-text.png" alt="">
-                <img class="brand-title" src="./../../images/logo-text.png" alt="">
+                <img class="logo-abbr" src="./images/logo.png" alt="">
+                <img class="logo-compact" src="./images/logo-text.png" alt="">
+                <img class="brand-title" src="./images/logo-text.png" alt="">
             </a>
 
             <div class="nav-control">
@@ -179,7 +171,7 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="quixnav" style="position: fixed">
+        <div class="quixnav">
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Menu Principal</li>
@@ -193,10 +185,10 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="bi bi-person-rolodex"></i><span class="nav-text">Contacts</span></a>
                         <ul aria-expanded="false">
-                            <li><a href=" {{ route('/contacts/clients')}}">Clients</a></li>
-                            <li><a href="{{Route('/contacts/fournisseurs')}}">Fournisseurs</a></li>
-                            <li><a href="{{Route('/contacts/employes')}}">Employés</a></li>
-                            <li><a href="#">Paramètres des contacts</a></li>
+                            <li><a href=" {{ route('/contacts/clients') }}">Clients</a></li>
+                            <li><a href="./app-profile.html">Fournisseurs</a></li>
+                            <li><a href="./app-calender.html">Employés</a></li>
+                            <li><a href="./app-calender.html">Paramètres des contacts</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -249,7 +241,24 @@
         <!--**********************************
             Content body start
         ***********************************-->
-        @yield("ClientContent")
+        <div class="content-body">
+            <!-- row -->
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Clients</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Contacts</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Client</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--**********************************
             Content body end
         ***********************************-->
@@ -285,51 +294,36 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="./../../vendor/global/global.min.js"></script>
-    <script src="./../../js/quixnav-init.js"></script>
-    <script src="./../../js/custom.min.js"></script>
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
 
 
     <!-- Vectormap -->
-    <script src="./../../vendor/raphael/raphael.min.js"></script>
-    <script src="./../../vendor/morris/morris.min.js"></script>
+    <script src="./vendor/raphael/raphael.min.js"></script>
+    <script src="./vendor/morris/morris.min.js"></script>
 
 
-    <script src="./../../vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="./../../vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="./vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="./vendor/chart.js/Chart.bundle.min.js"></script>
 
-    <script src="./../../vendor/gaugeJS/dist/gauge.min.js"></script>
+    <script src="./vendor/gaugeJS/dist/gauge.min.js"></script>
 
     <!--  flot-chart js -->
-    <script src="./../../vendor/flot/jquery.flot.js"></script>
-    <script src="./../../vendor/flot/jquery.flot.resize.js"></script>
+    <script src="./vendor/flot/jquery.flot.js"></script>
+    <script src="./vendor/flot/jquery.flot.resize.js"></script>
 
     <!-- Owl Carousel -->
-    <script src="./../../vendor/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="./vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
     <!-- Counter Up -->
-    <script src="./../../vendor/jqvmap/js/jquery.vmap.min.js"></script>
-    <script src="./../../vendor/jqvmap/js/jquery.vmap.usa.js"></script>
-    <script src="./../../vendor/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="./vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="./vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="./vendor/jquery.counterup/jquery.counterup.min.js"></script>
 
 
-    <script src="./../../js/dashboard/dashboard-1.js"></script>
-    <script src="./../../js/dashboard/dashboard.js"></script>
-
-    {{-- DATA TABLE  --}}
-    ***********************************-->
-    <!-- Required vendors -->
-    <script src="./../../vendor/global/global.min.js"></script>
-    <script src="./../../js/quixnav-init.js"></script>
-    <script src="./../../js/custom.min.js"></script>
-    
-
-
-    <!-- Datatable -->
-    <script src="./../../vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="./../../js/plugins-init/datatables.init.js"></script>
+    <script src="./js/dashboard/dashboard-1.js"></script>
 
 </body>
 
 </html>
->>>>>>> d0170c930df3f87b316565a97f62dc8659aa7fb6

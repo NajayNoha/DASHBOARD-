@@ -36,7 +36,8 @@ class AuthController extends Controller
             'password' => $request->password,
             'type_user'=>$request->type_user,
         ]);
-        return view('dashboard.home');
+        
+        return redirect('dashboard/contacts/clients');
     }
 
     public function login(Request $request){
@@ -54,8 +55,12 @@ class AuthController extends Controller
             return "<script>alert('cet email ne correspond a aucun compte')</script>" . view('auth.login');
         }else if($user && $request->password != $user->password){
             return "<script>alert('mot de passe incorrect')</script>". view('auth.login');
-        }else{
-            return view('dashboard.home');
         }
+        $token = $user->createToken('my-app-token')->plainTextToken;
+        $response = [
+            'user' => $user,
+            'token' => $token,
+        ];
+        return view('dashboard/contacts/clients');
     }
 }
