@@ -15,21 +15,21 @@ return new class extends Migration
     {
         Schema::create('facture', function (Blueprint $table) {
             $table->string('id', 30)->primary();
-            $table->string('client')->nullable(false);
-            $table->string('attention')->nullable(false);
+            $table->string('client')->references('id')->on('product');
+            $table->string('attention');
             $table->string('ref')->nullable(false);
             $table->string('devise')->nullable(false);
-            $table->integer('remise')->nullable(false);
+            $table->integer('remise');
             $table->integer('pourcentage')->nullable(false);
-            $table->string('taxes')->nullable(false);
+            $table->json('taxes');
             $table->string('price_level')->nullable(false);
             $table->date('date_facturation')->nullable(false);
             $table->string('adresse_facturation')->nullable(false);
-            $table->string('cout_livraison')->nullable(false);
-            $table->string('taxes_livraison')->nullable(false);
+            $table->string('cout_livraison');
+            $table->string('taxes_livraison');
             $table->string('adresse_livraison')->nullable(false);
-            $table->string('products')->nullable(false);
-            $table->string('notes')->nullable(false);
+            $table->foreignId('product_id')->constrained();
+            $table->string('notes');
             $table->timestamps();
         });
     }
