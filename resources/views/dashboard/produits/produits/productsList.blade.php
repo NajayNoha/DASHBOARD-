@@ -1,7 +1,4 @@
-
-
 @extends('...layouts.app')
-
 @section("ClientContent")
 <div class="content-body">
     <!-- row -->
@@ -38,8 +35,8 @@
                             <table id="example" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
-                                        <th>Nome</th>
                                         <th>SKU</th>
+                                        <th>Nom</th>
                                         <th>Marque</th>
                                         <th>Gestion des Stock</th>
                                         <th>Saisons</th>

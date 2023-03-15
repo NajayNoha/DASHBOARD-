@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Product;
 
 use Illuminate\Http\Request;
 
@@ -8,7 +9,8 @@ class ProduitController extends Controller
 {
     public function produits()
     {
-        return view('./dashboard/produits/produits/productsList');
+        $data = Product::get();
+        return view('./dashboard/produits/produits/productsList' , compact('data'));
     }
     public function add_product()
     {
