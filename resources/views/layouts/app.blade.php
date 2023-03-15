@@ -219,7 +219,7 @@
                             <li><a href="{{Route('ventes.bons-commande')}}">Bons de commande</a></li>
                             <li><a href="{{Route('ventes.Bons-livraison')}}">Bons de livraison</a></li>
                             <li><a href="{{Route('ventes.factures')}}">Factures</a></li>
-                            <li><a href="./ui-modal.html">Retours produits</a></li>
+                            <li><a href="{{Route('ventes.product-returns.list')}}">Retours produits</a></li>
                             <li><a href="./ui-button-group.html">Avoirs</a></li>
                             <li><a href="./ui-list-group.html">Remboursements</a></li>
                             <li><a href="./ui-media-object.html">Abonnements</a></li>
@@ -321,7 +321,7 @@
     <!-- Datatable -->
     <script src="./../../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="./../../js/plugins-init/datatables.init.js"></script>
-    @yield('scripts')
+
     <script src="./../../vendor/select2/js/select2.full.min.js"></script>
     <script src="./../../js/plugins-init/select2-init.js"></script>
 
@@ -329,6 +329,7 @@
     <script src="./../../vendor/summernote/js/summernote.min.js"></script>
     <!-- Summernote init -->
     <script src="./../../js/plugins-init/summernote-init.js"></script>
+    @yield('scripts')
 </body>
 
 </html>

@@ -92,9 +92,10 @@ Route::get('/ventes/devis/pdf',[VentesController::class,'imprimerPdf'])->name('v
 
 
 //Bons de commande  
-Route::get('/ventes/bons-commande',[VentesController::class,'bonsCommande'])->name('ventes.bons-commande');
-Route::get('/ventes/bons-commande/{id}',[VentesController::class,'bonCommandeProfile'])->name('ventes.bons-commande.edit');
 Route::get('/ventes/bons-commande/ajouter-bon-commande',[VentesController::class,'createBonCommande'])->name('ventes.bons-commande.ajouter-bon-commande');
+Route::get('/ventes/bons-commande/{id}',[VentesController::class,'bonCommandeProfile'])->name('ventes.bons-commande.profile');
+Route::get('/ventes/bons-commande',[VentesController::class,'bonsCommande'])->name('ventes.bons-commande');
+Route::get('/ventes/bons-commande/edit/{id}',[VentesController::class,'editBoncommande'])->name('ventes.bons-commande.edit');
 Route::get('/ventes/bons-commande/pdf',[VentesController::class,'imprimerPdfBonCommande'])->name('ventes.bons-commande.pdf');
 
 
@@ -105,8 +106,23 @@ Route::get('/ventes/factures/ajouter-facture',[VentesController::class,'createFa
 Route::get('/ventes/factures/{id}',[VentesController::class,'factureProfile'])->name('ventes.factures.edit');
 
 // Bons de livraison
+Route::get('/ventes/bons-livraison/ajouter-bon-livraison',[VentesController::class,'createBonLivraison'])->name('ventes.Bons-livraison.ajouter-bon-livraison');
 Route::get('/ventes/bons-livraison',[VentesController::class,'bonslivraison'])->name('ventes.Bons-livraison');
 Route::get('/ventes/bons-livraison/pdf',[VentesController::class,'bonsLivrainsonPdf'])->name('ventes.Bons-livraison.pdf');
 Route::get('/ventes/bons-livraison/edit/{id}',[VentesController::class,'editBonLivraison'])->name('ventes.Bons-livraison.edit');
 Route::get('/ventes/bons-livraison/{id}',[VentesController::class,'profileBonLivraison'])->name('ventes.Bons-livraison.profileBonsLivraison');
+/*
+/------------------------------------------------------------
+/Product Returns
+/------------------------------------------------------------
+*/
+Route::controller(VentesController::class)
+        ->prefix('ventes')
+        ->group(function(){
+            Route::get('/product-returns','productReturns')->name('ventes.product-returns.list');
+            Route::get('/product-returns/create','createProductReturn')->name('ventes.product-returns.create');
+            Route::get('/product-returns/pdf','productReturnPdf')->name('ventes.product-returns.Pdf');
+            Route::get('/product-returns/edit/{id}','editProductReturn')->name('ventes.product-returns.edit');
+            Route::get('/product-returns/{id}','profileProductReturn')->name('ventes.product-returns.profile');
+        });
 Route::fallback([Controller::class , 'error404']);

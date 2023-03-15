@@ -51,7 +51,9 @@ class VentesController extends Controller
     public function createBonCommande(){
         return view('./dashboard/ventes/bons_commande/createBonCommande');
     }
-
+    public function editBoncommande($id){
+        return view('./dashboard/ventes/bons_commande/editBonCommande');
+    }
     public function imprimerPdfBonCommande()
     {
         return view('./dashboard/ventes/fatures/bonCommandePdf');
@@ -88,6 +90,27 @@ class VentesController extends Controller
     }
     public function bonsLivrainsonPdf(){
         return view('./dashboard/ventes/bons_livraison/bonsLivrainsonPdf');
+    }
+    public function createBonLivraison(){
+        return view('./dashboard/ventes/bons_livraison/createBonLivraison');
+    }
+    /**
+     * Product Returns
+     */
+    public function productReturns(){
+        return view('./dashboard/ventes/retours_produits/listProductReturns');
+    }
+    public function createProductReturn(){
+        return view('./dashboard/ventes/retours_produits/createProductReturns');
+    }
+    public function editProductReturn($id){
+        return view('./dashboard/ventes/retours_produits/editProductReturns');
+    }
+    public function profileProductReturn($id){
+        return view('./dashboard/ventes/retours_produits/profileProductReturns');
+    }
+    public function productReturnPdf(){
+        return view('./dashboard/ventes/retours_produits/productReturnsPdf');
     }
 }
 
