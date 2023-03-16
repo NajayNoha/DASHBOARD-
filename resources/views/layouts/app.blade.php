@@ -220,16 +220,16 @@
                             <li><a href="{{Route('ventes.Bons-livraison')}}">Bons de livraison</a></li>
                             <li><a href="{{Route('ventes.factures')}}">Factures</a></li>
                             <li><a href="{{Route('ventes.product-returns.list')}}">Retours produits</a></li>
-                            <li><a href="./ui-button-group.html">Avoirs</a></li>
-                            <li><a href="./ui-list-group.html">Remboursements</a></li>
-                            <li><a href="./ui-media-object.html">Abonnements</a></li>
+                            <li><a href="{{Route('ventes.avoirs')}}">Avoirs</a></li>
+                            <li><a href="{{Route('ventes.refunds')}}">Remboursements</a></li>
+                            <li><a href="#">Abonnements</a></li>
                         </ul>
                     </li>
                     <li><a href="widget-basic.html" aria-expanded="false"><i class="bi bi-bar-chart-fill"></i><span
                                 class="nav-text">Rapports</span></a></li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-person-gear"></i><span class="nav-text">Paramètres</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./form-element.html">Paramétres de l'entreprise</a></li>
+                            <li><a href="{{Route('setting.company-settings.create')}}">Paramétres de l'entreprise</a></li>
                             <li><a href="./form-wizard.html">Devises</a></li>
                             <li><a href="./form-editor-summernote.html">Importer des données</a></li>
                             <li><a href="form-pickers.html">Moyens de paiments</a></li>

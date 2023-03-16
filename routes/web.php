@@ -111,18 +111,30 @@ Route::get('/ventes/bons-livraison',[VentesController::class,'bonslivraison'])->
 Route::get('/ventes/bons-livraison/pdf',[VentesController::class,'bonsLivrainsonPdf'])->name('ventes.Bons-livraison.pdf');
 Route::get('/ventes/bons-livraison/edit/{id}',[VentesController::class,'editBonLivraison'])->name('ventes.Bons-livraison.edit');
 Route::get('/ventes/bons-livraison/{id}',[VentesController::class,'profileBonLivraison'])->name('ventes.Bons-livraison.profileBonsLivraison');
-/*
-/------------------------------------------------------------
-/Product Returns
-/------------------------------------------------------------
-*/
+
+
 Route::controller(VentesController::class)
         ->prefix('ventes')
         ->group(function(){
+
+            /*-----------------------------Product Returns-------------------------------*/
             Route::get('/product-returns','productReturns')->name('ventes.product-returns.list');
             Route::get('/product-returns/create','createProductReturn')->name('ventes.product-returns.create');
             Route::get('/product-returns/pdf','productReturnPdf')->name('ventes.product-returns.Pdf');
             Route::get('/product-returns/edit/{id}','editProductReturn')->name('ventes.product-returns.edit');
             Route::get('/product-returns/{id}','profileProductReturn')->name('ventes.product-returns.profile');
+
+            /*--------------------------Avoirs--------------------------------*/
+            Route::get('/avoirs','listAvoirs')->name('ventes.avoirs');
+            Route::get('/avoirs/pdf','avoirPdf')->name('ventes.avoirs.pdf');
+            Route::get('/avoirs/edit/{id}','editAvoir')->name('ventes.avoirs.edit');
+            Route::get('/avoirs/{id}','profiletAvoir')->name('ventes.avoirs.profile');
+
+            /*-----------------------Remboursements-----------------------------*/
+            Route::get('/refunds','listRefunds')->name('ventes.refunds');
+            Route::get('/refunds/pdf','refundsPdf')->name('ventes.refunds.pdf');
+            Route::get('/refunds/edit/{id}','editRefunds')->name('ventes.refunds.edit');
+            Route::get('/refunds/{id}','profileRefunds')->name('ventes.refunds.profile');
+
         });
 Route::fallback([Controller::class , 'error404']);

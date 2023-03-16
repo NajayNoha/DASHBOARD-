@@ -112,7 +112,35 @@ class VentesController extends Controller
     public function productReturnPdf(){
         return view('./dashboard/ventes/retours_produits/productReturnsPdf');
     }
+    /**
+     * Avoirs
+    */
+    public function listAvoirs(){
+        return view('./dashboard/ventes/avoirs/avoirs');
+    }
+    public function editAvoir($id){
+        return view('./dashboard/ventes/avoirs/editAvoirs');
+    }
+    public function profiletAvoir($id){
+        return view('./dashboard/ventes/avoirs/profileAvoirs');
+    }
+    public function avoirPdf(){
+        return view('./dashboard/ventes/avoirs/avoirPdf');
+    }
+    /**
+     * Remboursements
+    */
+    public function listRefunds(){
+        return view('./dashboard/ventes/refunds/listRefunds');
+    }
+    public function editRefunds($id){
+        return view('./dashboard/ventes/refunds/create');
+    }
+    public function profileRefunds($id){
+        return view('./dashboard/ventes/refunds/profileRefunds');
+    }
+    public function refundsPdf(){
+        return view('./dashboard/ventes/refunds/refundsPdf');
+    }
+
 }
-
-
-
