@@ -225,18 +225,18 @@
                             <li><a href="#">Abonnements</a></li>
                         </ul>
                     </li>
-                    <li><a href="widget-basic.html" aria-expanded="false"><i class="bi bi-bar-chart-fill"></i><span
-                                class="nav-text">Rapports</span></a></li>
+                    {{-- <li><a href="widget-basic.html" aria-expanded="false"><i class="bi bi-bar-chart-fill"></i><span
+                                class="nav-text">Rapports</span></a></li> --}}
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-person-gear"></i><span class="nav-text">Paramètres</span></a>
                         <ul aria-expanded="false">
                             <li><a href="{{Route('setting.company-settings.create')}}">Paramétres de l'entreprise</a></li>
-                            <li><a href="./form-wizard.html">Devises</a></li>
-                            <li><a href="./form-editor-summernote.html">Importer des données</a></li>
-                            <li><a href="form-pickers.html">Moyens de paiments</a></li>
-                            <li><a href="form-validation-jquery.html">Paramétres PDF</a></li>
-                            <li><a href="form-validation-jquery.html">Niveaux de prix</a></li>
-                            <li><a href="form-validation-jquery.html">Taxes</a></li>
-                            <li><a href="form-validation-jquery.html">Utilisateurs</a></li>
+                            <li><a href="{{Route('settings.taxes')}}">Taxes</a></li>
+                            <li><a href="{{Route('settings.currencies')}}">Devises</a></li>
+                            {{-- <li><a href="./form-editor-summernote.html">Importer des données</a></li> --}}
+                            <li><a href="{{Route('settings.payment-methods')}}">Moyens de paiments</a></li>
+                            {{-- <li><a href="form-validation-jquery.html">Paramétres PDF</a></li> --}}
+                            <li><a href="{{Route('settings.price-levels')}}">Niveaux de prix</a></li>
+                            <li><a href="{{Route('settings.users')}}">Utilisateurs</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -260,7 +260,7 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        <div class="footer">
+        <div class="footer" style="position: absolute;bottom: 0;right: 0;left: 0;">
             <div class="copyright">
                 <p>Copyright © Designed &amp; Developed by <a href="https://eysi.net" target="_blank">EYSI</a> 2023</p>
             </div>
