@@ -83,11 +83,18 @@
                                 </span>
                                 <div class="dropdown-menu p-0 m-0">
                                     <form>
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                        <input class="form-control" type="search" placeholder="Chercher" aria-label="Search">
                                     </form>
                                 </div>
                             </div>
                         </div>
+
+                        <form  style="width: 400px;margin-left: 10px;">
+                            <select name="" id="" class="form-control rounded-pill border-primary" style="height: 45px;">
+                                <option value="" style="height:45px;" >S1</option>
+                                <option value="">S2</option>
+                            </select>
+                        </form>
 
                         <ul class="navbar-nav header-right">
                             <li class="nav-item dropdown notification_dropdown">
@@ -155,9 +162,9 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./app-profile.html" class="dropdown-item">
+                                    <a href="{{Route('settings.users.edit',1)}}" class="dropdown-item">
                                         <i class="icon-user"></i>
-                                        <span class="ml-2">Profile </span>
+                                        <span class="ml-2">Modifier mon profile</span>
                                     </a>
                                     <a href="./email-inbox.html" class="dropdown-item">
                                         <i class="icon-envelope-open"></i>
@@ -165,7 +172,7 @@
                                     </a>
                                     <a href="./page-login.html" class="dropdown-item">
                                         <i class="icon-key"></i>
-                                        <span class="ml-2">Logout </span>
+                                        <span class="ml-2">Se déconnecter</span>
                                     </a>
                                 </div>
                             </li>
@@ -188,8 +195,8 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-speedometer"></i>
                         <span class="nav-text">Tableau de bord</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./index.html">Tableau de bord 1</a></li>
-                            <li><a href="./index2.html">Tableau de bord 2</a></li>
+                            <li><a href="{{Route('dashboard')}}">Tableau de bord 1</a></li>
+                            <li><a href="{{Route('dashboard')}}">Tableau de bord 2</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -225,7 +232,7 @@
                             <li><a href="#">Abonnements</a></li>
                         </ul>
                     </li>
-                    {{-- <li><a href="widget-basic.html" aria-expanded="false"><i class="bi bi-bar-chart-fill"></i><span
+                    {{-- <li><a href="{{Route('rapports')}}" aria-expanded="false"><i class="bi bi-bar-chart-fill"></i><span
                                 class="nav-text">Rapports</span></a></li> --}}
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-person-gear"></i><span class="nav-text">Paramètres</span></a>
                         <ul aria-expanded="false">
@@ -260,7 +267,7 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        <div class="footer" style="position: absolute;bottom: 0;right: 0;left: 0;">
+        <div class="footer fixed-bottom">
             <div class="copyright">
                 <p>Copyright © Designed &amp; Developed by <a href="https://eysi.net" target="_blank">EYSI</a> 2023</p>
             </div>
@@ -297,7 +304,7 @@
     ***********************************--
 
     <script src="./../../vendor/circle-progress/circle-progress.min.js"></script>
-        <!--  flot-chart js -->
+    flot-chart js -->
     <script src="./../../vendor/flot/jquery.flot.js"></script>
     <script src="./../../vendor/flot/jquery.flot.resize.js"></script>
     <!-- Owl Carousel -->
@@ -310,7 +317,7 @@
     <script src="./../../js/dashboard/dashboard.js"></script>
 
     {{-- DATA TABLE  --}}
-    ***********************************-->
+    <!--***********************************-->
     <!-- Required vendors -->
     <script src="./../../vendor/global/global.min.js"></script>
     <script src="./../../js/quixnav-init.js"></script>

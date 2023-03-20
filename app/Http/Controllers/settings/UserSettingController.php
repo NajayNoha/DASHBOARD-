@@ -13,9 +13,9 @@ class UserSettingController extends Controller
     public function createUser(){
         return view('./dashboard/settings/users/createUser');
     }
-    public function editUser($id){
+    public function editUser()
+    {
         return view('./dashboard/settings/users/editUser');
     }
-    
     
 }

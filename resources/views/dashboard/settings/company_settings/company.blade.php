@@ -1,10 +1,9 @@
-
 @extends('...layouts.app')
 
 @section("ClientContent")
 <div class="content-body">
    <div class="container-fluid">
-      <form action="#"  enctype="application/x-www-form-urlencoded">
+      <form action="#" enctype="application/x-www-form-urlencoded">
 
          <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
@@ -15,7 +14,8 @@
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                <div class="btns mb-3 text-right">
-                  <button type="submit" class="btn btn-success text-white px-4" style="font-weight: bolder">ENREGISTRER</button>
+                  <button type="submit" class="btn btn-success text-white px-4"
+                     style="font-weight: bolder">ENREGISTRER</button>
                </div>
             </div>
          </div>
@@ -32,22 +32,26 @@
                         <div class="form-row">
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Nom</label>
-                              <input type="text" class="form-control input-rounded"  placeholder="Eysi" name="" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Eysi" name=""
+                                 style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Email</label>
-                              <input type="text" class="form-control input-rounded"  placeholder="Email" name="" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Email" name=""
+                                 style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
 
                         <div class="form-row">
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Téléphone</label>
-                              <input type="text" class="form-control input-rounded"  placeholder="Téléphone" name="" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Téléphone" name=""
+                                 style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Site web</label>
-                              <input type="text" class="form-control input-rounded"  placeholder="Site web" name="" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Site web" name=""
+                                 style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
 
@@ -70,25 +74,29 @@
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label class="text-dark fs-4">Address 1</label>
-                              <input type="text" class="form-control input-rounded"  placeholder="Adress 1" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Adress 1"
+                                 name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
 
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label class="text-dark fs-4">Address 2</label>
-                              <input type="text" class="form-control input-rounded"  placeholder="Adress 2" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Adress 2"
+                                 name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
 
                         <div class="form-row">
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Code Postal</label>
-                              <input type="text" class="form-control input-rounded"  value="40000" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" value="40000" name="adresse_lib"
+                                 style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Ville</label>
-                              <input type="text" class="form-control input-rounded"  placeholder="Ville" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Ville"
+                                 name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
 
@@ -103,7 +111,7 @@
             <div class="col-md-12">
                <div class="card" id="file">
                   <div class="card-header">
-                        <h2 class="card-title text-dark dislay-4">Valeurs par défaut</h2>
+                     <h2 class="card-title text-dark dislay-4">Valeurs par défaut</h2>
                   </div>
                   <div class="card-body">
                      <div class="basic-form">
@@ -111,7 +119,8 @@
                         <div class="form-row">
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Taxes</label>
-                              <select name="" id="" class="form-select rounded-pill w-100" style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)">
+                              <select name="" id="" class="form-select rounded-pill w-100"
+                                 style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)">
                                  <option value="">Taxe 1</option>
                                  <option value="">Taxe 2</option>
                               </select>
@@ -119,7 +128,8 @@
 
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Type de taxe</label>
-                              <select name="" id="" class="form-select rounded-pill w-100" style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)">
+                              <select name="" id="" class="form-select rounded-pill w-100"
+                                 style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)">
                                  <option value="">Taxes exclues</option>
                                  <option value="">Taxes incluses </option>
                               </select>
@@ -129,14 +139,16 @@
                         <div class="form-row">
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Niveau de prix pour les ventes</label>
-                              <select name="" id="" class="form-select rounded-pill w-100" style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)">
+                              <select name="" id="" class="form-select rounded-pill w-100"
+                                 style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)">
                                  <option value="">Wholesale Price</option>
                                  <option value="">Recommended Retail Price </option>
                               </select>
                            </div>
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Niveau de prix pour les achats</label>
-                              <select name="" id="" class="form-select rounded-pill w-100" style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)">
+                              <select name="" id="" class="form-select rounded-pill w-100"
+                                 style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)">
                                  <option value="">Purchase Price</option>
                               </select>
                            </div>
@@ -145,11 +157,13 @@
                         <div class="form-row">
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Jours avant l'expiration d'un devis</label>
-                              <input type="text" class="form-control input-rounded"  value="40000" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1);height: 40px;">
+                              <input type="text" class="form-control input-rounded" value="40000" name="adresse_lib"
+                                 style="border:1px solid rgba(88, 100, 170, 1);height: 40px;">
                            </div>
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Delais de paiement</label>
-                              <select name="" id="" class="form-select rounded-pill w-100" style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)" >
+                              <select name="" id="" class="form-select rounded-pill w-100"
+                                 style="height: 40px;padding-left: 5px;border:1px solid rgba(88, 100, 170, 1)">
                                  <option value="">Net</option>
                                  <option value="">Fin de mois</option>
                               </select>
@@ -172,13 +186,15 @@
                   <div class="card-body">
                      <div class="basic-form">
                         <div class="form-row">
-                           <div class="form-group col-md-6"> 
+                           <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Facebook</label>
-                              <input type="text" class="form-control input-rounded"  placeholder="Facebook" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Facebook"
+                                 name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
-                           <div class="form-group col-md-6"> 
+                           <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Twitter</label>
-                              <input type="text" class="form-control input-rounded"  placeholder="Twitter" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Twitter"
+                                 name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
                      </div>
@@ -193,7 +209,7 @@
             <div class="col-md-12">
                <div class="card" id="file">
                   <div class="card-header">
-                        <h2 class="card-title text-dark dislay-4">Logo de l'entreprise</h2>
+                     <h2 class="card-title text-dark dislay-4">Logo de l'entreprise</h2>
                   </div>
                   <div class="card-body">
                      <div class="basic-form">
@@ -220,7 +236,7 @@
                   <div class="card-body">
                      <div class="basic-form">
                         <div class="form-row">
-                           <div class="form-group col-md-12 d-flex justify-content-between"> 
+                           <div class="form-group col-md-12 d-flex justify-content-between">
                               <div>
                                  <h4 class="text-dark">Supprimer mes données </h4>
                                  {{-- <span style="border: red;"><i class="fa-thin fa-circle-info"></i></span> --}}
@@ -235,15 +251,13 @@
 
          </div>
 
-
-
       </form>
    </div>
 </div>
 @endsection
 @section('css')
-       {{-- SELECT --}}
-       <link rel="stylesheet" href="./../../vendor/select2/css/select2.min.css">
+{{-- SELECT --}}
+<link rel="stylesheet" href="./../../vendor/select2/css/select2.min.css">
 @endsection
 @section('scripts')
 

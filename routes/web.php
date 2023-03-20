@@ -20,7 +20,7 @@ use Illuminate\Routing\Events\Routing;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('dashboard');
 Route::get('/app/{op}', [Controller::class , 'index'])->name('/app/{op}');
 
 
