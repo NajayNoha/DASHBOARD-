@@ -18,10 +18,15 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('email')->unique();
-            $table->tinyInteger('user_type');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('type_user');
+            // $table->string('type_user');
+            $table->unsignedBigInteger('type_user');
+            $table->foreign('type_user')
+                        ->references('id')
+                        ->on('user_type')
+                        ->onUpdate('cascade')
+                        ->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -13,15 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('sku', 30);
             $table->string('name');
             $table->string('description');
             $table->string('price');
             $table->string('buying_price');
-            // $table->biginteger('');
-            $table->json('taxes');
+            $table->unsignedBigInteger('fournisseur');
+            $table->foreign('fournisseur')->references('id')->on('fournisseurs')->onUpdate('cascade')->onDelete('cascade');
+            // $table->json('taxes');
+            // $table->unsignedBigInteger('taxes');
+            // $table->foreign('taxes')->references('id')->on('taxe')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('image' , 300);
+            $table->string('marque');
+            $table->string('pays_origine');
+            $table->string('poids');
             $table->timestamps();
         });
     }

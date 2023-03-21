@@ -28,7 +28,13 @@ return new class extends Migration
             $table->string('cout_livraison');
             $table->string('taxes_livraison');
             $table->string('adresse_livraison')->nullable(false);
-            $table->foreignId('product_id')->constrained();
+            // $table->foreignId('product_id')->constrained();
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
+                 ->references('id')
+                 ->on('products')
+                 ->onUpdate('cascade')
+                 ->onDelete('cascade');
             $table->string('notes');
             $table->timestamps();
         });
