@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('facture', function (Blueprint $table) {
+        Schema::create('factures', function (Blueprint $table) {
             $table->string('id', 30)->primary();
             $table->string('client')->nullable(false);
             $table->string('attention')->nullable(false);

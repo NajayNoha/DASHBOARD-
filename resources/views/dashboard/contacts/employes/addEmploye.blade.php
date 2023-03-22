@@ -1,9 +1,9 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
-      
+
       <form method="POST" action="/save_employe" enctype="application/x-www-form-urlencoded" id="formSubmit">
          @csrf
       <div class="row page-titles mx-0">
@@ -13,8 +13,8 @@
             </div>
             <ol class="breadcrumb mt-2">
                <li class="breadcrumb-item"><a href="#">Contacts</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/contacts/employes')}}">Employe</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/contacts/employes/ajouter_employe')}}">Create</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role . '/contacts/employes')}}">Employe</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role . '/contacts/employes/ajouter_employe')}}">Create</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-3 mt-sm-0 d-flex">
@@ -48,7 +48,7 @@
             </button> {{Session::get('success')}}
          </div>
          @endif
-         
+
          <div class="row">
 
             <div class="col-md-8">
@@ -152,7 +152,7 @@
                                  </span>
                               @enderror
                            </div>
-                           
+
                         </div>
                         <div class="form-row">
                            <div class="form-group col-md-12">
@@ -246,8 +246,8 @@
                            </div>
                         </div>
                      </div>
-            
-            
+
+
                   </div>
                </div>
                {{-------------------- END Detailed information--------------------------}}

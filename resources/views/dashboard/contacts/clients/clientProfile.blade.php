@@ -1,6 +1,6 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form method="POST" action="/update_client"  enctype="application/x-www-form-urlencoded">
@@ -12,8 +12,8 @@
             </div>
             <ol class="breadcrumb mt-3">
                <li class="breadcrumb-item"><a href="#">Clients</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/contacts/clients')}}">client</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/contacts/clients/profile',$data->id)}}">Modifier</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role .'/contacts/clients')}}">client</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role . '/contacts/clients/profile',$data->id)}}">Modifier</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -53,7 +53,7 @@
                                  @enderror
                               </div>
                            </div>
-                           
+
                            <div class="form-row">
                                  <div class="form-group col-md-6">
                                     <label class="text-dark fs-4">Numéro client</label>
@@ -154,7 +154,7 @@
                                  @enderror
                               </div>
                            </div>
-   
+
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Address 1</label>
                               <input type="text" class="form-control"  name="adresse1" placeholder="Address 1" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->adresse1}}">
@@ -223,7 +223,7 @@
                   </div>
                </div>
 
-               
+
 
             </div>
 
@@ -288,8 +288,8 @@
                            </div>
                         </div>
                      </div>
-            
-            
+
+
                   </div>
                </div>
                {{-------------------- END Detailed information--------------------------}}

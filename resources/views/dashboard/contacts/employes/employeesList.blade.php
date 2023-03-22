@@ -1,6 +1,6 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
     <!-- row -->
 
@@ -24,10 +24,14 @@
             </button> {{Session::get('success')}}
          </div>
          @endif
-        <div class="mb-2">
-            <a href="{{Route('/contacts/employes/ajouter_employe')}}" class="btn btn-success px-4 text-white">
-                <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
-        </div>
+         @if (auth()->user()->role ==  "admin")
+            <div class="mb-2">
+                <a href="{{Route(auth()->user()->role . '/contacts/employes/ajouter_employe')}}" class="btn btn-success px-4 text-white">
+                    <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span>
+                </a>
+            </div>
+         @endif
+
 
         <div class="row">
             <div class="col-12">
@@ -59,7 +63,7 @@
                                             <td>{{$emp->tel}}</td>
                                             <td>{{$emp->city}}</td>
                                             <td>
-                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('contacts/employes/profile',$emp->id)}}">
+                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'contacts/employes/profile',$emp->id)}}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
                                                 <a href="{{url('delete-employe/'.$emp->id)}}" style="text-decoration:none;color:white">

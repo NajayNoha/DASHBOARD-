@@ -1,9 +1,9 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
-      
+
       <form action="/update_fournisseur" method="POST" enctype="application/x-www-form-urlencoded" id="formSubmit">
          @csrf
       <div class="row page-titles mx-0">
@@ -12,8 +12,8 @@
                   <h4>Fournisseurs</h4>
             </div>
             <ol class="breadcrumb mt-2">
-               <li class="breadcrumb-item"><a href="{{Route('/contacts/fournisseurs')}}">Fournisseurs</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('contacts/fournisseurs/profile',1)}}">Modifier</a></li>
+               <li class="breadcrumb-item"><a href="{{Route(auth()->user()->role . '/contacts/fournisseurs')}}">Fournisseurs</a></li>
+               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/contacts/fournisseurs/profile',1)}}">Modifier</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-3 mt-sm-0 d-flex">
@@ -109,12 +109,12 @@
                               <label class="text-dark fs-4">Pays</label>
                               <select id="inputState" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)" name="pays">
                                  @foreach ($countries as $item)
-                                 
+
                                     @if ($item->sortname == $data->pays)
                                        <option value="{{$item->sortname}}" selected>{{$item->name}}</option>
                                     @else
                                        <option value="{{$item->sortname}}">{{$item->name}}</option>
-                                    @endif                                 
+                                    @endif
                                  @endforeach
                               </select>
                            </div>

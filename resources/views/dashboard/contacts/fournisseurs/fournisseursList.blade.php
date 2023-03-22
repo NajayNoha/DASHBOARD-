@@ -1,5 +1,5 @@
 @extends('...layouts.app')
-@section("ClientContent")
+@section("content")
 <div class="content-body">
     <!-- row -->
 
@@ -24,7 +24,7 @@
          </div>
          @endif
         <div class="mb-2">
-            <a href="{{Route('/contacts/fournisseurs/ajouter_fournisseur')}}" class="btn btn-success px-4 text-white">
+            <a href="{{Route(auth()->user()->role . '/contacts/fournisseurs/ajouter_fournisseur')}}" class="btn btn-success px-4 text-white">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
         </div>
 
@@ -66,7 +66,7 @@
                                                 {{$item->pays}}
                                             </td>
                                             <td>
-                                                <a href="{{Route('contacts/fournisseurs/profile',$item->id)}}" style="text-decoration:none;color:white">
+                                                <a href="{{route(auth()->user()->role . '/contacts/fournisseurs/profile',$item->id)}}" style="text-decoration:none;color:white">
                                                     <button class="btn text-white" style="background: rgba(88, 100, 170, 1)">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </button>

@@ -1,9 +1,9 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
-      
+
       <form action="/save_fournisseur" method="POST" enctype="application/x-www-form-urlencoded" id="formSubmit">
          @csrf
       <div class="row page-titles mx-0">
@@ -13,8 +13,8 @@
             </div>
             <ol class="breadcrumb mt-2">
                <li class="breadcrumb-item"><a href="#">Contacts</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/contacts/fournisseurs')}}">Fournisseurs</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/contacts/fournisseurs/ajouter_fournisseur')}}">Create</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role . '/contacts/fournisseurs')}}">Fournisseurs</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role . '/contacts/fournisseurs/ajouter_fournisseur')}}">Create</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-3 mt-sm-0 d-flex">
