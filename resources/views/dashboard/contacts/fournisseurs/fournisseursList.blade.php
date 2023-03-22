@@ -1,9 +1,4 @@
-
-
-
-
 @extends('...layouts.app')
-
 @section("ClientContent")
 <div class="content-body">
     <!-- row -->
@@ -22,8 +17,14 @@
                 </ol>
             </div>
         </div>
+        @if (Session::has('success'))
+         <div class="alert alert-success solid alert-dismissible fade show">
+            <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+            </button> {{Session::get('success')}}
+         </div>
+         @endif
         <div class="mb-2">
-            <a href="{{Route('/contacts/fournisseurs/ajouter_fournisseur')}}" class="btn px-4 text-white" style="background: #57ae74;">
+            <a href="{{Route('/contacts/fournisseurs/ajouter_fournisseur')}}" class="btn btn-success px-4 text-white">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
         </div>
 
@@ -38,103 +39,47 @@
                             <table id="example" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
-                                        <th>Nom de Fournisseur</th>
                                         <th>Numéro Fournisseur</th>
+                                        <th>Nom de Fournisseur</th>
                                         <th>Email</th>
                                         <th>Téléphone</th>
-                                        <th>Payse</th>
+                                        <th>Pays</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Herrod Chandler</td>
-                                        <td>Sales Assistant</td>
-                                        <td>San Francisco</td>
-                                        <td>59</td>
-                                        <td>2012/08/06</td>
-                                        <td class="d-grid gap-4">
-                                            <button class="btn text-white" style="background: rgba(88, 100, 170, 1)"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rhona Davidson</td>
-                                        <td>Integration Specialist</td>
-                                        <td>Tokyo</td>
-                                        <td>55</td>
-                                        <td>2010/10/14</td>
-                                        <td class="d-grid gap-4">
-                                            <button class="btn text-white" style="background: rgba(88, 100, 170, 1)"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Colleen Hurst</td>
-                                        <td>Javascript Developer</td>
-                                        <td>San Francisco</td>
-                                        <td>39</td>
-                                        <td>2009/09/15</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('contacts/fournisseurs/profile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sonya Frost</td>
-                                        <td>Software Engineer</td>
-                                        <td>Edinburgh</td>
-                                        <td>23</td>
-                                        <td>2008/12/13</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('contacts/fournisseurs/profile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jena Gaines</td>
-                                        <td>Office Manager</td>
-                                        <td>London</td>
-                                        <td>30</td>
-                                        <td>2008/12/19</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('contacts/fournisseurs/profile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quinn Flynn</td>
-                                        <td>Support Lead</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td>2013/03/03</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('contacts/fournisseurs/profile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Charde Marshall</td>
-                                        <td>Regional Director</td>
-                                        <td>San Francisco</td>
-                                        <td>36</td>
-                                        <td>2008/10/16</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('contacts/fournisseurs/profile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                    @foreach ($data as $item)
+                                        <tr>
+                                            <td>
+                                                {{$item->id}}
+                                            </td>
+                                            <td>
+                                                {{$item->name}}
+                                            </td>
+                                            <td>
+                                                {{$item->email}}
+                                            </td>
+                                            <td>
+                                                {{$item->tel}}
+                                            </td>
+                                            <td>
+                                                {{$item->pays}}
+                                            </td>
+                                            <td>
+                                                <a href="{{Route('contacts/fournisseurs/profile',$item->id)}}" style="text-decoration:none;color:white">
+                                                    <button class="btn text-white" style="background: rgba(88, 100, 170, 1)">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="{{url('delete-fournisseur/'.$item->id)}}" style="text-decoration:none;color:white">
+                                                    <button class="btn btn-danger">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
-                                {{-- <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </tfoot> --}}
                             </table>
                         </div>
                     </div>

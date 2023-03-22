@@ -16,5 +16,9 @@ class Taxe extends Model
         'actif',
     ];
     protected $table = 'taxe';
+    public function products()
+    {
+        return $this->belongsToMany(Product::class , 'product_tax' , 'id_taxe' , 'id_product');
+    }
 
 }

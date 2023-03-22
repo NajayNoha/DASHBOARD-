@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('adresse2')->nullable(false);
             $table->integer('postalCode')->nullable(false);
             $table->string('city')->nullable(false);
+            $table->string('employer')->nullable(false);
+            $table->string('position')->nullable(false);
             $table->timestamps();
         });
     }

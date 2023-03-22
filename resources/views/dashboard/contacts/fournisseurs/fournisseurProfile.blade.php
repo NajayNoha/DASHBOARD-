@@ -4,15 +4,15 @@
 <div class="content-body">
    <div class="container-fluid">
       
-      <form action="#" method="POST" enctype="application/x-www-form-urlencoded" id="formSubmit">
+      <form action="/update_fournisseur" method="POST" enctype="application/x-www-form-urlencoded" id="formSubmit">
+         @csrf
       <div class="row page-titles mx-0">
          <div class="col-sm-6 p-md-0">
             <div class="welcome-text">
                   <h4>Fournisseurs</h4>
             </div>
             <ol class="breadcrumb mt-2">
-               <li class="breadcrumb-item"><a href="#">Fournisseurs</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/contacts/fournisseurs')}}">khalid</a></li>
+               <li class="breadcrumb-item"><a href="{{Route('/contacts/fournisseurs')}}">Fournisseurs</a></li>
                <li class="breadcrumb-item active"><a href="{{Route('contacts/fournisseurs/profile',1)}}">Modifier</a></li>
             </ol>
          </div>
@@ -23,10 +23,12 @@
                </div>
          </div>
       </div>
-
-
-      
-         @csrf
+      @if (Session::has('success'))
+      <div class="alert alert-success solid alert-dismissible fade show">
+         <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+         </button> {{Session::get('success')}}
+      </div>
+      @endif
          <div class="row">
 
             <div class="col-md-8">
@@ -41,26 +43,54 @@
                            <div class="form-row">
                               <div class="form-group col-md-12">
                                  <label class="text-dark fs-4">Nom de Fournisseur</label>
-                                 <input type="text" class="form-control"  placeholder="Nom de Fournisseur" name="Nom de Fournisseur" style="border:1px solid rgba(88, 100, 170, 1)">
+                                 <input type="text" class="form-control"  placeholder="Nom de Fournisseur" name="name" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->name}}">
+                              </div>
+                           </div>
+                           <div class="form-row">
+                              <div class="form-group col-md-12">
+                                 @error('name')
+                                    <span class="text-danger">
+                                       {{$message}}
+                                    </span>
+                                 @enderror
                               </div>
                            </div>
                            <div class="form-row">
                                  <div class="form-group col-md-6">
                                     <label class="text-dark fs-4">Numéro Fournisseur #</label>
-                                    <input type="text" class="form-control"  name="supplierId" value="S00001" style="border:1px solid rgba(88, 100, 170, 1)">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label class="text-dark fs-4">Email</label>
-                                    <input type="password" class="form-control" placeholder="Email" name="email" style="border:1px solid rgba(88, 100, 170, 1)">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label class="text-dark fs-4">Site Web</label>
-                                    <input type="text" class="form-control" placeholder="Site Web" name="website" style="border:1px solid rgba(88, 100, 170, 1)">
+                                    <input type="text" class="form-control"  name="id" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->id}}">
                                  </div>
                                  <div class="form-group col-md-6">
                                     <label class="text-dark fs-4">Téléphone</label>
-                                    <input type="text" class="form-control" placeholder="Téléphone" name="phone" style="border:1px solid rgba(88, 100, 170, 1)">
+                                    <input type="text" class="form-control" placeholder="Téléphone" name="tel" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->tel}}">
                                  </div>
+                                 <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                       @error('id')
+                                          <span class="text-danger">
+                                             {{$message}}
+                                          </span>
+                                       @enderror
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                       @error('tel')
+                                          <span class="text-danger">
+                                             {{$message}}
+                                          </span>
+                                       @enderror
+                                    </div>
+                                 </div>
+                                 <div class="form-group col-md-12">
+                                    <label class="text-dark fs-4">Email</label>
+                                    <input type="email" class="form-control" placeholder="Email" name="email" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->email}}">
+                                 </div>
+                                 @error('email')
+                                    <div class="form-group col-md-12">
+                                       <span class="text-danger">
+                                          {{$message}}
+                                       </span>
+                                    </div>
+                                 @enderror
                            </div>
                      </div>
                   </div>
@@ -75,42 +105,79 @@
                   <div class="card-body">
                      <div class="basic-form">
                         <div class="form-row">
-
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Pays</label>
-                              <select id="inputState" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
-                                 <option selected>Morroco</option>
-                                 <option>Afghanistan</option>
-                                 <option>Albania</option>
+                              <select id="inputState" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)" name="pays">
+                                 @foreach ($countries as $item)
+                                 
+                                    @if ($item->sortname == $data->pays)
+                                       <option value="{{$item->sortname}}" selected>{{$item->name}}</option>
+                                    @else
+                                       <option value="{{$item->sortname}}">{{$item->name}}</option>
+                                    @endif                                 
+                                 @endforeach
                               </select>
                            </div>
+                           @error('pays')
+                              <div class="form-group col-md-6">
+                                 <span class="text-danger">
+                                    {{$message}}
+                                 </span>
+                              </div>
+                           @enderror
                            <div class="form-group col-md-6">
                                  <label class="text-dark fs-4">Code Postal</label>
-                                 <input type="text" class="form-control"  name="postalCode" placeholder="Code Postal" style="border:1px solid rgba(88, 100, 170, 1)">
+                                 <input type="text" class="form-control"  name="postalCode" placeholder="Code Postal" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->postalCode}}">
                            </div>
+                           @error('postalCode')
+                              <div class="form-group col-md-6">
+                                 <span class="text-danger">
+                                    {{$message}}
+                                 </span>
+                              </div>
+                           @enderror
                         </div>
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label class="text-dark fs-4">Address 1</label>
-                              <input type="text" class="form-control"  name="adresse1" placeholder="Address 1" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control"  name="adresse1" placeholder="Address 1" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->adresse1}}">
                            </div>
+                           @error('adresse1')
+                              <div class="form-group col-md-12">
+                                 <span class="text-danger">
+                                    {{$message}}
+                                 </span>
+                              </div>
+                           @enderror
                         </div>
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label class="text-dark fs-4">Address 2</label>
-                              <input type="text" class="form-control"  name="adresse2" placeholder="Address 2" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control"  name="adresse2" placeholder="Address 2" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->adresse2}}">
                            </div>
+                           @error('adresse2')
+                              <div class="form-group col-md-12">
+                                 <span class="text-danger">
+                                    {{$message}}
+                                 </span>
+                              </div>
+                           @enderror
                         </div>
                         <div class="form-row">
                            <div class="form-group col-md-6">
-                              <label class="text-dark fs-4">Code Postal</label>
-                              <input type="text" class="form-control"  name="postalCode" placeholder="Code Postal" style="border:1px solid rgba(88, 100, 170, 1)">
-                           </div>
-                           <div class="form-group col-md-6">
                               <label for="" class="text-dark fs-4">Ville</label>
-                              <input type="text" class="form-control" name="Ville" placeholder="City" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control" name="city" placeholder="City" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->city}}">
                            </div>
                         </div>
+                        @error('city')
+                           <div class="form-row">
+                              <div class="form-group col-md-6">
+                                 <span class="text-danger">
+                                    {{$message}}
+                                 </span>
+                              </div>
+                           </div>
+                        @enderror
                      </div>
                   </div>
                </div>
@@ -152,27 +219,56 @@
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label class="text-dark fs-4">Niveau de prix</label>
-                              <input type="text" class="form-control" placeholder="Niveau de prix" name="price_level" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control" placeholder="Niveau de prix" name="price_level" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->price_level}}">
                            </div>
+                           @error('price_level')
+                              <div class="form-group col-md-12">
+                                 <span class="text-danger">
+                                    {{$message}}
+                                 </span>
+                              </div>
+                           @enderror
                         </div>
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label class="text-dark fs-4">Taxes</label>
-                              <input type="text" class="form-control"  name="taxes" placeholder="Taxes" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control"  name="taxes" placeholder="Taxes" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->taxes}}">
                            </div>
+                           @error('taxes')
+                              <div class="form-group col-md-12">
+                                 <span class="text-danger">
+                                    {{$message}}
+                                 </span>
+                              </div>
+                           @enderror
                         </div>
                         <div class="form-row">
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Currency</label>
-                              <select id="inputState" class="form-control" name="currency" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <select id="inputState" class="form-control" name="devise" style="border:1px solid rgba(88, 100, 170, 1)">
                                  <option selected>MAD</option>
                               </select>
                            </div>
-
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Discount</label>
-                              <input type="text" class="form-control"  name="discount" placeholder="Discount" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control"  name="discount" placeholder="Discount" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->discount}}">
                            </div>
+                        </div>
+                        <div class="form-row">
+                           @error('devise')
+                              <div class="form-group col-md-12">
+                                 <span class="text-danger">
+                                    {{$message}}
+                                 </span>
+                              </div>
+                           @enderror
+                           @error('discount')
+                              <div class="form-group col-md-12">
+                                 <span class="text-danger">
+                                    {{$message}}
+                                 </span>
+                              </div>
+                           @enderror
                         </div>
                      </div>
                   </div>
