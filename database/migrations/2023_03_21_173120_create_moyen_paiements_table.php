@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('niveau_prix', function (Blueprint $table) {
+        Schema::create('moyen_paiements', function (Blueprint $table) {
             $table->id();
-            // $table->integer('prix');
             $table ->string('nom');
-            // $table->integer('devise');
-            $table->string('type_niveau');
             $table -> integer('actif')->default(1);
-            // $table->string('id_produit');
-            // $table->string('id_user');
-            // $table->string('id_societe');
+            // $table -> foreignId('user_id')->constrained('users','id');
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('niveau_prix');
+        Schema::dropIfExists('moyen_paiements');
     }
 };

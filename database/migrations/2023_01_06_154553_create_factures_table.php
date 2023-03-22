@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('cout_livraison');
             $table->string('taxes_livraison');
             $table->string('adresse_livraison')->nullable(false);
-            $table->foreignId('product_id')->constrained();
+            // $table->foreignId('product_id')->constrained();
             $table->string('notes');
             $table->timestamps();
         });

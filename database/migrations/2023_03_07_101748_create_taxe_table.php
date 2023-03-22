@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('abreviation');
             $table->integer('taux');
+            $table ->integer('actif')->default(1);
             $table->timestamps();
         });
     }

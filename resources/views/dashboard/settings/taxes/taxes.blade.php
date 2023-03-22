@@ -17,6 +17,20 @@
             </ol>
          </div>
       </div>
+      <!--start errors -->
+      @if($errors->any())
+      <div class="alert alert-danger solid alert-dismissible fade show">
+         <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i
+                  class="mdi mdi-close"></i></span></button>
+         <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+         </ul>
+      </div>
+      @endif
+      <!--end errors -->
+
       <div class="mb-2">
          <!-- Button trigger modal -->
          <button type="button" class="btn px-4 text-white" style="background: #57ae74;" data-toggle="modal"
@@ -26,59 +40,48 @@
          </button>
          <!--end Button trigger modal -->
          <!-- Modal -->
-         <div class="modal" id="creerTaxe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
-                     <h5 class="modal-title text-white" id="exampleModalLabel">Créer une taxe</h5>
-                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-
-                     <div class="basic-form">
-                        <div class="form-row">
-                           <div class="form-group col-md-6">
-                              <label for="" class="text-dark fs-4">Nom</label>
-                              <input type="text" placeholder="Nom" class="form-control input-rounded"
-                                 style="border:1px solid rgba(88, 100, 170, 1)">
-                           </div>
-                           <div class="form-group col-md-6">
-                              <label for="" class="text-dark fs-4">Abréviation</label>
-                              <input type="text" placeholder="Abréviation" class="form-control input-rounded"
-                                 style="border:1px solid rgba(88, 100, 170, 1)">
-                           </div>
-                        </div>
-
-                        <div class="form-row">
-                           <div class="form-group col-md-6">
-
-                              <div class="form-check">
-                                 <input class="form-check-input" type="radio" name="typeTaxe" checked>
-                                 <label for="" class="text-dark fs-4 ">Taux de taxe simple</label>
-                              </div>
-                              <div class="form-check">
-                                 <input type="radio" class="form-check-input" name="typeTaxe">
-                                 <label for="" class="text-dark fs-4">Grouper plusieurs taxes</label>
-                              </div>
-
-                           </div>
-                           <div class="form-group col-md-6">
-                              <label for="" class="text-dark fs-4">Taux de taxe</label>
-                              <input type="text" value="20" class="form-control input-rounded"
-                                 style="border:1px solid rgba(88, 100, 170, 1)">
-                           </div>
-                        </div>
-
+         <form action="{{Route('settings.taxes.store')}}" method="POST">
+            @csrf
+            <div class="modal" id="creerTaxe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                     <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Créer une taxe</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                      </div>
+                     <div class="modal-body">
+                        <div class="basic-form">
+                           <div class="form-row">
+                              <div class="form-group col-md-6">
+                                 <label for="" class="text-dark fs-4">Nom</label>
+                                 <input type="text" placeholder="Nom" class="form-control input-rounded"
+                                    style="border:1px solid rgba(88, 100, 170, 1)" name="nom">
+                              </div>
+                              <div class="form-group col-md-6">
+                                 <label for="" class="text-dark fs-4">Abréviation</label>
+                                 <input type="text" placeholder="Abréviation" class="form-control input-rounded"
+                                    style="border:1px solid rgba(88, 100, 170, 1)" name="abreviation">
+                              </div>
+                           </div>
 
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-outline-danger px-4" data-dismiss="modal">ANNULER</button>
-                     <button type="button" class="btn text-white" style="background: #57ae74">ENREGISTRER</button>
+                           <div class="form-row">
+                              <div class="form-group col-md-12">
+                                 <label for="" class="text-dark fs-4">Taux de taxe</label>
+                                 <input type="number" class="form-control input-rounded"
+                                    style="border:1px solid rgba(88, 100, 170, 1)" name="taux">
+                              </div>
+                           </div>
+
+                        </div>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger px-4" data-dismiss="modal">ANNULER</button>
+                        <button type="submit" class="btn text-white" style="background: #57ae74">ENREGISTRER</button>
+                     </div>
                   </div>
                </div>
             </div>
-         </div>
+         </form>
          <!--END MODAL -->
       </div>
 
@@ -99,104 +102,110 @@
                            </tr>
                         </thead>
                         <tbody>
+                           @foreach($taxes as $taxe)
                            <tr>
-                              <td>Herrod Chandler</td>
-                              <td>Sales Assistant</td>
-                              <td>20.00%</td>
+                              <td>{{$taxe -> nom}}</td>
+                              <td>{{$taxe -> abreviation}}</td>
+                              <td>{{$taxe -> taux}},00</td>
                               <td>
-                                 <div class="basic-form" id="taxeProduit_switch">
-                                    <div class="btnSwitch">
-                                       <label class="toggle">
-                                          <input type="checkbox">
-                                          <span class="slider"></span>
-                                       </label>
+                                 <form action="{{Route('settings.taxes.change-active',$taxe->id)}}" method="POST"
+                                    class="checkbox">
+                                    @csrf
+                                    <div class="basic-form" id="taxeProduit_switch">
+                                       <div class="btnSwitch">
+                                          <label class="toggle">
+                                             <input type="checkbox" {{ $taxe->actif ? 'checked' : '' }}
+                                                onchange='changeActif({{$taxe->id}})'>
+                                             <span class="slider"></span>
+                                          </label>
+                                       </div>
+                                       <input type="text" name='actif' value='{{$taxe->actif}}' hidden>
+                                       <button type="submit" hidden id='btnSubmit{{$taxe -> id}}'>Submit</button>
                                     </div>
-                                 </div>
+                                 </form>
+
                               </td>
                               <td class="d-grid gap-4">
                                  <!--start Button trigger modal -->
                                  <button type="button" class="btn text-white" data-toggle="modal"
-                                    data-target="#modifierTaxe" style="background: rgba(88, 100, 170, 1)"><i
+                                    data-target="#modifierTaxe{{$taxe->id}}"
+                                    style="background: rgba(88, 100, 170, 1)"><i
                                        class="fa-solid fa-pen-to-square"></i></button>
                                  <!-- end  Button trigger modal -->
                                  <!--start Modal  -->
-                                 <div class="modal" id="modifierTaxe" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                                       <div class="modal-content">
-                                          <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
-                                             <h5 class="modal-title text-white" id="exampleModalLabel">Modifier une taxe
-                                             </h5>
-                                             <button type="button" class="btn-close" data-dismiss="modal"
-                                                aria-label="Close"></button>
-                                          </div>
-                                          <div class="modal-body">
-
-                                             <div class="basic-form">
-                                                <div class="form-row">
-                                                   <div class="form-group col-md-6">
-                                                      <label for="" class="text-dark fs-4">Nom</label>
-                                                      <input type="text" placeholder="Nom"
-                                                         class="form-control input-rounded"
-                                                         style="border:1px solid rgba(88, 100, 170, 1)">
-                                                   </div>
-                                                   <div class="form-group col-md-6">
-                                                      <label for="" class="text-dark fs-4">Abréviation</label>
-                                                      <input type="text" placeholder="Abréviation" class="form-control input-rounded"
-                                                         style="border:1px solid rgba(88, 100, 170, 1)">
-                                                   </div>
-                                                </div>
-
-                                                <div class="form-row">
-                                                   <div class="form-group col-md-6">
-
-                                                      <div class="form-check">
-                                                         <input class="form-check-input" type="radio" name="typeTaxe"
-                                                            checked>
-                                                         <label for="" class="text-dark fs-4">Taux de taxe
-                                                            simple</label>
-                                                      </div>
-                                                      <div class="form-check">
-                                                         <input type="radio" class="form-check-input" name="typeTaxe">
-                                                         <label for="" class="text-dark fs-4">Grouper plusieurs
-                                                            taxes</label>
-                                                      </div>
-
-                                                   </div>
-                                                   <div class="form-group col-md-6">
-                                                      <label for="" class="text-dark fs-4">Taux de taxe</label>
-                                                      <input type="text" value="20" class="form-control input-rounded"
-                                                         style="border:1px solid rgba(88, 100, 170, 1)">
-                                                   </div>
-                                                </div>
-
+                                 <form action="{{Route('settings.taxes.updatet',$taxe->id)}}" method="POST">
+                                    @csrf
+                                    <div class="modal" id="modifierTaxe{{$taxe->id}}" tabindex="-1"
+                                       aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                       <div class="modal-dialog modal-dialog-centered modal-lg">
+                                          <div class="modal-content">
+                                             <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
+                                                <h5 class="modal-title text-white" id="exampleModalLabel">Modifier une
+                                                   taxe
+                                                </h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal"
+                                                   aria-label="Close"></button>
                                              </div>
+                                             <div class="modal-body">
+                                                <div class="basic-form">
+                                                   <div class="form-row">
+                                                      <div class="form-group col-md-6">
+                                                         <label for="" class="text-dark fs-4">Nom</label>
+                                                         <input type="text" value={{$taxe -> nom}}
+                                                            class="form-control input-rounded"
+                                                            style="border:1px solid rgba(88, 100, 170, 1)" name="nom">
+                                                      </div>
+                                                      <div class="form-group col-md-6">
+                                                         <label for="" class="text-dark fs-4">Abréviation</label>
+                                                         <input type="text" value={{$taxe -> abreviation}}
+                                                            class="form-control input-rounded"
+                                                            style="border:1px solid rgba(88, 100, 170, 1)"
+                                                            name="abreviation">
+                                                      </div>
+                                                   </div>
 
-                                          </div>
-                                          <div class="modal-footer">
-                                             <button type="button" class="btn btn-outline-danger px-4"
-                                                data-dismiss="modal">ANNULER</button>
-                                             <button type="button" class="btn text-white"
-                                                style="background: #57ae74">ENREGISTRER</button>
+                                                   <div class="form-row">
+                                                      <div class="form-group col-md-12">
+                                                         <label for="" class="text-dark fs-4">Taux de taxe</label>
+                                                         <input type="number" class="form-control input-rounded"
+                                                            style="border:1px solid rgba(88, 100, 170, 1)" name="taux"
+                                                            value={{$taxe -> taux}}>
+                                                      </div>
+                                                   </div>
+
+                                                </div>
+                                             </div>
+                                             <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-danger px-4"
+                                                   data-dismiss="modal">ANNULER</button>
+                                                <button type="submit" class="btn text-white"
+                                                   style="background: #57ae74">ENREGISTRER</button>
+                                             </div>
                                           </div>
                                        </div>
                                     </div>
-                                 </div>
-
+                                 </form>
                               </td>
                            </tr>
 
+                           @endforeach
                         </tbody>
                      </table>
                   </div>
                </div>
             </div>
          </div>
-
+         <script>
+            function changeActif(id) {
+               const btnSubmit = document.getElementById('btnSubmit' + id);
+               btnSubmit.click();
+            }
+         </script>
       </div>
    </div>
 
    {{-- <div>
 
 </div> --}}
+
    @endsection

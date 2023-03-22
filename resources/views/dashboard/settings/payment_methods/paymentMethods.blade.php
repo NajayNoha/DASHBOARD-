@@ -17,6 +17,19 @@
             </ol>
          </div>
       </div>
+      <!--start errors -->
+      @if($errors->any())
+      <div class="alert alert-danger solid alert-dismissible fade show">
+         <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i
+                  class="mdi mdi-close"></i></span></button>
+         <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+         </ul>
+      </div>
+      @endif
+      <!--end errors -->
       <div class="mb-2">
          <!-- Button trigger modal -->
          <button type="button" class="btn text-white px-4 text-white" style="background: #57ae74;" data-toggle="modal"
@@ -26,38 +39,40 @@
          </button>
          <!--end Button trigger modal -->
          <!--start Modal  -->
-         <div class="modal" id="creerPaymentMethod" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
-                     <h5 class="modal-title text-white" id="exampleModalLabel">Créer un moyen de paiement</h5>
-                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
+         <form action="{{Route('settings.payment-methods.create')}}" method="POST">
+            @csrf
+            <div class="modal" id="creerPaymentMethod" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                     <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Créer un moyen de paiement</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
 
-                     <div class="basic-form">
-                        <div class="form-row">
+                        <div class="basic-form">
+                           <div class="form-row">
 
-                           <div class="form-group col-md-12">
-                              <label for="" class="text-dark fs-4">Nom</label>
-                              <input type="text" class="form-control input-rounded w-100" placeholder="Nom" name=""
-                                 style="border:1px solid rgba(88, 100, 170, 1);">
+                              <div class="form-group col-md-12">
+                                 <label for="" class="text-dark fs-4">Nom</label>
+                                 <input type="text" class="form-control input-rounded w-100" placeholder="Nom"
+                                    name="nom" style="border:1px solid rgba(88, 100, 170, 1);">
+                              </div>
+
                            </div>
 
                         </div>
 
                      </div>
-
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-outline-danger px-4" data-dismiss="modal">ANNULER</button>
-                     <button type="button" class="btn text-white" style="background: #57ae74">ENREGISTRER</button>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger px-4" data-dismiss="modal">ANNULER</button>
+                        <button type="submit" class="btn text-white" style="background: #57ae74">ENREGISTRER</button>
+                     </div>
                   </div>
                </div>
             </div>
-         </div>
-
+         </form>
          <!--END MODAL -->
       </div>
 
@@ -66,82 +81,90 @@
             <div class="card">
 
                <div class="card-body">
-                  <div class="table-responsive">
-                     <table style="min-width: 845px" class="table">
+                  {{-- <div class="table-responsive"> --}}
+                     <table  class="table">
                         <thead>
                            <tr>
-                              <th style="color:rgb(72, 69, 79)">NOM</th>
-                              <th style="color:rgb(72, 69, 79)">DISPONIBLE DANS LE LOGICIEL DE CAISSE</th>
-                              <th style="color:rgb(72, 69, 79)">ACTIF</th>
-                              <th style="color:rgb(72, 69, 79)">Action</th>
+                              <th style="color:rgb(72, 69, 79)" scope="col">NOM</th>
+                              <th style="color:rgb(72, 69, 79)" scope="col">ACTIF</th>
+                              <th style="color:rgb(72, 69, 79)" scope="col">Action</th>
                            </tr>
                         </thead>
                         <tbody>
-
+                           @foreach($paymentMethods as $paymentMethod)
                            <tr>
-                              <td>cheque</td>
-                              <td>Non disponible dans le logiciel de caisse</td>
+                              <td scope='row'>{{$paymentMethod -> nom}}</td>
                               <td>
+                                 <form action="{{Route('settings.payment-methods.change-active',$paymentMethod->id)}}" method="POST">
+                                    @csrf
                                  <div class="basic-form" id="taxeProduit_switch">
                                     <div class="btnSwitch">
                                        <label class="toggle">
-                                          <input type="checkbox">
+                                          <input type="checkbox" {{$paymentMethod->actif? 'checked':''}} onchange='changeActif({{$paymentMethod->id}})'>
                                           <span class="slider"></span>
                                        </label>
                                     </div>
                                  </div>
+                                 <input type="text" name='actif' value='{{$paymentMethod->actif}}' hidden>
+                                 <button type="submit" hidden id='btnSubmit{{$paymentMethod->id}}'>Submit</button>
+                              </form>
                               </td>
                               <td>
                                  <!--start Button trigger modal -->
                                  <button type="button" class="btn text-white" data-toggle="modal"
-                                    data-target="#modifierPaymentMethod" style="background: rgba(88, 100, 170, 1)"><i
+                                    data-target="#modifierPaymentMethod{{$paymentMethod->id}}" style="background: rgba(88, 100, 170, 1)"><i
                                        class="fa-solid fa-pen-to-square"></i></button>
                                  <!-- end  Button trigger modal -->
                                  <!--start Modal  -->
-                                 <div class="modal" id="modifierPaymentMethod" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                                       <div class="modal-content">
-                                          <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
-                                             <h5 class="modal-title text-white" id="exampleModalLabel">Créer un moyen de
-                                                paiement</h5>
-                                             <button type="button" class="btn-close" data-dismiss="modal"
-                                                aria-label="Close"></button>
-                                          </div>
-                                          <div class="modal-body">
+                                 <form action="{{Route('settings.payment-methods.edit',$paymentMethod ->id)}}" method="POST">
+                                    @csrf
+                                    <div class="modal" id="modifierPaymentMethod{{$paymentMethod->id}}" tabindex="-1"
+                                       aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                       <div class="modal-dialog modal-dialog-centered modal-lg">
+                                          <div class="modal-content">
+                                             <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
+                                                <h5 class="modal-title text-white" id="exampleModalLabel">Créer un moyen de
+                                                   paiement</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal"
+                                                   aria-label="Close"></button>
+                                             </div>
+                                             <div class="modal-body">
 
-                                             <div class="basic-form">
-                                                <div class="form-row">
+                                                <div class="basic-form">
+                                                   <div class="form-row">
 
-                                                   <div class="form-group col-md-12">
-                                                      <label for="" class="text-dark fs-4">Nom</label>
-                                                      <input type="text" class="form-control input-rounded w-100"
-                                                         value="cheque" name=""
-                                                         style="border:1px solid rgba(88, 100, 170, 1);">
+                                                      <div class="form-group col-md-12">
+                                                         <label for="" class="text-dark fs-4">Nom</label>
+                                                         <input type="text" class="form-control input-rounded w-100"
+                                                            name="nom"
+                                                            style="border:1px solid rgba(88, 100, 170, 1);" value="{{{$paymentMethod ->nom}}}">
+                                                      </div>
+
                                                    </div>
 
                                                 </div>
 
                                              </div>
-
-                                          </div>
-                                          <div class="modal-footer">
-                                             <button type="button" class="btn btn-outline-danger px-4"
-                                                data-dismiss="modal">ANNULER</button>
-                                             <button type="button" class="btn text-white"
-                                                style="background: #57ae74">ENREGISTRER</button>
+                                             <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-danger px-4"
+                                                   data-dismiss="modal">ANNULER</button>
+                                                <button type="submit" class="btn text-white"
+                                                   style="background: #57ae74">ENREGISTRER</button>
+                                             </div>
                                           </div>
                                        </div>
                                     </div>
-                                 </div>
+                                 </form>
                                  <!--END Modal  -->
                               </td>
                            </tr>
+                           @endforeach
                         </tbody>
                      </table>
-                  </div>
+                  {{-- </div> --}}
                </div>
             </div>
+
          </div>
 
       </div>
@@ -150,4 +173,10 @@
    {{-- <div>
 
 </div> --}}
+<script>
+   function changeActif(id){
+      const btnSubmit = document.getElementById('btnSubmit'+id);
+      btnSubmit.click();
+   }
+</script>
    @endsection

@@ -17,6 +17,19 @@
             </ol>
          </div>
       </div>
+      <!--start errors -->
+      @if($errors->any())
+      <div class="alert alert-danger solid alert-dismissible fade show">
+         <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i
+                  class="mdi mdi-close"></i></span></button>
+         <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+         </ul>
+      </div>
+      @endif
+      <!--end errors -->
       <div class="mb-2">
          <!-- Button trigger modal -->
          <button type="button" class="btn text-white px-4 text-white" style="background: #57ae74;" data-toggle="modal"
@@ -26,45 +39,48 @@
          </button>
          <!--end Button trigger modal -->
          <!--start Modal  -->
-         <div class="modal" id="creerPriceLevel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
-                     <h5 class="modal-title text-white" id="exampleModalLabel">Créer un niveau de prix</h5>
-                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
+         <form action="{{Route('settings.price-levels.store')}}" method="POST">
+            @csrf
+            <div class="modal" id="creerPriceLevel" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                     <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Créer un niveau de prix</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
 
-                     <div class="basic-form">
-                        <div class="form-row">
+                        <div class="basic-form">
+                           <div class="form-row">
 
-                           <div class="form-group col-md-6">
-                              <label for="" class="text-dark fs-4">Nom</label>
-                              <input type="text" class="form-control input-rounded w-100" placeholder="Nom" name=""
-                                 style="border:1px solid rgba(88, 100, 170, 1);">
-                           </div>
-                           <div class="form-group col-md-6">
-                              <label for="" class="text-dark fs-4">Type</label>
-                              <select name="" id="" class="form-select rounded-pill w-100"
-                                 style="height: 35px;border:1px solid rgba(88, 100, 170, 1)">
-                                 <option value="">Niveau de prix pour les ventes</option>
-                                 <option value="">Niveau de prix pour les achats</option>
-                              </select>
+                              <div class="form-group col-md-6">
+                                 <label for="" class="text-dark fs-4">Nom</label>
+                                 <input type="text" class="form-control input-rounded w-100" placeholder="Nom"
+                                    name="nom" style="border:1px solid rgba(88, 100, 170, 1);">
+                              </div>
+                              <div class="form-group col-md-6">
+                                 <label for="" class="text-dark fs-4">Type</label>
+                                 <select name="type" id="" class="form-select rounded-pill w-100"
+                                    style="height: 35px;border:1px solid rgba(88, 100, 170, 1)">
+                                    <option value="Vente">Niveau de prix pour les ventes</option>
+                                    <option value="Achat">Niveau de prix pour les achats</option>
+                                 </select>
+                              </div>
+
                            </div>
 
                         </div>
 
                      </div>
-
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-outline-danger px-4" data-dismiss="modal">ANNULER</button>
-                     <button type="button" class="btn text-white" style="background: #57ae74">ENREGISTRER</button>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger px-4" data-dismiss="modal">ANNULER</button>
+                        <button type="submit" class="btn text-white" style="background: #57ae74">ENREGISTRER</button>
+                     </div>
                   </div>
                </div>
             </div>
-         </div>
-
+         </form>
          <!--END MODAL -->
       </div>
 
@@ -84,81 +100,102 @@
                            </tr>
                         </thead>
                         <tbody>
-
+                           @foreach($priceLevels as $priceLevel)
                            <tr>
-                              <td>Purchase Price</td>
-                              <td>Achat</td>
+                              <td>{{$priceLevel->nom}}</td>
+                              <td>{{$priceLevel->type_niveau}}</td>
                               <td>
-                                 <div class="basic-form" id="taxeProduit_switch">
-                                    <div class="btnSwitch">
-                                       <label class="toggle">
-                                          <input type="checkbox">
-                                          <span class="slider"></span>
-                                       </label>
+                                 <form action="{{Route('setting.price-levels.change-active',$priceLevel->id)}}" method="POST"
+                                    class="checkbox">
+                                    @csrf
+                                    <div class="basic-form" id="taxeProduit_switch">
+                                       <div class="btnSwitch">
+                                          <label class="toggle">
+                                             <input type="checkbox" {{$priceLevel-> actif ? 'checked':''}} onchange='changeActif({{$priceLevel->id}})'>
+                                             <span class="slider"></span>
+                                          </label>
+                                       </div>
                                     </div>
-                                 </div>
+                                    <input type="text" name='actif' value='{{$priceLevel->actif}}' hidden>
+                                    <button type="submit" hidden id='btnSubmit{{$priceLevel -> id}}'>Submit</button>
+                                 </form>
                               </td>
                               <td>
                                  <!--start Button trigger modal -->
                                  <button type="button" class="btn text-white" data-toggle="modal"
-                                    data-target="#modifierPriceLevel" style="background: rgba(88, 100, 170, 1)"><i
+                                    data-target="#modifierPriceLevel{{$priceLevel->id}}"
+                                    style="background: rgba(88, 100, 170, 1)"><i
                                        class="fa-solid fa-pen-to-square"></i></button>
                                  <!-- end  Button trigger modal -->
                                  <!--start Modal  -->
-                                 <div class="modal" id="modifierPriceLevel" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                                       <div class="modal-content">
-                                          <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
-                                             <h5 class="modal-title text-white" id="exampleModalLabel">Créer un niveau
-                                                de prix</h5>
-                                             <button type="button" class="btn-close" data-dismiss="modal"
-                                                aria-label="Close"></button>
-                                          </div>
-                                          <div class="modal-body">
+                                 <form action="{{Route('settings.price-levels.edit',$priceLevel->id)}}" method="POST">
+                                    @csrf
+                                    <div class="modal" id="modifierPriceLevel{{$priceLevel->id}}" tabindex="-1"
+                                       aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                       <div class="modal-dialog modal-dialog-centered modal-lg">
+                                          <div class="modal-content">
+                                             <div class="modal-header" style="background: rgba(88, 100, 170, 1)">
+                                                <h5 class="modal-title text-white" id="exampleModalLabel">Créer un
+                                                   niveau de prix</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal"
+                                                   aria-label="Close"></button>
+                                             </div>
+                                             <div class="modal-body">
 
-                                             <div class="basic-form">
-                                                <div class="form-row">
+                                                <div class="basic-form">
+                                                   <div class="form-row">
 
-                                                   <div class="form-group col-md-6">
-                                                      <label for="" class="text-dark fs-4">Nom</label>
-                                                      <input type="text" class="form-control input-rounded w-100"
-                                                         value="Purchase Price" name=""
-                                                         style="border:1px solid rgba(88, 100, 170, 1);">
-                                                   </div>
-                                                   <div class="form-group col-md-6">
-                                                      <label for="" class="text-dark fs-4">Type</label>
-                                                      <select name="" id="" class="form-select rounded-pill w-100"
-                                                         style="height: 35px;border:1px solid rgba(88, 100, 170, 1)">
-                                                         <option value="">Niveau de prix pour les ventes</option>
-                                                         <option value="">Niveau de prix pour les achats</option>
-                                                      </select>
+                                                      <div class="form-group col-md-6">
+                                                         <label for="" class="text-dark fs-4">Nom</label>
+                                                         <input type="text" class="form-control input-rounded w-100"
+                                                            value="{{$priceLevel->nom}}" name="nom"
+                                                            style="border:1px solid rgba(88, 100, 170, 1);">
+                                                      </div>
+                                                      <div class="form-group col-md-6">
+                                                         <label for="" class="text-dark fs-4">Type</label>
+                                                         <select name="type" id=""
+                                                            class="form-select rounded-pill w-100"
+                                                            style="height: 35px;border:1px solid rgba(88, 100, 170, 1)">
+                                                            <option
+                                                               {{$priceLevel->type_niveau == 'Vente' ?'selected':''}}
+                                                               value="Vente">Niveau de prix pour les ventes</option>
+                                                            <option
+                                                               {{$priceLevel->type_niveau == 'Achat' ?'selected':''}}
+                                                               value="Achat">Niveau de prix pour les achats</option>
+                                                         </select>
+                                                      </div>
+
                                                    </div>
 
                                                 </div>
 
                                              </div>
-
-                                          </div>
-                                          <div class="modal-footer">
-                                             <button type="button" class="btn btn-outline-danger px-4"
-                                                data-dismiss="modal">ANNULER</button>
-                                             <button type="button" class="btn text-white"
-                                                style="background: #57ae74">ENREGISTRER</button>
+                                             <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-danger px-4"
+                                                   data-dismiss="modal">ANNULER</button>
+                                                <button type="submit" class="btn text-white"
+                                                   style="background: #57ae74">ENREGISTRER</button>
+                                             </div>
                                           </div>
                                        </div>
                                     </div>
-                                 </div>
+                                 </form>
                                  <!--END Modal  -->
                               </td>
                            </tr>
+                           @endforeach
                         </tbody>
                      </table>
                   </div>
                </div>
             </div>
          </div>
-
+         <script>
+            function changeActif(id) {
+               const btnSubmit = document.getElementById('btnSubmit' + id);
+               btnSubmit.click();
+            }
+         </script>
       </div>
    </div>
 
