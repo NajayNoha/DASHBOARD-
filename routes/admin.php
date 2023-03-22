@@ -11,18 +11,18 @@ Route::middleware(['auth' , "user-role:admin"])->group(function()
 
         Route::get('home.admin',[ HomeController::class, "adminHome"])->name('home.admin');
         Route::get('admin/contacts/clients', [ContactController::class, 'clients'])->name('admin/contacts/clients');
-        Route::get('admin/contacts/ajouter_client', [ContactController::class, 'add_client'])->name('admin/contacts/ajouter_client');
+        Route::get('admin/contacts/ajouter-client', [ContactController::class, 'add_client'])->name('admin/contacts/ajouter_client');
         Route::get('admin/contacts/client/{id}', [ContactController::class, 'client_profile'])->name('admin/contacts/client');
-        Route::get('admin/contacts/employes/ajouter_client', [ContactController::class, 'add_client'])->name('admin/contacts/employes/ajouter_client');
+        Route::get('admin/contacts/employes/ajouter-client', [ContactController::class, 'add_client'])->name('admin/contacts/employes/ajouter_client');
 
         Route::get('delete-fournisseur/{id}',[ContactController::class , 'delete_fournisseur']);
 
 
         // EMPLOYEES
-        Route::post('/contacts/ajouter_employe', [ContactController::class, 'add_employe']);
+        Route::post('/contacts/ajouter-employe', [ContactController::class, 'add_employe']);
         Route::post('save_employe', [ContactController::class, 'save_employe']);
         Route::get('admin/contacts/employes', [ContactController::class, 'employes'])->name('admin/contacts/employes');
-        Route::get('admin/contacts/employes/ajouter_employe', [ContactController::class, 'add_client'])->name('admin/contacts/employes/ajouter_employe');
+        Route::get('admin/contacts/employes/ajouter-employe', [ContactController::class, 'add_employe'])->name('admin/contacts/employes/ajouter_employe');
         Route::get('admin/contacts/employes/{id}', [ContactController::class, 'employee_profile'])->name('admin/contacts/employes/profile');
         // FOURNISSUERS
         Route::get('admin/contacts/fournisseurs', [ContactController::class, 'fournisseurs'])->name('admin/contacts/fournisseurs');

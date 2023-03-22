@@ -63,7 +63,7 @@
                                             <td>{{$emp->tel}}</td>
                                             <td>{{$emp->city}}</td>
                                             <td>
-                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'contacts/employes/profile',$emp->id)}}">
+                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/contacts/employes/profile',$emp->id)}}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
                                                 <a href="{{url('delete-employe/'.$emp->id)}}" style="text-decoration:none;color:white">
