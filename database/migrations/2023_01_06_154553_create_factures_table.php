@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('taxes_livraison')->nullable(false);
             $table->string('adresse_livraison')->nullable(false);
             $table->string('products')->nullable(false);
+            
             $table->string('notes')->nullable(false);
             $table->timestamps();
         });

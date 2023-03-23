@@ -4,7 +4,7 @@
 <body>
     <div id="app">
         @if (Auth::user())
-        {{-- @include('layouts.header') --}}
+        @include('layouts.header')
         @endif
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
