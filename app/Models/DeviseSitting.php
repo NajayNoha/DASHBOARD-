@@ -6,19 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Taxe extends Model
+class DeviseSitting extends Model
 {
     use HasFactory,Notifiable;
+    protected $table = 'devise_sittings';
     protected $fillable = [
-        'nom',
-        'abreviation',
-        'taux',
+        'devise',
+        'taux_change',
         'actif',
+        'id_currency'
     ];
-    protected $table = 'taxes';
-    public function products()
-    {
-        return $this->belongsToMany(Product::class , 'product_tax' , 'id_taxe' , 'id_product');
-    }
 
+    public function currency(){
+        return $this -> hasOne(Currency::class,'id','id_currency');
+    }
 }

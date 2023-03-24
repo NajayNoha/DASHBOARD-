@@ -18,20 +18,19 @@ return new class extends Migration
             $table->string('nom')->nullable();
             $table->string('web_site')->nullable();
             $table->string('email')->nullable();
-            $table->integer('tel')->nullable();
+            $table->string('tel',15)->nullable();
             //Adresse
-            $table -> foreignId('id_pays')->constrained('pays','id');
             $table -> text('address1')->nullable();
             $table -> text('address2')->nullable();
             $table -> integer('codePostal')->nullable();
             $table -> string('ville')->nullable();
             $table -> string('logo')->nullable();
-            $table -> string('facebook');
-            $table -> string('twitter');
-            // Valeurs par défaut
-            $table -> foreignId('id_taxe')->constrained('','id');
-            $table -> foreignId('id_niveau_prix_vente')->constrained('');
-            $table -> foreignId('id_niveau_prix_achat')->constrained();
+            $table -> string('facebook')->nullable();
+            $table -> string('twitter')->nullable();
+            // // Valeurs par défaut
+            // $table -> foreignId('id_taxe')->constrained('','id');
+            // $table -> foreignId('id_niveau_prix_vente')->constrained('');
+            // $table -> foreignId('id_niveau_prix_achat')->constrained();
             $table->timestamps();
         });
     }

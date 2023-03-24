@@ -14,7 +14,7 @@ class TaxesController extends Controller
 
     public function taxes()
     {
-        $taxes = Taxe::all();
+        $taxes = $this -> getTaxes();
         return view('./dashboard/settings/taxes/taxes',compact('taxes'));
     }
     public function createTaxe(Request $request){

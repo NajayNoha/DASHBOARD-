@@ -9,8 +9,12 @@ use App\Http\Controllers\settings\UserController;
 use App\Http\Controllers\settings\UserSettingController;
 use Illuminate\Support\Facades\Route;
 
+/*
+*company settings
+*/
 Route::get('settings/company-settings', [CompanySettingsController::class, 'createCompanySitting'])->name('setting.company-settings.create');
-
+Route::post('settings/company-settings/store', [CompanySettingsController::class, 'storeCompanySitting'])->name('setting.company-settings.store');
+Route::post('settings/company-settings/edit/{id}', [CompanySettingsController::class, 'editCompanySitting'])->name('setting.company-settings.edit');
 /*
 *Taxes
 */
@@ -23,6 +27,9 @@ Route::post('settings/taxes/change-active/{id}', [TaxesController::class, 'chang
 *Devise
 */
 Route::get('settings/currencies', [DeviseController::class, 'Devises'])->name('settings.currencies');
+Route::post('settings/currencies/store', [DeviseController::class, 'createDeviseSetting'])->name('settings.currencies.store');
+Route::post('settings/currencies/edit/{id}', [DeviseController::class, 'editDeviseSetting'])->name('settings.currencies.edit');
+Route::post('settings/currencies/change-active/{id}', [DeviseController::class, 'changeActive'])->name('settings.currencies.change-active');
 /*
 *Price Levels
 */
