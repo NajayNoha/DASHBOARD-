@@ -11,8 +11,8 @@
                      <h4>Bons de commande </h4>
                </div>
                <ol class="breadcrumb mt-3">
-                  <li class="breadcrumb-item"><a href="{{Route('ventes.bons-commande')}}">Bons de commande</a></li>
-                  <li class="breadcrumb-item active"><a href="{{Route('ventes.bons-commande.ajouter-bon-commande')}}">Créer</a></li>
+                  <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/ventes/bons-commande')}}">Bons de commande</a></li>
+                  <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/ventes/bons-commande/ajouter-bon-commande')}}">Créer</a></li>
                </ol>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -37,12 +37,14 @@
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label class="text-dark fs-4">Client</label>
-                              <div class="d-flex">
-                                 <select class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
-                                    <option value="client 1">client 1</option>
-                                    <option value="client 2">client 2</option>
+                                    <div class="d-flex">
+                                 <select class="form-control" style="border:1px solid rgba(88, 100, 170, 1)" name="client">
+                                    <option value=""></option>
+                                    @foreach ($clients as $client)
+                                        <option value="{{ $client->id }}">{{ $client->name }}</option>
+                                    @endforeach
                                 </select>
-                                 <a href="{{Route('/contacts/ajouter_client')}}" title="Ajouter Client" class="btn  text-dark fs-4" style="border:1px solid rgba(88, 100, 170, 1);margin-left: 5px;">
+                                 <a href="{{route(auth()->user()->role . '/contacts/ajouter_client')}}" title="Ajouter Client" class="btn  text-dark fs-4" style="border:1px solid rgba(88, 100, 170, 1);margin-left: 5px;">
                                     <i class="fa-solid fa-plus" style="font-size: 1.2rem;"></i>
                                  </a>
                               </div>
@@ -51,7 +53,7 @@
                         <div class="form-row">
                            <div class="form-group col-md-12">
                                  <label class="text-dark fs-4">Bon de commande #</label>
-                                 <input type="text" class="form-control" value="E0000001"   name="name"  style="border:1px solid rgba(88, 100, 170, 1)" readonly>
+                                 <input type="text" class="form-control" value="{{ $id }}"  disabled  name="id"  style="border:1px solid rgba(88, 100, 170, 1)" readonly>
                            </div>
                         </div>
                      </div>
@@ -71,18 +73,18 @@
                   <div class="card-body">
                      <div class="basic-form">
                         <div class="form-row">
-                           <div class="form-group col-md-6">
+                           {{-- <div class="form-group col-md-6">
                               <label for="" class="text-dark fs-4">Date d'expiration</label>
-                              <input type="date" class="form-control" value="01/03/10" style="border:1px solid rgba(88, 100, 170, 1)">
-                           </div>
+                              <input type="date" class="form-control" value="01/03/10" style="border:1px solid rgba(88, 100, 170, 1)" name="date_exp">
+                           </div> --}}
                            <div class="form-group col-md-6">
                               <label for="" class="text-dark fs-4">A l'attention de </label>
-                              <input type="text" class="form-control" placeholder="A l'attention de" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" name="attention" class="form-control" placeholder="A l'attention de" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
                         <div class="form-row">
                            <label for="" class="text-dark fs-4">Référence externe</label>
-                           <input type="text" placeholder="Référence externe" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)" >
+                           <input type="text" name="ref" placeholder="Référence externe" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)" >
                         </div>
                      </div>
                   </div>
@@ -101,7 +103,7 @@
                   </div>
                   <div class="card-body">
                      <div class="basic-form">
-                        <p class="text-dark">Facturer à</p>
+                        <p class="text-dark">Facturer à  </p>
                         <div class="form-row">
                            <!-- Button trigger modal -->
                            <button class="btn btn-primary col-md-12" data-toggle="modal" data-target="#basicModal1">MODIFIER L'ADRESSE</button>
@@ -133,22 +135,25 @@
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label for="" class="text-dark fs-4">Date de livraison</label>
-                              <input type="date" class="form-control"  style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="date" name="date_liv" class="form-control"  style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label for="" class="text-dark fs-4">coût de livraison et de manutention</label>
-                              <input type="text" class="form-control" placeholder="coût de livraison et de manutention" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" name="cout_liv" class="form-control" placeholder="coût de livraison et de manutention" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
                         <div class="form-row">
                            <div class="form-group col-md-12">
-                              <label for="" class="text-dark fs-4">Taxes</label>
-                              <select class="js-example-theme-multiple" name="states[]" multiple="multiple" style="border:1px solid rgba(88, 100, 170, 1)" >
-                                 <option value="taxe1">taxe 1</option>
-                                 <option value="taxe2">taxe 2</option>
-                             </select>
+                              <label for="" class="text-dark fs-4">Taxe</label>
+                              <select class="" name="taxe" >
+                                    <option value=""></option>
+                                    <option value="taxe1">taxe 1</option>
+                                    @foreach ($taxes as $taxe)
+                                       <option value='{{ $taxe->id }}' > {{ $taxe->name }} </option>
+                                    @endforeach
+                                </select>
                            </div>
                         </div>
                         <div class="form-row">

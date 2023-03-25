@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_type', function (Blueprint $table) {
-            $table->id();
-            $table->string('user_type')->nullable(false);
-            $table->timestamps();
+        Schema::create('permissions', function (Blueprint $table) {
+            $table->foreignId('company_id')->constrained('companies');
+            $table->foreignId('user_id')->constrained();
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_type');
+        Schema::dropIfExists('permissions');
     }
 };

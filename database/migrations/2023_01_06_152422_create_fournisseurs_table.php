@@ -14,19 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
-            $table->string('id', 30)->primary();
+            $table->id();
+            $table->string('identifient', 30)->unique();
             $table->string('name')->nullable(false);
             $table->string('email')->nullable(false);
             $table->string('tel')->nullable(false);
             $table->string('pays')->nullable(false);
             $table->string('adresse1')->nullable(false);
-            $table->string('adresse2')->nullable(false);
+            $table->string('adresse2');
             $table->integer('postalCode')->nullable(false);
             $table->string('city')->nullable(false);
-            $table->string('price_level')->nullable(false);
+            $table->string('price_level');
             $table->string('devise')->nullable(false);
-            $table->integer('discount')->nullable(false);
-            $table->string('taxes')->nullable(false);
+            $table->integer('discount');
+            $table->string('taxes');
             $table->timestamps();
         });
     }

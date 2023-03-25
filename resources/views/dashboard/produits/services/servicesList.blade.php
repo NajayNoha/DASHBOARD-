@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="mb-2">
-            <a href="{{Route('/produits-et-services/service/ajouter_service')}}" class="btn px-4 text-white" style="background: #57ae74;">
+            <a href="{{route(auth()->user()->role . '/produits-et-services/service/ajouter_service')}}" class="btn px-4 text-white" style="background: #57ae74;">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
         </div>
 
@@ -49,7 +49,7 @@
                                         <td>Herrod Chandler</td>
                                         <td>Sales Assistant</td>
                                         <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -57,7 +57,7 @@
                                         <td>Rhona Davidson</td>
                                         <td>Integration Specialist</td>
                                         <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -65,7 +65,7 @@
                                         <td>Colleen Hurst</td>
                                         <td>Javascript Developer</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -73,7 +73,7 @@
                                         <td>Sonya Frost</td>
                                         <td>Software Engineer</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -81,7 +81,7 @@
                                         <td>Jena Gaines</td>
                                         <td>Office Manager</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -89,7 +89,7 @@
                                         <td>Quinn Flynn</td>
                                         <td>Support Lead</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -97,7 +97,7 @@
                                         <td>Charde Marshall</td>
                                         <td>Regional Director</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>

@@ -6,9 +6,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Company;
+
 
 class User extends Authenticatable
 {
@@ -50,5 +53,9 @@ class User extends Authenticatable
         return new Attribute(
             get: fn($value) => ['employe', 'admin', "superAdmin"][$value]
         );
+    }
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class);
     }
 }

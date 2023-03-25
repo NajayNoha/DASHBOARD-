@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\routing\ProduitController;
+use App\Http\Controllers\ProduitController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VentesController;
+
 
 Route::middleware(['auth' , "user-role:admin"])->group(function()
     {
-        Route::get('/home',[ContactController::class, 'clients'])->name('home.admin');
 
         Route::get('home.admin',[ HomeController::class, "adminHome"])->name('home.admin');
         Route::get('admin/contacts/clients', [ContactController::class, 'clients'])->name('admin/contacts/clients');
@@ -107,5 +108,41 @@ Route::middleware(['auth' , "user-role:admin"])->group(function()
         Route::get('admin/ventes/bons-commande/edit/{id}',[VentesController::class,'editBoncommande'])->name('admin/ventes/bons-commande/edit');
         Route::get('admin/ventes/bons-commande/pdf',[VentesController::class,'imprimerPdfBonCommande'])->name('admin/ventes/bons-commande/pdf');
 
+        // //Bons de livraisons
+        Route::get('admin/ventes/bons-livraison/ajouter-bon-livrason',[VentesController::class,'createBonLivraison'])->name('admin/ventes/bons-livraison/ajouter-bon-livraison');
+        Route::get('admin/ventes/bons-livraison/{id}',[VentesController::class,'bonLivraisonProfile'])->name('admin/ventes/bons-livraison/profile');
+        Route::get('admin/ventes/bons-livraison',[VentesController::class,'bonsLivraison'])->name('admin/ventes/bons-livraison');
+        Route::get('admin/ventes/bons-livraison/edit/{id}',[VentesController::class,'editBonLivraison'])->name('admin/ventes/bons-livraison/edit');
+        Route::get('admin/ventes/bons-livraison/pdf',[VentesController::class,'imprimerPdfBonLivraison'])->name('admin/ventes/bons-livraison/pdf');
+
+        //Factures
+        Route::get('admin/ventes/factures',[VentesController::class,'factures'])->name('admin/ventes/factures');
+        Route::get('admin/ventes/factures/pdf',[VentesController::class,'imprimerPdffacture'])->name('admin/ventes/factures/pdf');
+        Route::get('admin/ventes/factures/ajouter-facture',[VentesController::class,'createFacture'])->name('admin/ventes/factures/ajouter-facture');
+        Route::get('admin/ventes/factures/{id}',[VentesController::class,'factureProfile'])->name('admin/ventes/factures/edit');
+
+        Route::controller(VentesController::class)
+        ->prefix('ventes')
+        ->group(function(){
+
+            /*-----------------------------Product Returns-------------------------------*/
+            Route::get('admin/product-returns','productReturns')->name('admin/ventes/product-returns/list');
+            Route::get('admin/product-returns/create','createProductReturn')->name('admin/ventes/product-returns/create');
+            Route::get('admin/product-returns/pdf','productReturnPdf')->name('admin/ventes/product-returns/Pdf');
+            Route::get('admin/product-returns/edit/{id}','editProductReturn')->name('admin/ventes/product-returns/edit');
+            Route::get('admin/product-returns/{id}','profileProductReturn')->name('admin/ventes/product-returns/profile');
+
+            /*--------------------------Avoirs--------------------------------*/
+            Route::get('admin/avoirs','listAvoirs')->name('admin/ventes/avoirs');
+            Route::get('admin/avoirs/pdf','avoirPdf')->name('admin/ventes/avoirs/pdf');
+            Route::get('admin/avoirs/edit/{id}','editAvoir')->name('admin/ventes/avoirs/edit');
+            Route::get('admin/avoirs/{id}','profiletAvoir')->name('admin/ventes/avoirs/profile');
+
+            /*-----------------------Remboursements-----------------------------*/
+            Route::get('admin/refunds','listRefunds')->name('admin/ventes/refunds');
+            Route::get('admin/refunds/pdf','refundsPdf')->name('admin/ventes/refunds/pdf');
+            Route::get('admin/refunds/edit/{id}','editRefunds')->name('admin/ventes/refunds/edit');
+            Route::get('admin/refunds/{id}','profileRefunds')->name('admin/ventes/refunds/profile');
+        });
 }
 );

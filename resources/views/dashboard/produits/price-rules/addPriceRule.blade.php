@@ -13,8 +13,8 @@
                   <h4>règle de prix</h4>
             </div>
             <ol class="breadcrumb mt-3">
-               <li class="breadcrumb-item"><a href="{{Route('/produits-et-services/regles-de-prix/list')}}">Règles de prix </a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/produits-et-services/regles-de-prix/create')}}">Creer</a></li>
+               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/list')}}">Règles de prix </a></li>
+               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/create')}}">Creer</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">

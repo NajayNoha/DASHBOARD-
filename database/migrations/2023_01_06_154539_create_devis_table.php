@@ -14,18 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('devis', function (Blueprint $table) {
-            $table->string('id', 30)->primary();
+            $table->id();
             $table->string('client')->nullable(false);
             $table->string('attention')->nullable(false);
             $table->string('ref')->nullable(false);
             $table->string('devise')->nullable(false);
-            $table->string('taxes')->nullable(false);
-            $table->string('price_level')->nullable(false);
+            $table->string('taxes');
+            $table->string('price_level');
             $table->string('adresse_facturation')->nullable(false);
             $table->string('adresse_livraison')->nullable(false);
             $table->date('date_livraison')->nullable(false);
             $table->string('products')->nullable(false);
-            $table->string('notes')->nullable(false);
+            $table->string('notes');
             $table->timestamps();
         });
     }

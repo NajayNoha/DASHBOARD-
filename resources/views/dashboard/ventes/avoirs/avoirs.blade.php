@@ -35,7 +35,7 @@
                                           <div class="mt-2 mb-2">
                                              <span class="btn btn-light">sélectionner une opération</span>
                                              <button class="btn btn-outline-danger px-3" style="margin: 0 10px;">Supprimer</button>
-                                             <a class="btn btn-outline-primary px-3" href="{{Route('ventes.avoirs.pdf')}}">Telecharger le PDF</a>
+                                             <a class="btn btn-outline-primary px-3" href="{{route(auth()->user()->role . 'ventes/avoirs/pdf')}}">Telecharger le PDF</a>
                                           </div>
                                           <!-- START BUTTON -->
                                        </td>
@@ -66,8 +66,8 @@
                                           <span class="badge badge-success text-white px-4 py-2 fs-3 ">Crédité </span>
                                         </td>
                                         <td class="d-flix gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('ventes.avoirs.edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                          <a class="btn text-white" style="background:  #57ae74;" href="{{Route('ventes.avoirs.profile',1)}}">show</a>
+                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/avoirs/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          <a class="btn text-white" style="background:  #57ae74;" href="{{route(auth()->user()->role . 'ventes/avoirs/profile',1)}}">show</a>
                                         </td>
                                     </tr>
                                 </tbody>

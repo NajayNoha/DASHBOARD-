@@ -11,8 +11,8 @@
                      <h4>Devis</h4>
                </div>
                <ol class="breadcrumb mt-3">
-                  <li class="breadcrumb-item"><a href="{{Route('ventes.devis.list')}}">Devis</a></li>
-                  <li class="breadcrumb-item active"><a href="{{Route('ventes.devis.create_devis')}}">Créer</a></li>
+                  <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . 'ventes/devis/list')}}">Devis</a></li>
+                  <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . 'ventes/devis/create_devis')}}">Créer</a></li>
                </ol>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -42,7 +42,7 @@
                                     <option value="client 1">client 1</option>
                                     <option value="client 2">client 2</option>
                                 </select>
-                                 <a href="{{Route('/contacts/ajouter_client')}}" title="Ajouter Client" class="btn  text-dark fs-4" style="border:1px solid rgba(88, 100, 170, 1);margin-left: 5px;">
+                                 <a href="{{route(auth()->user()->role . '/contacts/ajouter_client')}}" title="Ajouter Client" class="btn  text-dark fs-4" style="border:1px solid rgba(88, 100, 170, 1);margin-left: 5px;">
                                     <i class="fa-solid fa-plus" style="font-size: 1.2rem;"></i>
                                  </a>
                               </div>

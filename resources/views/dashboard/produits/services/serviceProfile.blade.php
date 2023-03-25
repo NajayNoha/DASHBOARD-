@@ -12,9 +12,9 @@
                   <h4>Services</h4>
             </div>
             <ol class="breadcrumb mt-3">
-               <li class="breadcrumb-item"><a href="{{Route('/produits-et-services/produits/services')}}">Services</a></li>
+               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/produits-et-services/produits/services')}}">Services</a></li>
                <li class="breadcrumb-item active"><a href="#">service1</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/produits-et-services/services/edit',1)}}">Modifier</a></li>
+               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}">Modifier</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">

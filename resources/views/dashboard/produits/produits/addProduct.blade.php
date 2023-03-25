@@ -12,8 +12,8 @@
                   <h4>Produits</h4>
             </div>
             <ol class="breadcrumb mt-3">
-               <li class="breadcrumb-item"><a href="{{Route('/produits-et-services/liste-produits')}}">Produits</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/produits-et-services/produits/ajouter-produit')}}">Creer</a></li>
+               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/produits-et-services/liste-produits')}}">Produits</a></li>
+               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/produits-et-services/produits/ajouter-produit')}}">Creer</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -179,7 +179,7 @@
                         transform: translate(-50% ,50%);
                         top: -12%;
                         left: 50%;
-                        " href="{{Route('/contacts/fournisseurs/ajouter_fournisseur')}}"
+                        " href="{{route(auth()->user()->role . '/contacts/fournisseurs/ajouter_fournisseur')}}"
                         >
                         <i class="fa-solid fa-plus" style="font-size: 1.2rem;"></i>
                   </a>

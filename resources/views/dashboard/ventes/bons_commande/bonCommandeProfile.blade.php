@@ -12,8 +12,8 @@
                   <h4>Bons de livraison </h4>
             </div>
             <ol class="breadcrumb mt-3">
-               <li class="breadcrumb-item"><a href="{{Route('ventes.bons-commande')}}">Bons de livraison</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('ventes.Bons-livraison.profileBonsLivraison',1)}}">SH0000001</a></li>
+               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/ventes/bons-commande')}}">Bons de livraison</a></li>
+               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . 'ventes/Bons-livraison/profileBonsLivraison',1)}}">SH0000001</a></li>
             </ol>
          </div>
          <div class="col-md-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex" style="gap:10px;">
@@ -24,7 +24,7 @@
                     PDF
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{Route('ventes.Bons-livraison.pdf')}}">Voir le PDF</a>
+                    <a class="dropdown-item" href="{{route(auth()->user()->role . 'ventes/Bons-livraison/pdf')}}">Voir le PDF</a>
                     <a class="dropdown-item" href="#">Télécharger le PDF</a>
                   </div>
                 </div>
@@ -58,7 +58,7 @@
                 <p>Facturé :  <strong>0,00 MAD </strong></p>
                 <p>Restant : 138,00 MAD</p>
                 <p>Vous n'avez pas encore créé de bon de livraison. Commencez en cliquant sur le bouton ci-dessous.</p>
-                <a href="{{Route('ventes.Bons-livraison.ajouter-bon-livraison')}}" class="btn text-white w-100" style="background: #6f7ac2">CRERR UN BON DE LIVRAISON</a>
+                <a href="{{route(auth()->user()->role . 'ventes/Bons-livraison/ajouter-bon-livraison')}}" class="btn text-white w-100" style="background: #6f7ac2">CRERR UN BON DE LIVRAISON</a>
               </div>
 
               <div class="bg-primary p-2 text-white mb-2 rounded">
@@ -68,7 +68,7 @@
                <p>Dans des bons de livraison : <strong>0</strong></p>
                <p>Restant : 1</p>
                <p>Vous n'avez pas encore créé de bon de livraison. Commencez en cliquant sur le bouton ci-dessous.</p>
-               <a href="{{Route('ventes.factures.ajouter-facture')}}" class="btn text-white w-100" style="background: #6f7ac2">CRÉER UNE FACTURE</a>
+               <a href="{{route(auth()->user()->role . 'ventes/factures/ajouter-facture')}}" class="btn text-white w-100" style="background: #6f7ac2">CRÉER UNE FACTURE</a>
              </div>
 
             </div>

@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="mb-2">
-            <a href="{{Route('/produits-et-services/produits/ajouter-produit')}}" class="btn px-4 text-white" style="background: #57ae74;">
+            <a href="{{route(auth()->user()->role . '/produits-et-services/produits/ajouter-produit')}}" class="btn px-4 text-white" style="background: #57ae74;">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
         </div>
 
@@ -54,7 +54,7 @@
                                         <td>59</td>
                                         <td>2012/08/06</td>
                                         <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -65,7 +65,7 @@
                                         <td>55</td>
                                         <td>2010/10/14</td>
                                         <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -76,7 +76,7 @@
                                         <td>39</td>
                                         <td>2009/09/15</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -87,7 +87,7 @@
                                         <td>23</td>
                                         <td>2008/12/13</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -98,7 +98,7 @@
                                         <td>30</td>
                                         <td>2008/12/19</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -109,7 +109,7 @@
                                         <td>22</td>
                                         <td>2013/03/03</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -120,7 +120,7 @@
                                         <td>36</td>
                                         <td>2008/10/16</td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/produits/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
