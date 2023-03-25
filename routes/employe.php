@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\routing\ProduitController;
+use App\Http\Controllers\VentesController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth' , "user-role:employe"])->group(function()
@@ -96,7 +97,7 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
         Route::get('employe/ventes/bons-commande/ajouter-bon-commande',[VentesController::class,'createBonCommande'])->name('employe/ventes/bons-commande/ajouter-bon-commande');
         Route::get('employe/ventes/bons-commande/{id}',[VentesController::class,'bonCommandeProfile'])->name('employe/ventes/bons-commande/profile');
         Route::get('employe/ventes/bons-commande',[VentesController::class,'bonsCommande'])->name('employe/ventes/bons-commande');
-        Route::get('employe/ventes/bons-commande/edit/{id}',[VentesController::class,'editBoncommande'])->name('employe/ventes/bons-commande/edit');
+        Route::get('employe/ventes/bons-commande/edit/{id}',[VentesController   ::class,'editBoncommande'])->name('employe/ventes/bons-commande/edit');
         Route::get('employe/ventes/bons-commande/pdf',[VentesController::class,'imprimerPdfBonCommande'])->name('employe/ventes/bons-commande/pdf');
 
 });

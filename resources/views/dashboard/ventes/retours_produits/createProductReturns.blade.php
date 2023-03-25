@@ -42,7 +42,7 @@
                                  <option selected>Client</option>
                                  <option>khalid</option>
                               </select>
-                              <a href="{{Route('/contacts/ajouter_client')}}" title="Ajouter Client" class="btn  text-dark fs-4" style="border:1px solid rgba(88, 100, 170, 1);margin-left: 5px;">
+                              <a href="{{Route(auth()->user()->role . '/contacts/ajouter_client')}}" title="Ajouter Client" class="btn  text-dark fs-4" style="border:1px solid rgba(88, 100, 170, 1);margin-left: 5px;">
                                  <i class="fa-solid fa-plus" style="font-size: 1.2rem;"></i>
                               </a>
                            </div>
