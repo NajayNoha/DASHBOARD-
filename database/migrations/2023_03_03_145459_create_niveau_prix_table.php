@@ -18,9 +18,12 @@ return new class extends Migration
             $table->integer('prix');
             $table->integer('devise');
             $table->integer('type_niveau');
-            $table->string('id_produit');
-            $table->string('id_user');
-            $table->string('id_societe');
+            $table->unsignedBigInteger('id_produit');
+            $table->foreign('id_produit')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('id_societe');
+            // id_societe is supposed to be a foreign key to the societe table.
             $table->timestamps();
         });
     }

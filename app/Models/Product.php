@@ -11,25 +11,11 @@ class Product extends Model
 {
     use HasFactory;
     protected $table = 'products';
-    protected $primaryKey = 'id';
-    protected $fillable = [
-        'sku' , 
-        'name' , 
-        'description' , 
-        'price' , 
-        'buying price',
-        'fournisseur',
-        'taxes',
-        'image',
-        'marque',
-        'pays origine',
-        'poids'
+    protected $fillable =[
+        'name' , 'sku' , 'description' , 'price' ,'devise1','buying_price','devise2',
+        'fournisseur','marque','pays_origine','poids','poids_unit','image','tax'
     ];
     public function getFournisseur(){
         return $this->hasOne(Fournisseur::class,'id','fournisseur');
-    }
-    public function taxes()
-    {
-        return $this->belongsToMany(Taxe::class , 'product_tax' , 'id_product' , 'id_taxe');
     }
 }

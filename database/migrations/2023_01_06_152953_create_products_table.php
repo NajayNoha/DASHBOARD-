@@ -19,16 +19,19 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('price');
+            $table->string('devise1');
             $table->string('buying_price');
+            $table->string('devise2');
             $table->unsignedBigInteger('fournisseur');
             $table->foreign('fournisseur')->references('id')->on('fournisseurs')->onUpdate('cascade')->onDelete('cascade');
             // $table->json('taxes');
-            // $table->unsignedBigInteger('taxes');
-            // $table->foreign('taxes')->references('id')->on('taxe')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('image' , 300);
+            $table->unsignedBigInteger('tax')->nullable();
+            $table->foreign('tax')->references('id')->on('taxes')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('image' , 300)->nullable();
             $table->string('marque');
             $table->string('pays_origine');
             $table->string('poids');
+            $table->string('poids_unit');
             $table->timestamps();
         });
     }

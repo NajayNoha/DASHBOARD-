@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Taxe extends Model
 {
-    use HasFactory;    
-    public function products()
+    use HasFactory;
+    public function products(): HasMany
     {
-        return $this->belongsToMany(Product::class , 'product_tax' , 'id_taxe' , 'id_product');
+        return $this->hasMany(Product::class, 'tax', 'id');
     }
     
 }

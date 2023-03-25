@@ -27,7 +27,12 @@
         </div>
 
         {{-- TABLE --}}
-        
+        @if (Session::has('success'))
+            <div class="alert alert-success solid alert-dismissible fade show">
+               <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+               </button> {{Session::get('success')}}
+            </div>
+         @endif
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -41,66 +46,34 @@
                                     <tr>
                                         <th>référence</th>
                                         <th>Nom</th>
+                                        <th>Prix</th>
+                                        <th>Taxe</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Herrod Chandler</td>
-                                        <td>Sales Assistant</td>
-                                        <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rhona Davidson</td>
-                                        <td>Integration Specialist</td>
-                                        <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Colleen Hurst</td>
-                                        <td>Javascript Developer</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sonya Frost</td>
-                                        <td>Software Engineer</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jena Gaines</td>
-                                        <td>Office Manager</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quinn Flynn</td>
-                                        <td>Support Lead</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Charde Marshall</td>
-                                        <td>Regional Director</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                    @foreach ($data as $item)
+                                        <tr>
+                                            <td>{{$item->reference}}</td>
+                                            <td>{{$item->nom}}</td>
+                                            <td>{{$item->prix}}</td>
+                                            @if ($item->getTaxes != null)
+                                                <td>{{$item->getTaxes->taux}}</td>
+                                                @else
+                                                    <td></td>
+                                                @endif
+                                            <td>
+                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',$item->id)}}">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="{{url('delete-service/'.$item->id)}}" style="text-decoration:none;color:white">
+                                                    <button class="btn btn-danger">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                                 {{-- <tfoot>
                                     <tr>

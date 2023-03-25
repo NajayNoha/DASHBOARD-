@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('price_level');
             $table->string('devise');
             $table->integer('discount');
-            $table->string('taxes');
+            $table->string('taxes')->nullable();
             $table->timestamps();
         });
     }

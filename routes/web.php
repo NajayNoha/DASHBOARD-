@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\VentesController;
+use App\Http\Controllers\ServiceController;
 
 
 // home page routes
@@ -81,18 +82,24 @@ Route::get('/produits-et-services/produits/ajouter-produit', [ProduitController:
 Route::post('/sauvegarder_produit', [ProduitController::class, 'save_product']);
 
 Route::get('/produits-et-services/produits/{id}', [ProduitController::class, 'product_profile'])->name('/produits-et-services/produits/edit');
+Route::post('/update_produit', [ProduitController::class, 'updateProduct']);
+Route::get('delete-produit/{id}',[ProduitController::class , 'delete_produit']);
 
 // SERVICES
-Route::get('/produits-et-services/services/liste-services', [ProduitController::class, 'services'])->name('/produits-et-services/produits/services');
+Route::get('/produits-et-services/services/liste-services', [ServiceController::class, 'services'])->name('/produits-et-services/produits/services');
 
-Route::get('/produits-et-services/service/ajouter_service', [ProduitController::class, 'add_service'])->name('/produits-et-services/service/ajouter_service');
+Route::get('/produits-et-services/service/ajouter_service', [ServiceController::class, 'add_service'])->name('/produits-et-services/service/ajouter_service');
 
-Route::get('/produits-et-services/services/{id}', [ProduitController::class, 'service_profile'])->name('/produits-et-services/services/edit');
+Route::post('/save_service',[ServiceController::class , 'save_service']);
 
+Route::get('/produits-et-services/services/{id}', [ServiceController::class, 'service_profile'])->name('/produits-et-services/services/edit');
+Route::post('/update_service',[ServiceController::class , 'update_service']);
+Route::get('delete-service/{id}',[ServiceController::class , 'delete_service']);
 
 //---------------------------         price-update   -------------------------------------
 
 Route::get('/produits-et-services/mise-a-jour-prix',[ProduitController::class,'price_update'])->name('/produits-et-services/price-update/edit');
+Route::post('/save_update',[ProduitController::class , 'save_price_update']);
 
 //---------------------------         price_rules   -------------------------------------
 Route::get('/produits-et-services/regles-de-prix',[ProduitController::class,'price_rules'])->name('/produits-et-services/regles-de-prix/list');
