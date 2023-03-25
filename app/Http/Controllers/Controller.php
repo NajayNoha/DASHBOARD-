@@ -11,9 +11,9 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
 
 
-    public function error404()
+    public function index()
     {
-        return view('./errors/404');
+        return view('home');
     }
 
     public function error404()

@@ -392,7 +392,7 @@ class ContactController extends Controller
 
         // insertion des donnees :
         $fournisseur = new Fournisseur();
-        $fournisseur->id = $request->id;
+        $fournisseur->identifient = $request->id;
         $fournisseur->name = $request->name;
         $fournisseur->email = $request->email;
         $fournisseur->tel = $request->tel;

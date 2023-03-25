@@ -1,7 +1,7 @@
 
 @extends('...layouts.app')
 
-@section("content
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form action="#"  enctype="application/x-www-form-urlencoded">
