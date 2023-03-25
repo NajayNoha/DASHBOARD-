@@ -1,7 +1,7 @@
 
 @extends('...layouts.app')
 
-@section("content
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form action="#"  enctype="application/x-www-form-urlencoded">
@@ -122,6 +122,7 @@
                      </div>
                   </div>
                   </div>
+
                </div>
 
                {{--END APPLIQUE TAXE --}}
@@ -129,14 +130,13 @@
             </div>
 
       </div>
-      </div>
-         </div>
 
       </form>
 
    </div>
 </div>
 @endsection
+
 @section('css')
        {{-- SELECT --}}
        <link rel="stylesheet" href="./../../vendor/select2/css/select2.min.css">

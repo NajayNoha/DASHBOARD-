@@ -46,7 +46,7 @@
                            <div class="form-row">
                               <div class="form-group col-md-12">
                                  <label class="text-dark fs-4">Nom de Fournisseur</label>
-                                 <input type="text" class="form-control"  placeholder="Nom de Fournisseur" name="name" style="border:1px solid rgba(88, 100, 170, 1)" value="{{old('name')}}">
+                                 <input type="text" class="form-control" name="name" placeholder="Nom" style="border:1px solid rgba(88, 100, 170, 1)" value="{{old('name')}}">
                               </div>
                               @error('name')
                                  <div class="form-group col-md-12">

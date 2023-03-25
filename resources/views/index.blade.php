@@ -1,329 +1,329 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="en">
+@section("ClientContent")
+<div class="content-body">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Focus - Bootstrap Admin Dashboard </title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href={{asset("../images/favicon.png")}}>
-    <link rel="stylesheet" href={{asset("../../vendor/owl-carousel/css/owl.carousel.min.css")}}>
-    <link rel="stylesheet" href={{asset("../../vendor/owl-carousel/css/owl.theme.default.min.css")}}>
-    <link href={{asset("../../vendor/jqvmap/css/jqvmap.min.css")}} rel="stylesheet">
-    <link href={{asset("../../css/style.css")}} rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
-</head>
-
-<body>
-
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="sk-three-bounce">
-            <div class="sk-child sk-bounce1"></div>
-            <div class="sk-child sk-bounce2"></div>
-            <div class="sk-child sk-bounce3"></div>
-        </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-
-
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
-    <div id="main-wrapper">
-
-        <!--**********************************
-            Nav header start
-        ***********************************-->
-        <div class="nav-header">
-            <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="./images/logo.png" alt="">
-                <img class="logo-compact" src="./images/logo-text.png" alt="">
-                <img class="brand-title" src="./images/logo-text.png" alt="">
-            </a>
-
-            <div class="nav-control">
-                <div class="hamburger">
-                    <span class="line"></span><span class="line"></span><span class="line"></span>
-                </div>
+   <div class="container-fluid">
+      <div class="row page-titles mx-0">
+         <div class="col-sm-6 p-md-0">
+            <div class="welcome-text">
+               <h4>Tableau de bord</h4>
             </div>
-        </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
-
-        <!--**********************************
-            Header start
-        ***********************************-->
-        <div class="header">
-            <div class="header-content">
-                <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
-                            <div class="search_bar dropdown">
-                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
-                                    <i class="mdi mdi-magnify"></i>
-                                </span>
-                                <div class="dropdown-menu p-0 m-0">
-                                    <form>
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <ul class="navbar-nav header-right">
-                            <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-bell"></i>
-                                    <div class="pulse-css"></div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <ul class="list-unstyled">
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-user"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Martin</strong> has added a <strong>customer</strong> Successfully
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-shopping-cart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Jennifer</strong> purchased Light Dashboard 2.0.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="danger"><i class="ti-bookmark"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Robin</strong> marked a <strong>ticket</strong> as unsolved.
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-heart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>David</strong> purchased Light Dashboard 1.0.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-image"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong> James.</strong> has added a<strong>customer</strong> Successfully
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                    </ul>
-                                    <a class="all-notification" href="#">See all notifications <i
-                                            class="ti-arrow-right"></i></a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown header-profile">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-account"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./app-profile.html" class="dropdown-item">
-                                        <i class="icon-user"></i>
-                                        <span class="ml-2">Profile </span>
-                                    </a>
-                                    <a href="./email-inbox.html" class="dropdown-item">
-                                        <i class="icon-envelope-open"></i>
-                                        <span class="ml-2">Inbox </span>
-                                    </a>
-                                    <a href="./page-login.html" class="dropdown-item">
-                                        <i class="icon-key"></i>
-                                        <span class="ml-2">Logout </span>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+         </div>
+         <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+            <div class="dropdown">
+               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  PERSONNALISER
+               </button>
+               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 200px;">
+                  <h5 class="text-center p-2" style="background: #c8dae6;margin-top: -10px;">Widgets</h5>
+                  <div class="dropdown-item" style="display: flex; gap: 2rem">
+                     <input type="checkbox" class="form-check-input">
+                     <p class="text-dark font-weight-bold">Expédié ce mois-ci</p>
+                  </div>
+                  <div class="dropdown-item" style="display: flex; gap: 2rem">
+                     <input type="checkbox" class="form-check-input">
+                     <p class="text-dark font-weight-bold">Expédié le mois dernier</p>
+                  </div>
+                  <div class="dropdown-item" style="display: flex; gap: 2rem">
+                     <input type="checkbox" class="form-check-input">
+                     <p class="text-dark font-weight-bold">Facture cette année</p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
-        <div class="quixnav">
-            <div class="quixnav-scroll">
-                <ul class="metismenu" id="menu">
-                    <li class="nav-label first">Menu Principal</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-speedometer"></i>
-                        <span class="nav-text">Tableau de bord</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./index.html">Tableau de bord 1</a></li>
-                            <li><a href="./index2.html">Tableau de bord 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="bi bi-person-rolodex"></i><span class="nav-text">Contacts</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href=" {{ Route(auth()->user()->role . '/contacts/clients') }}">Clients</a></li>
-                            <li><a href="./app-profile.html">Fournisseurs</a></li>
-                            <li><a href="./app-calender.html">Employés</a></li>
-                            <li><a href="./app-calender.html">Paramètres des contacts</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="bi bi-box-seam"></i><span class="nav-text">Produits</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Produits</a></li>
-                            <li><a href="./chart-morris.html">Services</a></li>
-                            <li><a href="./chart-chartjs.html">Mise à jour des prix</a></li>
-                            <li><a href="./chart-chartist.html">Lots</a></li>
-                            <li><a href="./chart-sparkline.html">Règles de prix</a></li>
-                            <li><a href="./chart-peity.html">Paramètres des produits</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-cart-dash"></i>
-                        <span class="nav-text">Ventes</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.html">Devis</a></li>
-                            <li><a href="./ui-alert.html">Bons de commande</a></li>
-                            <li><a href="./ui-badge.html">Bons de livraison</a></li>
-                            <li><a href="./ui-button.html">Factures</a></li>
-                            <li><a href="./ui-modal.html">Retours produits</a></li>
-                            <li><a href="./ui-button-group.html">Avoirs</a></li>
-                            <li><a href="./ui-list-group.html">Remboursements</a></li>
-                            <li><a href="./ui-media-object.html">Abonnements</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="widget-basic.html" aria-expanded="false"><i class="bi bi-bar-chart-fill"></i><span
-                                class="nav-text">Rapports</span></a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-person-gear"></i><span class="nav-text">Paramètres</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./form-element.html">Paramétres de l'entreprise</a></li>
-                            <li><a href="./form-wizard.html">Devises</a></li>
-                            <li><a href="./form-editor-summernote.html">Importer des données</a></li>
-                            <li><a href="form-pickers.html">Moyens de paiments</a></li>
-                            <li><a href="form-validation-jquery.html">Paramétres PDF</a></li>
-                            <li><a href="form-validation-jquery.html">Niveaux de prix</a></li>
-                            <li><a href="form-validation-jquery.html">Taxes</a></li>
-                            <li><a href="form-validation-jquery.html">Utilisateurs</a></li>
-                        </ul>
-                    </li>
-                </ul>
+         </div>
+      </div>
+      <!--start row -->
+      <div class="row">
+         <div class="col-md-3">
+            <div class="card">
+               <div class="card-body">
+                  <div class="d-flex" style="gap: 1.2rem;">
+                     <div class="rounded-circle bg-warning d-flex justify-content-center align-items-center"
+                        style="height: 60px;width: 60px;">
+                        <span style="font-size: 2rem;color: white;"><i class="fa-solid fa-cube"></i></span>
+                     </div>
+                     <div>
+                        <h3 style="margin: 0;">2</h3>
+                        <p class="text-muted" style="margin: 0;">Expédié ce mois-ci</p>
+                     </div>
+                  </div>
+               </div>
             </div>
+         </div>
 
-
-        </div>
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
-
-        <!--**********************************
-            Content body start
-        ***********************************-->
-        <div class="content-body">
-            <!-- row -->
-            <div class="container-fluid">
-                <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Clients</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Contacts</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Client</a></li>
-                        </ol>
-                    </div>
-                </div>
+         <div class="col-md-3">
+            <div class="card">
+               <div class="card-body">
+                  <div class="d-flex" style="gap: 1.2rem;">
+                     <div class="rounded-circle bg-primary d-flex justify-content-center align-items-center"
+                        style="height: 60px;width: 60px;">
+                        <span style="font-size: 2rem;color: white;"><i class="fa-solid fa-cube"></i></span>
+                     </div>
+                     <div>
+                        <h3 style="margin: 0;">0.00 MAD</h3>
+                        <p class="text-muted" style="margin: 0;">Facturé ce mois-ci</p>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
+         </div>
 
-
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="https://eysi.net" target="_blank">EYSI</a> 2023</p>
+         <div class="col-md-3">
+            <div class="card">
+               <div class="card-body">
+                  <div class="d-flex" style="gap: 1.2rem;">
+                     <div class="rounded-circle bg-primary d-flex justify-content-center align-items-center"
+                        style="height: 60px;width: 60px;">
+                        <span style="font-size: 2rem;color: white;"><i class="fa-solid fa-cube"></i></span>
+                     </div>
+                     <div>
+                        <h3 style="margin: 0;">0.00 MAD</h3>
+                        <p class="text-muted" style="margin: 0;">Facturé le mois dernier</p>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
+         </div>
 
-        <!--**********************************
-           Support ticket button start
-        ***********************************-->
+         <div class="col-md-3">
+            <div class="card">
+               <div class="card-body">
+                  <div class="d-flex" style="gap: 1.2rem;">
+                     <div class="rounded-circle bg-primary d-flex justify-content-center align-items-center"
+                        style="height: 60px;width: 60px;">
+                        <span style="font-size: 2rem;color: white;"><i class="fa-solid fa-cube"></i></span>
+                     </div>
+                     <div>
+                        <h3 style="margin: 0;">483.20 MAD</h3>
+                        <p class="text-muted" style="margin: 0;">Facturé cette semaine</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end row -->
 
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
+      <!-- strat row -->
+      <div class="row">
+         <!--start Commandes a expedier -->
+         <div class="col-md-6">
+            <div class="card">
+               <div class="card-header">
+                  <h3 style="margin: 0;">Commandes a expedier</h3>
+               </div>
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-bordered table-hover">
+                        <thead>
+                           <tr>
+                              <th style="color:rgb(72, 69, 79)"> BON DE COMMANDE</th>
+                              <th style="color:rgb(72, 69, 79)">CLIENT</th>
+                              <th style="color:rgb(72, 69, 79)">DATE DE LIVRAISON</th>
+                              <th style="color:rgb(72, 69, 79)">QUANTITÉS</th>
+                              <th style="color:rgb(72, 69, 79)">EXPÉDIÉ</th>
+                              <th style="color:rgb(72, 69, 79)">TOTAL</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr style="cursor: pointer">
+                              <td>1000001</td>
+                              <td>KHALID</td>
+                              <td>15 mars 2023</td>
+                              <td>2</td>
+                              <td>0</td>
+                              <td>209,00 MAD</td>
+                           </tr>
 
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--end Commandes a expedier -->
+         <!--start Nouvelles factures -->
+         <div class="col-md-6">
+            <div class="card">
+               <div class="card-header">
+                  <h3 style="margin: 0;">Nouvelles factures</h3>
+               </div>
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-bordered table-hover">
+                        <thead>
+                           <tr>
+                              <th style="color:rgb(72, 69, 79)">FACTURE # </th>
+                              <th style="color:rgb(72, 69, 79)">CLIENT</th>
+                              <th style="color:rgb(72, 69, 79)">ÉCHÉANCE</th>
+                              <th style="color:rgb(72, 69, 79)">TOTAL</th>
+                              <th style="color:rgb(72, 69, 79)">PAYÉ</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>1000001</td>
+                              <td>KHALID</td>
+                              <td>15 mars 2023</td>
+                              <td>
+                                 209,00 MAD
+                              </td>
+                              <td>0</td>
+                           </tr>
 
-    </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--end Nouvelles factures -->
+      </div>
+      <!-- end row -->
+      <!-- start row -->
+      <div class="row">
+         <!--start Nouveaux clients -->
+         <div class="col-md-6">
+            <div class="card">
+               <div class="card-header">
+                  <h3 style="margin: 0;">Nouveaux clients</h3>
+               </div>
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-bordered table-hover">
+                        <thead>
+                           <tr>
+                              <th style="color:rgb(72, 69, 79)">NOM</th>
+                              <th style="color:rgb(72, 69, 79)">IDENTIFIANT CLIENT</th>
+                              <th style="color:rgb(72, 69, 79)">E-MAILS</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>khalid</td>
+                              <td>A0000001</td>
+                              <td>lafhalkhalid@gmail.com</td>
+                           </tr>
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
-    <script src="./vendor/global/global.min.js"></script>
-    <script src="./js/quixnav-init.js"></script>
-    <script src="./js/custom.min.js"></script>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--end Nouveaux clients -->
+         <!--start Factures en retard-->
+         <div class="col-md-6">
+            <div class="card">
+               <div class="card-header">
+                  <h3 style="margin: 0;">Factures en retard</h3>
+               </div>
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-bordered table-hover">
+                        <thead>
+                           <tr>
+                              <th style="color:rgb(72, 69, 79)">FACTURE # </th>
+                              <th style="color:rgb(72, 69, 79)">CLIENT</th>
+                              <th style="color:rgb(72, 69, 79)">ÉCHÉANCE</th>
+                              <th style="color:rgb(72, 69, 79)">TOTAL</th>
+                              <th style="color:rgb(72, 69, 79)">PAYÉ</th>
+                              <th style="color:rgb(72, 69, 79)">TOTAL</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>1000001</td>
+                              <td>KHALID</td>
+                              <td>15 mars 2023</td>
+                              <td>209,00 MAD</td>
+                              <td>0</td>
+                              <td>274.20 MAD</td>
+                           </tr>
 
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--end Factures en retard -->
+         <!--start Nouveaux bons de commande -->
+         <div class="col-md-6">
+            <div class="card">
+               <div class="card-header">
+                  <h3 style="margin: 0;">Nouveaux bons de commande</h3>
+               </div>
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-bordered table-hover">
+                        <thead>
+                           <tr>
+                              <th style="color:rgb(72, 69, 79)"> BON DE COMMANDE</th>
+                              <th style="color:rgb(72, 69, 79)">CLIENT</th>
+                              <th style="color:rgb(72, 69, 79)">DATE DE LIVRAISON</th>
+                              <th style="color:rgb(72, 69, 79)">QUANTITÉS</th>
+                              <th style="color:rgb(72, 69, 79)">EXPÉDIÉ</th>
+                              <th style="color:rgb(72, 69, 79)">TOTAL</th>
+                              <th style="color:rgb(72, 69, 79)">FACTURÉS</th>
 
-    <!-- Vectormap -->
-    <script src="./vendor/raphael/raphael.min.js"></script>
-    <script src="./vendor/morris/morris.min.js"></script>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr style="cursor: pointer">
+                              <td>1000001</td>
+                              <td>KHALID</td>
+                              <td>15 mars 2023</td>
+                              <td>2</td>
+                              <td>0</td>
+                              <td>209,00 MAD</td>
+                              <td>209</td>
+                           </tr>
 
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--end Nouveaux bons de commande-->
+         <!--start Factures en retard -->
+         <div class="col-md-6">
+            <div class="card">
+               <div class="card-header">
+                  <h3 style="margin: 0;">Bons de livraison en attente</h3>
+               </div>
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-bordered table-hover">
+                        <thead>
+                           <tr>
+                              <th style="color:rgb(72, 69, 79)">Bons de livraison #</th>
+                              <th style="color:rgb(72, 69, 79)">CLIENT</th>
+                              <th style="color:rgb(72, 69, 79)">DATE DE LIVRAISON</th>
+                              <th style="color:rgb(72, 69, 79)">QUANTITÉS</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>1000001</td>
+                              <td>KHALID</td>
+                              <td>15 mars 2023</td>
+                              <td>0</td>
+                           </tr>
 
-    <script src="./vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="./vendor/chart.js/Chart.bundle.min.js"></script>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--end Factures en retard-->
+      </div>
+      <!-- end row-->
+   </div>
 
-    <script src="./vendor/gaugeJS/dist/gauge.min.js"></script>
-
-    <!--  flot-chart js -->
-    <script src="./vendor/flot/jquery.flot.js"></script>
-    <script src="./vendor/flot/jquery.flot.resize.js"></script>
-
-    <!-- Owl Carousel -->
-    <script src="./vendor/owl-carousel/js/owl.carousel.min.js"></script>
-
-    <!-- Counter Up -->
-    <script src="./vendor/jqvmap/js/jquery.vmap.min.js"></script>
-    <script src="./vendor/jqvmap/js/jquery.vmap.usa.js"></script>
-    <script src="./vendor/jquery.counterup/jquery.counterup.min.js"></script>
-
-
-    <script src="./js/dashboard/dashboard-1.js"></script>
-
-</body>
-
-</html>
+</div>
+@endsection

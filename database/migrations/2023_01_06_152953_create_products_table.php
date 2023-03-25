@@ -20,8 +20,15 @@ return new class extends Migration
             $table->string('description');
             $table->string('price');
             $table->string('buying_price');
-            $table->string('fournisseur');
-            $table->string('taxes');
+            $table->unsignedBigInteger('fournisseur');
+            $table->foreign('fournisseur')->references('id')->on('fournisseurs')->onUpdate('cascade')->onDelete('cascade');
+            // $table->json('taxes');
+            // $table->unsignedBigInteger('taxes');
+            // $table->foreign('taxes')->references('id')->on('taxe')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('image' , 300);
+            $table->string('marque');
+            $table->string('pays_origine');
+            $table->string('poids');
             $table->timestamps();
         });
     }

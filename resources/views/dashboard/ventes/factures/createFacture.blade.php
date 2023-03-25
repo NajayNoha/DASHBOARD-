@@ -101,7 +101,6 @@
                   </div>
                   <div class="card-body">
                      <div class="basic-form">
-
                         <div class="form-row">
 
                            <div class="form-group col-md-12">
@@ -179,7 +178,6 @@
                         <p class="text-dark m-0">MOROCCO</p>
                         <p class="text-dark m-0">Téléphone : 064834822</p>
                      </div>
-
                         <div class="form-row">
                            <!-- Button trigger modal -->
                            <button class="btn btn-primary col-md-12" data-toggle="modal" data-target="#basicModal1">MODIFIER L'ADRESSE</button>
@@ -232,7 +230,6 @@
                                                 <input type="text" class="form-control"  name="adresse1" placeholder="Address 2" style="border:1px solid rgba(88, 100, 170, 1)">
                                              </div>
                                           </div>
-
 
                                           <div class="form-row">
                                              <div class="form-group col-md-6">
@@ -501,7 +498,6 @@
          <!--**********************************
             start Fichiers attachés
          ***********************************-->
-
          {{-- <div class="row"> --}}
             <!-- start File -->
             <div class="col-md-12">

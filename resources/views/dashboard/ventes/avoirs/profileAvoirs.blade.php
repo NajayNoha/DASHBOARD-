@@ -75,7 +75,6 @@
                     </ul>
                     <div class="tab-content">
                         <div id="bonlivraison" class="tab-pane fade active show">
-
                           <div class="card mt-3">
                             <div class="card-body">
                               <div class="basic-form">
@@ -137,7 +136,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         <tr scope="row">
                                             <td>
                                               0258341

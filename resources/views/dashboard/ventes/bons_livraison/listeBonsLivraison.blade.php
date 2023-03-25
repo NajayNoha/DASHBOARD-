@@ -23,7 +23,6 @@
         </div>
 
         {{-- TABLE --}}
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -32,7 +31,6 @@
                            <!--start form -->
                            <form action="#" >
                             <table id="example" class="display" style="min-width: 845px">
-
                                 <thead>
                                     <tr>
                                        <td colspan="6">
@@ -60,7 +58,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <tr>
                                           <td>
                                              <input type="checkbox" style="margin-right: 5px;">

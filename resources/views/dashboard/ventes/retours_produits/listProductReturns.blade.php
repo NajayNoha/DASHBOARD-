@@ -34,7 +34,6 @@
                            <!--start form -->
                            <form action="#" >
                             <table id="example" class="display" style="min-width: 845px">
-
                                 <thead>
                                     <tr>
                                        <td colspan="6">

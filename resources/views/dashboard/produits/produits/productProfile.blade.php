@@ -104,7 +104,6 @@
                                     <label class="text-dark fs-4">Recommended Retail Price</label>
                                     <input type="text" class="form-control" placeholder="Recommended Retail Price" name="adresse_tel" style="border:1px solid rgba(88, 100, 170, 1)">
                                  </div>
-
                                  <div class="form-group mt-2" style="margin-left: 5px;">
                                     <label class="text-dark fs-4"></label>
                                     <select id="inputState" class="form-control" style="border:1px solid rgba(88, 100, 170, 1);background: rgba(88, 100, 170, 1);color:#ffff ; ">

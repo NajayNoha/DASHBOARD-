@@ -1,10 +1,9 @@
-
 @extends('...layouts.app')
 
-@section("content")
+@section("ClientContent")
 <div class="content-body">
 
-    <div class="container-fluid">
+   <div class="container-fluid">
 
       <div class="row page-titles mx-0">
          <div class="col-md-6 p-md-0">

@@ -64,7 +64,6 @@
                 <div class="custom-tab-1">
                     <div class="tab-content">
                         <div id="bonlivraison" class="tab-pane fade active show">
-
                           <div class="card mt-3">
                             <div class="card-body">
                               <div class="basic-form">
@@ -127,7 +126,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         <tr scope="row">
                                             <td>p1</td>
                                             <td>0.00 MAD</td>

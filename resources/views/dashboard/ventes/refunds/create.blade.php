@@ -204,7 +204,6 @@
                                              </div>
                                           </div>
 
-
                                           <div class="form-row">
                                              <div class="form-group col-md-6">
                                                 <label class="text-dark fs-4">Code Postal</label>
@@ -473,7 +472,6 @@
          <!--**********************************
             start Fichiers attachés
          ***********************************-->
-
          <div class="row">
             <!-- start File -->
             <div class="col-md-12">

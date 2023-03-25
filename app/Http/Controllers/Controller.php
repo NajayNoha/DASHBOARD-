@@ -15,4 +15,9 @@ class Controller extends BaseController
     {
         return view('./errors/404');
     }
+
+    public function error404()
+    {
+        return view('./errors/404');
+    }
 }
