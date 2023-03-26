@@ -1,6 +1,6 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form action="#"  enctype="application/x-www-form-urlencoded" onsubmit="event.preventDefault()">

@@ -20,13 +20,14 @@
          display: flex;
          justify-content: center;
          align-items: center;
-         height: 100vh;
+         min-height: 100vh;
       }
       .devis{
          width:750px;
-         height: 100vh;
+         min-height: 100vh;
+         height: max-content;
          background:#ffff ;
-         padding: 35px 20px;
+         padding: 40px 40px;
       }
       .socioteLogo{
 
@@ -41,7 +42,7 @@
 
       }
       .devis img{
-         width: 70px;
+         width: 90px;
          height: 70px;
          overflow: hidden;
       }
@@ -80,36 +81,38 @@
          </div>
 
          <div class="row mt-4 pt-4">
-             <table class="table table-bordered">
-               <thead style="background: #d7d7d7" >
-                 <tr>
-                   <th scope="col">SKU</th>
-                   <th scope="col">Description</th>
-                   <th scope="col">Qte</th>
-                   <th scope="col">Prix</th>
-                   <th scope="col">Taxes</th>
-                   <th scope="col">Total</th>
-                 </tr>
-               </thead>
-               <tbody>
-                 <tr>
-                   <td>e12005</td>
-                   <td>desc1</td>
-                   <td>2</td>
-                   <td>1200</td>
-                   <td>0.00</td>
-                   <td>2400</td>
-                 </tr>
-                 <tr>
-                  <td>e12005</td>
-                  <td>desc1</td>
-                  <td>2</td>
-                  <td>1200</td>
-                  <td>0.00</td>
-                  <td>2400</td>
-                </tr>
-               </tbody>
-             </table>
+            <div class="col-md-12">
+               <table class="table table-bordered">
+                  <thead style="background: #d7d7d7" >
+                  <tr>
+                     <th scope="col">SKU</th>
+                     <th scope="col">Description</th>
+                     <th scope="col">Qte</th>
+                     <th scope="col">Prix</th>
+                     <th scope="col">Taxes</th>
+                     <th scope="col">Total</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                     <td>e12005</td>
+                     <td>desc1</td>
+                     <td>2</td>
+                     <td>1200</td>
+                     <td>0.00</td>
+                     <td>2400</td>
+                  </tr>
+                  <tr>
+                     <td>e12005</td>
+                     <td>desc1</td>
+                     <td>2</td>
+                     <td>1200</td>
+                     <td>0.00</td>
+                     <td>2400</td>
+                  </tr>
+                  </tbody>
+               </table>
+            </div>
          </div>
 
          <div class="row mt-2 pt-2 d-flex justify-content-end">

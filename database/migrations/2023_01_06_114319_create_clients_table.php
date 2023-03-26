@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('id', 30)->primary();
             $table->string('name')->nullable(false);
             $table->string('email')->nullable(false);
-            $table->string('website');
+            $table->string('website')->nullable(false);
             $table->string('tel')->nullable(false);
             $table->string('taxe_number');
             $table->string('adresse_lib')->nullable(false);

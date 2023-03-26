@@ -185,7 +185,7 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="bi bi-person-rolodex"></i><span class="nav-text">Contacts</span></a>
                         <ul aria-expanded="false">
-                            <li><a href=" {{ route('/contacts/clients') }}">Clients</a></li>
+                            <li><a href=" {{ Route(auth()->user()->role . '/contacts/clients') }}">Clients</a></li>
                             <li><a href="./app-profile.html">Fournisseurs</a></li>
                             <li><a href="./app-calender.html">Employés</a></li>
                             <li><a href="./app-calender.html">Paramètres des contacts</a></li>

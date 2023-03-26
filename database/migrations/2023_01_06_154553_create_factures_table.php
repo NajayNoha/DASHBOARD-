@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('facture', function (Blueprint $table) {
+        Schema::create('factures', function (Blueprint $table) {
             $table->string('id', 30)->primary();
             $table->string('client')->references('id')->on('product');
             $table->string('attention');
@@ -28,8 +28,9 @@ return new class extends Migration
             $table->string('cout_livraison');
             $table->string('taxes_livraison');
             $table->string('adresse_livraison')->nullable(false);
-            $table->foreignId('product_id')->constrained('products');
-            $table->string('notes');
+            $table->string('products')->nullable(false);
+            
+            $table->string('notes')->nullable(false);
             $table->timestamps();
         });
     }

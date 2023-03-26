@@ -1,6 +1,6 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form action="#"  enctype="application/x-www-form-urlencoded" onsubmit="event.preventDefault()">
@@ -121,7 +121,7 @@
                      start facturation
             ***********************************-->
             <!--**********************************
-                     start  Livraison 
+                     start  Livraison
             ***********************************-->
             <div class="col-md-3">
                <div class="card">
@@ -155,7 +155,7 @@
                            <!-- Button trigger modal -->
                            <button class="btn btn-primary col-md-12" data-toggle="modal" data-target="#basicModal1">MODIFIER L'ADRESSE</button>
                            <!--**********************************
-                                    start Modal 
+                                    start Modal
                            ***********************************-->
                            <div class="modal fade" id="basicModal1" style="min-width: 500px;">
                               <div class="modal-dialog" role="document">
@@ -204,7 +204,7 @@
                                              </div>
                                           </div>
 
-                                          
+
                                           <div class="form-row">
                                              <div class="form-group col-md-6">
                                                 <label class="text-dark fs-4">Code Postal</label>
@@ -225,7 +225,7 @@
                               </div>
                            </div>
                            <!--**********************************
-                                    end Modal 
+                                    end Modal
                            ***********************************-->
                         </div>
                      </div>
@@ -235,12 +235,12 @@
 
             </div>
             <!--**********************************
-                     end  Livraison 
+                     end  Livraison
             ***********************************-->
          </div>
          {{-- end row --}}
          <!--**********************************
-               start   row 
+               start   row
          ***********************************-->
          <div class="row">
             <!--**********************************
@@ -276,7 +276,7 @@
                                  <option value="taxe2">taxe 2</option>
                            </select>
                            </div>
-                           <div class="form-group col-md-3"> 
+                           <div class="form-group col-md-3">
                               <label for="" class="text-dark fs-4">Niveau de prix</label>
                               <select class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
                                  <option value="Whole Price">Whole Price</option>
@@ -294,7 +294,7 @@
                               </div>
                               <label for="" class="text-dark fs-4">Inclure les taxes dans les prix unitaires</label>
                            </div>
-                           <div class="form-group col-md-3"> 
+                           <div class="form-group col-md-3">
                               <label for="" class="text-dark fs-4">Taux de change</label>
                               <input type="text" value="10" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
@@ -398,7 +398,7 @@
                     <hr>
 
                     <!--Remise Gloal -->
-                    <div style="display: flex;justify-content: flex-end"> 
+                    <div style="display: flex;justify-content: flex-end">
                      <div class="col-md-5" style="padding:15px 20px;border:1px solid rgb(186, 192, 224);">
                         <div class="basic-form">
                            <div class="form-row" style="">
@@ -450,7 +450,7 @@
             end Produit ou service
          ***********************************-->
          <!--**********************************
-            start start Note 
+            start start Note
          ***********************************-->
          </div>
          </div>
@@ -467,12 +467,12 @@
             </div>
          </div>
          <!--**********************************
-            end start Note 
+            end start Note
          ***********************************-->
          <!--**********************************
             start Fichiers attachés
          ***********************************-->
-   
+
          <div class="row">
             <!-- start File -->
             <div class="col-md-12">

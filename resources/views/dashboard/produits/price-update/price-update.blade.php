@@ -4,7 +4,7 @@
 @section('title')
 Mise à jour des prix
 @endsection
-@section("ClientContent")
+@section("content")
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">

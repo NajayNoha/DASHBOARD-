@@ -5,7 +5,9 @@ use App\Models\Client;
 use App\Models\Employe;
 use App\Models\Country;
 use App\Models\Fournisseur;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ContactController extends Controller
 {
@@ -22,7 +24,7 @@ class ContactController extends Controller
     public function save_client(Request $request)
     {
 
-        
+
 
         // data validation
         $request->validate(
@@ -201,7 +203,7 @@ class ContactController extends Controller
     public function employes()
     {
         $data = Employe::get();
-        // 
+        //
         // return $data;
         return view('./dashboard/contacts/employes/employeesList' , compact('data'));
     }
@@ -260,10 +262,16 @@ class ContactController extends Controller
         $employe->city = $request->city;
         $employe->employer = $request->employer;
         $employe->position = $request->position;
-        $employe->save();
-
-        // session:
-        return redirect()->back()->with('success' , "Employé ajouté avec succés");
+        $user = new User();
+        $user->name = $request->firstName . $request->lastName;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->email . "EYSI");
+        if($employe->save() && $user->save()){
+            // session:
+            return redirect()->back()->with('success' , "Employé ajouté avec succés");
+        }else {
+            return redirect()->back()->with('failed' , "il y a un problem dans la creation d'employe essaye encore ");
+        }
     }
 
     public function employee_profile($id)

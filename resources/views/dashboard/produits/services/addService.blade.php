@@ -1,7 +1,7 @@
 
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form method="POST" action="/save_service"  enctype="application/x-www-form-urlencoded">

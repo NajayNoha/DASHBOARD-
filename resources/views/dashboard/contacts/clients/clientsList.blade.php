@@ -1,6 +1,6 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
     <!-- row -->
 
@@ -25,12 +25,12 @@
          </div>
          @endif
         <div class="mb-2">
-            <a href="{{Route('/contacts/ajouter_client')}}" class="btn btn-success px-4 text-white">
+            <a href="{{Route(auth()->user()->role . '/contacts/ajouter_client')}}" class="btn btn-success px-4 text-white">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
         </div>
 
         {{-- TABLE --}}
-        
+
         <div class="row">
             <div class="col-12">
                 <div class="card">

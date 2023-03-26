@@ -1,6 +1,6 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form method="POST" action="/sauvegarder_client" enctype="application/x-www-form-urlencoded">
@@ -13,8 +13,8 @@
             </div>
             <ol class="breadcrumb mt-3">
                <li class="breadcrumb-item"><a href="#">Contacts</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/contacts/clients')}}">Client</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/contacts/ajouter_client')}}">Create</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role. '/contacts/clients')}}">Client</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role. '/contacts/ajouter_client')}}">Create</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -298,8 +298,8 @@
                            </div>
                         </div>
                      </div>
-            
-            
+
+
                   </div>
                </div>
                {{-------------------- END Detailed information--------------------------}}

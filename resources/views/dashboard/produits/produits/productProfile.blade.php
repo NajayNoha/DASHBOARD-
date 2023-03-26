@@ -12,7 +12,7 @@
          </div> --}}
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form action="/update_produit" method="POST"  enctype="multipart/form-data" id="profile_form">

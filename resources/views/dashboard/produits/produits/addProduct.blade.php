@@ -11,7 +11,7 @@
    </button> WOW! Eveything looks OK
 </div> --}}
 @extends('...layouts.app')
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form action="/sauvegarder_produit" method="POST" enctype="multipart/form-data">

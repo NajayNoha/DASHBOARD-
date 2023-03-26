@@ -1,5 +1,5 @@
 @extends('...layouts.app')
-@section("ClientContent")
+@section("content")
 <div class="content-body">
     <!-- row -->
 
