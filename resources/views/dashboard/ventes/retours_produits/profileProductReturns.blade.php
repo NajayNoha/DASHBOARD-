@@ -12,7 +12,7 @@
                   <h4>Retours produits</h4>
             </div>
             <ol class="breadcrumb mt-3">
-               <li class="breadcrumb-item"><a href="{{Route('ventes.product-returns.list')}}">Retours produits </a></li>
+               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . 'ventes/product-returns/list')}}">Retours produits </a></li>
                <li class="breadcrumb-item active"><a href="#"> PR0000001</a></li>
             </ol>
          </div>
@@ -24,7 +24,7 @@
                     PDF
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{Route('ventes.Bons-livraison.pdf')}}">Voir le PDF</a>
+                    <a class="dropdown-item" href="{{route(auth()->user()->role . 'ventes/Bons-livraison/pdf')}}">Voir le PDF</a>
                     <a class="dropdown-item" href="#">Télécharger le PDF</a>
                   </div>
                 </div>

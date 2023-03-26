@@ -13,7 +13,7 @@
                   <h4>Bons de livraison </h4>
             </div>
             <ol class="breadcrumb mt-3">
-               <li class="breadcrumb-item"><a href="{{Route('ventes.bons-commande')}}">Bons de livraison </a></li>
+               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/ventes/bons-commande')}}">Bons de livraison </a></li>
                <li class="breadcrumb-item"><a href="#">SH0000002</a></li>
                <li class="breadcrumb-item active"><a href="#">Modifier</a></li>
             </ol>

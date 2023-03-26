@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="mb-2">
-            <a href="{{Route('/produits-et-services/regles-de-prix/create')}}" class="btn px-4 text-white" style="background: #57ae74;">
+            <a href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/create')}}" class="btn px-4 text-white" style="background: #57ae74;">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
         </div>
 
@@ -64,7 +64,7 @@
                                           </div>
                                         </td>
                                         <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -85,7 +85,7 @@
                                           </div>
                                         </td>
                                         <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -106,7 +106,7 @@
                                           </div>
                                         </td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -127,7 +127,7 @@
                                           </div>
                                         </td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -148,7 +148,7 @@
                                           </div>
                                         </td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -169,7 +169,7 @@
                                           </div>
                                         </td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -190,7 +190,7 @@
                                           </div>
                                         </td>
                                         <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>

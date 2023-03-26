@@ -28,5 +28,12 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
+    <link rel="icon" type="image/png" sizes="16x16" href={{asset("../images/favicon.png")}}>
+    <link rel="stylesheet" href={{asset("../../vendor/owl-carousel/css/owl.carousel.min.css")}}>
+    <link rel="stylesheet" href={{asset("../../vendor/owl-carousel/css/owl.theme.default.min.css")}}>
+    <link href={{asset("../../vendor/jqvmap/css/jqvmap.min.css")}} rel="stylesheet">
+    <link href={{asset("../../css/style.css")}} rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>

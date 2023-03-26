@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('product_return', function (Blueprint $table) {
-            $table->string('id', 30)->primary();
+            $table->id();
+            $table->string('identifient', 30);
             $table->string('client');
             $table->string('products');
             $table->date('date_return');

@@ -14,22 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('factures', function (Blueprint $table) {
-            $table->string('id', 30)->primary();
-            $table->string('client')->references('id')->on('product');
+            $table->id();
+            $table->string('client')->nullable(false);
             $table->string('attention');
-            $table->string('ref')->nullable(false);
+            $table->string('ref');
             $table->string('devise')->nullable(false);
             $table->integer('remise');
-            $table->integer('pourcentage')->nullable(false);
-            $table->json('taxes');
-            $table->string('price_level')->nullable(false);
-            $table->date('date_facturation')->nullable(false);
+            $table->integer('pourcentage');
+            $table->string('taxes');
+            $table->string('price_level');
+            $table->date('date_facturation');
             $table->string('adresse_facturation')->nullable(false);
-            $table->string('cout_livraison');
+            $table->string('cout_livraison')->nullable(false);
             $table->string('taxes_livraison');
-            $table->string('adresse_livraison')->nullable(false);
-            $table->string('products')->nullable(false);
-            
+            $table->string('adresse_livraison');
             $table->string('notes')->nullable(false);
             $table->timestamps();
         });

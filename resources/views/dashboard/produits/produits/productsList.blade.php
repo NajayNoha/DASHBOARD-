@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="mb-2">
-            <a href="{{Route('/produits-et-services/produits/ajouter-produit')}}" class="btn px-4 text-white" style="background: #57ae74;">
+            <a href="{{route(auth()->user()->role . '/produits-et-services/produits/ajouter-produit')}}" class="btn px-4 text-white" style="background: #57ae74;">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2">Create</span></a>
         </div>
 

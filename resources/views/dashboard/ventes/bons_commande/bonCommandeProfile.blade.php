@@ -5,57 +5,26 @@
    <div class="container-fluid">
       <form action="#"  enctype="application/x-www-form-urlencoded" onsubmit="event.preventDefault()">
 
-         <div class="row page-titles mx-0">
-            <div class="col-sm-6 p-md-0">
-               <div class="welcome-text">
-                     <h4>Bons de commande </h4>
-               </div>
-               <ol class="breadcrumb mt-3">
-                  <li class="breadcrumb-item"><a href="{{Route('ventes.bons-commande')}}">Bons de commande </a></li>
-                  <li class="breadcrumb-item"><a href="#">S00001</a></li>
-                  <li class="breadcrumb-item active"><a href="{{Route('ventes.bons-commande.edit',1)}}">Modifier</a></li>
-               </ol>
+      <div class="row page-titles mx-0">
+         <div class="col-md-6 p-md-0">
+            <div class="welcome-text">
+                  <h4>Bons de livraison </h4>
             </div>
-            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-               <div class="btns mb-3 text-right">
-                  <button type="reset" class="btn btn-danger px-4" style="font-weight: bolder">ANNULER</button>
-                  <button type="submit" class="btn btn-success text-white px-4" style="font-weight: bolder">AJOUTER</button>
-               </div>
-            </div>
+            <ol class="breadcrumb mt-3">
+               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/ventes/bons-commande')}}">Bons de livraison</a></li>
+               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . 'ventes/Bons-livraison/profileBonsLivraison',1)}}">SH0000001</a></li>
+            </ol>
          </div>
+         <div class="col-md-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex" style="gap:10px;">
+               <button type="reset" class="btn px-4 text-white" style="font-weight: bolder;background: #57ae74;">MODIFIER</button>
 
-         <!--START ROW -->
-         <div class="row">
-
-            <div class="col-md-6">
-
-               <!--**********************************
-                     start   Client_Devis
-               ***********************************-->
-               <div class="card">
-                  <div class="card-body">
-                     <div class="basic-form">
-                        <div class="form-row">
-                           <div class="form-group col-md-12">
-                              <label class="text-dark fs-4">Client</label>
-                              <div class="d-flex">
-                                 <select class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
-                                    <option value="client 1">client 1</option>
-                                    <option value="client 2">client 2</option>
-                                </select>
-                                 <a href="{{Route('/contacts/ajouter_client')}}" title="Ajouter Client" class="btn  text-dark fs-4" style="border:1px solid rgba(88, 100, 170, 1);margin-left: 5px;">
-                                    <i class="fa-solid fa-plus" style="font-size: 1.2rem;"></i>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="form-row">
-                           <div class="form-group col-md-12">
-                                 <label class="text-dark fs-4">Bon de commande #</label>
-                                 <input type="text" class="form-control" value="E0000001"   name="name"  style="border:1px solid rgba(88, 100, 170, 1)" readonly>
-                           </div>
-                        </div>
-                     </div>
+               <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    PDF
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{route(auth()->user()->role . 'ventes/Bons-livraison/pdf')}}">Voir le PDF</a>
+                    <a class="dropdown-item" href="#">Télécharger le PDF</a>
                   </div>
                </div>
                <!--**********************************
@@ -175,28 +144,25 @@
                                                    <input type="text" class="form-control"  placeholder="Libellé de l'adresse" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
                                                 </div>
 
-                                                <div class="form-group col-md-6">
-                                                   <label class="text-dark fs-4">Téléphone</label>
-                                                   <input type="text" class="form-control" placeholder="Téléphone" name="adresse_tel" style="border:1px solid rgba(88, 100, 170, 1)">
-                                                </div>
-                                          </div>
-                                          <div class="form-row">
-                                             <div class="form-group col-md-12">
-                                                <label class="text-dark fs-4">Pays</label>
-                                                <select id="inputState" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
-                                                   <option selected>Morroco</option>
-                                                   <option>Afghanistan</option>
-                                                   <option>Albania</option>
-                                                </select>
-                                             </div>
-                                          </div>
+              <div class="bg-primary p-2 text-white mb-2 rounded">
+                <h5 class="m-0 text-white ">Gérer les livraisons</h5>
+                <hr class="bg-white">
+                <p>Statut de livraison : <strong>Non livrés</strong></p>
+                <p>Facturé :  <strong>0,00 MAD </strong></p>
+                <p>Restant : 138,00 MAD</p>
+                <p>Vous n'avez pas encore créé de bon de livraison. Commencez en cliquant sur le bouton ci-dessous.</p>
+                <a href="{{route(auth()->user()->role . 'ventes/Bons-livraison/ajouter-bon-livraison')}}" class="btn text-white w-100" style="background: #6f7ac2">CRERR UN BON DE LIVRAISON</a>
+              </div>
 
-                                          <div class="form-row">
-                                             <div class="form-group col-md-12">
-                                                <label class="text-dark fs-4">Address 1</label>
-                                                <input type="text" class="form-control"  name="adresse1" placeholder="Address 1" style="border:1px solid rgba(88, 100, 170, 1)">
-                                             </div>
-                                          </div>
+              <div class="bg-primary p-2 text-white mb-2 rounded">
+               <h5 class="m-0 text-white ">Gérer les factures</h5>
+               <hr class="bg-white">
+               <p class="">Statut du paiement : <strong>Non payé</strong></p>
+               <p>Dans des bons de livraison : <strong>0</strong></p>
+               <p>Restant : 1</p>
+               <p>Vous n'avez pas encore créé de bon de livraison. Commencez en cliquant sur le bouton ci-dessous.</p>
+               <a href="{{route(auth()->user()->role . 'ventes/factures/ajouter-facture')}}" class="btn text-white w-100" style="background: #6f7ac2">CRÉER UNE FACTURE</a>
+             </div>
 
                                           <div class="form-row">
                                              <div class="form-group col-md-12">

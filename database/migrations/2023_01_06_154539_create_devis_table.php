@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('devis', function (Blueprint $table) {
-            $table->string('id', 30)->primary();
+            $table->id();
             $table->string('client')->nullable(false);
             $table->string('attention')->nullable(false);
             $table->string('ref')->nullable(false);

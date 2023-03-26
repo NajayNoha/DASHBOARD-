@@ -22,8 +22,8 @@
                   <h4>Produits</h4>
             </div>
             <ol class="breadcrumb mt-3">
-               <li class="breadcrumb-item"><a href="{{Route('/produits-et-services/liste-produits')}}">Produits</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route('/produits-et-services/produits/ajouter-produit')}}">Creer</a></li>
+               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/produits-et-services/liste-produits')}}">Produits</a></li>
+               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/produits-et-services/produits/ajouter-produit')}}">Creer</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -225,22 +225,21 @@
                         
                {{------------------  Fournisseur   ------------------------}}
                <div class="card" style="position: relative">
+                  <a
+                  style="background: rgba(88, 100, 170, 1);padding:8px
+                        ;border-radius: 50%;
+                        cursor: pointer;
+                        color:#ffffff ;
+                        max-width: max-content;
+                        position: absolute;
+                        transform: translate(-50% ,50%);
+                        top: -12%;
+                        left: 50%;
+                        " href="{{route(auth()->user()->role . '/contacts/fournisseurs/ajouter_fournisseur')}}"
+                        >
+                        <i class="fa-solid fa-plus" style="font-size: 1.2rem;"></i>
+                  </a>
                   <div class="card-header d-flex">
-                     <a 
-                     style="background: rgba(88, 100, 170, 1);
-                           padding:8px;
-                           border-radius: 50%;
-                           cursor: pointer;
-                           color:#ffffff;
-                           max-width: max-content;
-                           position: absolute;
-                           transform: translate(-50% ,50%);
-                           top: -12%;
-                           left: 50%;" 
-                           href="{{Route('/contacts/fournisseurs/ajouter_fournisseur')}}" 
-                           >
-                           <i class="fa-solid fa-plus" style="font-size: 1.2rem;"></i>
-                     </a>
                      <h2 class="card-title dislay-4">Fournisseur</h2>
                   </div>
                   <div class="card-body">

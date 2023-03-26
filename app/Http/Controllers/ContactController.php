@@ -369,13 +369,9 @@ class ContactController extends Controller
                 'tel' => 'required',
                 'pays' => 'required',
                 'adresse1' => 'required',
-                'adresse2' => 'required',
                 'postalCode' => 'required',
                 'city' => 'required',
-                'price_level' => 'required',
                 'devise' => 'required',
-                'discount' => 'required',
-                'taxes' => 'required'
             ],
             [
                 'id.required' => 'ce champ est obligatoire',
@@ -425,12 +421,10 @@ class ContactController extends Controller
                 'tel' => 'required',
                 'pays' => 'required',
                 'adresse1' => 'required',
-                'adresse2' => 'required',
                 'postalCode' => 'required',
                 'city' => 'required',
                 'price_level' => 'required',
                 'devise' => 'required',
-                'discount' => 'required',
                 'taxes' => 'required'
             ],
             [

@@ -17,5 +17,12 @@ class Product extends Model
     ];
     public function getFournisseur(){
         return $this->hasOne(Fournisseur::class,'id','fournisseur');
+    public function factures()
+    {
+        return $this->belongsToMany(Facture::class)->withPivot('quantity');
+    }
+    public function bon_commandes()
+    {
+        return $this->belongsToMany(Bon_commande::class);
     }
 }

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Facture extends Model
+class Company extends Model
 {
     use HasFactory;
-
-    public function products()
+    protected $table = 'companies';
+    public function users()
     {
-        return $this->belongsToMany(Product::class)->withPivot('quantity');
+        return $this->belongsToMany(User::class);
     }
 }

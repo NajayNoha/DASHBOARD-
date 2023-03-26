@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bon_commande;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class VentesController extends Controller
@@ -9,7 +11,9 @@ class VentesController extends Controller
     // juste pour l'Admin
     public function all_bons_commande($admin)
     {
-        return view('./dashboard/ventes/bons_commande');
+        $data = [];
+        $data = Bon_commande::all();
+        return view('./dashboard/ventes/bons_commande', $data);
     }
     public function avoirs($id)
     {
@@ -41,7 +45,9 @@ class VentesController extends Controller
 
     //Bons de commande
     public function bonsCommande(){
-        return view('./dashboard/ventes/bons_commande/bonsCommande');
+        $data = ['client'=>"nohayla"];
+        $data = Bon_commande::all();
+        return view('./dashboard/ventes/bons_commande/bonsCommande', [ "data" => $data]);
     }
     public function bonCommandeProfile($id)
     {
@@ -49,7 +55,10 @@ class VentesController extends Controller
     }
 
     public function createBonCommande(){
-        return view('./dashboard/ventes/bons_commande/createBonCommande');
+        $clients = Client::all();
+        $id =  Bon_commande::all()->count() +1 ;
+        // $taxes = Ta
+        return view('./dashboard/ventes/bons_commande/createBonCommande', ["clients" => $clients, "id"=>$id]);
     }
     public function editBoncommande($id){
         return view('./dashboard/ventes/bons_commande/editBonCommande');
