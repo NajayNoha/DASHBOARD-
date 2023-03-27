@@ -65,7 +65,6 @@ class TaxesController extends Controller
         }
 
     }
-
     public function changeActive(Request $request ,  $id){
         $taxe = Taxe::find($id);
         if($request->actif == 0){

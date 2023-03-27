@@ -18,13 +18,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nom',
-        'prenom',
+        'name',
         'email',
         'password',
-        'type_user',
+        'role',
     ];
 
+    public function admin(){
+        return $this -> hasOne(Admin::class,'id','id_admin');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

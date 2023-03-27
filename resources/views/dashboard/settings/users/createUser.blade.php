@@ -3,8 +3,8 @@
 @section("ClientContent")
 <div class="content-body">
    <div class="container-fluid">
-      <form action="#" enctype="application/x-www-form-urlencoded">
-
+      <form action="{{Route('settings.users.store')}}" enctype="application/x-www-form-urlencoded" method='post'>
+         @csrf
          <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                <div class="welcome-text">
@@ -19,6 +19,19 @@
                </div>
             </div>
          </div>
+         <!--start errors -->
+         @if($errors->any())
+         <div class="alert alert-danger solid alert-dismissible fade show">
+            <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i
+                     class="mdi mdi-close"></i></span></button>
+            <ul>
+               @foreach($errors->all() as $error)
+               <li>{{$error}}</li>
+               @endforeach
+            </ul>
+         </div>
+         @endif
+         <!--end errors -->
          <!--start Profile -->
          <div class="row">
 
@@ -32,26 +45,26 @@
                         <div class="form-row">
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Prénom</label>
-                              <input type="text" class="form-control input-rounded" placeholder="Prénom" name=""
-                                 style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" class="form-control input-rounded" placeholder="Prénom" name="prenom"
+                                 style="border:1px solid rgba(88, 100, 170, 1)" value="{{old('prenom')}}">
                            </div>
 
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Nom</label>
-                              <input type="text" class="form-control input-rounded" placeholder="Nom" name=""
+                              <input type="text" class="form-control input-rounded" placeholder="Nom" name="nom"
                                  style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
 
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">E-mail</label>
-                              <input type="text" class="form-control input-rounded" placeholder="E-mail" name=""
+                              <input type="text" class="form-control input-rounded" placeholder="E-mail" name="email"
                                  style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
 
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Nom d'affichage</label>
                               <input type="text" class="form-control input-rounded" placeholder="Nom d'affichage"
-                                 name="" style="border:1px solid rgba(88, 100, 170, 1)">
+                                 name="nom_affichage" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
 
                            <div class="form-group col-md-6">
@@ -65,16 +78,16 @@
 
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Langue</label>
-                              <select name="" id="" class="form-select rounded-pill w-100"
+                              <select name="langue" id="" class="form-select rounded-pill w-100"
                                  style="border:1px solid rgba(88, 100, 170, 1);height: 35px;padding-left: 10px;">
-                                 <option value="">Anglais (English) </option>
-                                 <option value="">Français</option>
+                                 <option value="anglais">Anglais (English) </option>
+                                 <option value="français">Français</option>
                               </select>
                            </div>
 
                            <div class="form-group col-md-6">
                               <label class="text-dark fs-4">Téléphone</label>
-                              <input type="text" class="form-control input-rounded" placeholder="Téléphone" name=""
+                              <input type="text" class="form-control input-rounded" placeholder="Téléphone" name="tele"
                                  style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
 
@@ -141,51 +154,18 @@
             <div class="col-md-6">
                <div class="card">
                   <div class="card-header">
-                     <h2 class="card-title">Droits d'accès</h2>
+                     <h2 class="card-title">Type d'utilisateur</h2>
                   </div>
                   <div class="card-body">
                      <div class="basic-form">
                         <div class="form-row">
                            <label class="text-dark fs-4">Type d'utilisateur</label>
-                           <select name="" id="" class="form-select rounded-pill w-100"
+                           <select name="type_user" id="" class="form-select rounded-pill w-100"
                               style="border:1px solid rgba(88, 100, 170, 1);height: 35px;padding-left: 10px;">
-                              <option value="">utilisateu Normal </option>
+                              <option value="0">employé</option>
+                              <option value="1">admin</option>
                            </select>
                         </div>
-
-                        <div class="form-row mt-4 pt-4" style="display: flex;gap: 2rem;flex-direction: column">
-                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                              <h5 class="form-check-label" for="defaultCheck1">
-                                 Contacts
-                              </h5>
-                           </div>
-                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                              <h5 class="form-check-label" for="defaultCheck1">
-                                 Produits
-                              </h5>
-                           </div>
-                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                              <h5 class="form-check-label" for="defaultCheck1">
-                                 Ventes
-                              </h5>
-                           </div>
-                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                              <h5 class="form-check-label" for="defaultCheck1">
-                                 Rapports
-                              </h5>
-                           </div>
-                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                              <h5 class="form-check-label" for="defaultCheck1">
-                                 Paramètres
-                              </h5>
-                           </div>
-                        </div>
-
                      </div>
                   </div>
                </div>
@@ -194,7 +174,7 @@
             <div class="col-md-6">
                <div class="card">
                   <div class="card-header">
-                     <h2 class="card-title">Droits d’accès pour le logiciel de caisse</h2>
+                     <h2 class="card-title">Droits D'accès Pour les sociétés</h2>
                   </div>
                   <div class="card-body">
                      <div class="basic-form">
@@ -203,25 +183,19 @@
                            <div class="form-check">
                               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                               <h5 class="form-check-label" for="defaultCheck1">
-                                 Autorisation de modifier le niveau de prix
+                                s1
                               </h5>
                            </div>
                            <div class="form-check">
                               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                               <h5 class="form-check-label" for="defaultCheck1">
-                                 Autorisation de changer le type de taxe
+                                 s2
                               </h5>
                            </div>
                            <div class="form-check">
                               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                               <h5 class="form-check-label" for="defaultCheck1">
-                                 Autorisation de modifier les taxes
-                              </h5>
-                           </div>
-                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                              <h5 class="form-check-label" for="defaultCheck1">
-                                 Autorisation d'ajouter des remises
+                                 s3
                               </h5>
                            </div>
 

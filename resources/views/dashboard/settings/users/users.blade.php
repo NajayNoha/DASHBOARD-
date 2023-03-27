@@ -55,27 +55,33 @@
                                                     class="fa-solid fa-pen-to-square"></i></a>
                                         </td>
                                     </tr>
+                                    @foreach ($users as $user)
                                     <tr>
-                                        <td>khalid lafhal</td>
-                                        <td>lafhalkhalid22@gmail.com</td>
-                                        <td>0616105263</td>
+                                        <td>{{$user->admin->nom}} {{$user->admin->prenom}}</td>
+                                        <td>{{$user->admin->email}}</td>
+                                        <td>{{$user->admin->tele}}</td>
                                         <td>
-                                            <div class="basic-form" id="taxeProduit_switch">
-                                                <div class="btnSwitch">
-                                                    <label class="toggle">
-                                                        <input type="checkbox">
-                                                        <span class="slider"></span>
-                                                    </label>
+                                            <form action="{{Route('settings.users.change-active',$user->admin->id)}}" method="POST" class="checkbox">
+                                                @csrf
+                                                <div class="basic-form" id="taxeProduit_switch">
+                                                    <div class="btnSwitch">
+                                                        <label class="toggle">
+                                                            <input type="checkbox" {{$user->admin->actif ? 'checked':''}} onchange='changeActif({{$user->id}})'>
+                                                            <span class="slider"></span>
+                                                        </label>
+                                                    </div>
+                                                    <input type="text" name='actif' value='{{$user->admin->actif}}' hidden>
+                                                    <button type="submit" hidden id='btnSubmit{{$user -> id}}'>Submit</button>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </td>
                                         <td class="d-grid gap-4">
-                                            <a href="{{Route('settings.users.edit',1)}}" class="btn text-white"
+                                            <a href="{{Route('settings.users.edit',$user->id)}}" class="btn text-white"
                                                 style="background: rgba(88, 100, 170, 1)"><i
                                                     class="fa-solid fa-pen-to-square"></i></a>
                                         </td>
                                     </tr>
-
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -96,11 +102,11 @@
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <h6 class="text-dark fs-4">Utilisateurs actifs</h6>
-                                <strong>1</strong>
+                                <strong>@isset($nbrUsersActif) {{$nbrUsersActif}} @endisset</strong>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <h6 class="text-dark fs-4">Nombre d'utilisateur</h6>
-                                <strong>2</strong>
+                                <strong>{{$users->count()}}</strong>
                             </li>
                         </ul>
                     </div>
@@ -109,7 +115,12 @@
             </div>
         </div>
     </div>
-
+    <script>
+        function changeActif(id) {
+           const btnSubmit = document.getElementById('btnSubmit' + id);
+           btnSubmit.click();
+        }
+     </script>
     {{-- <div>
 
 </div> --}}

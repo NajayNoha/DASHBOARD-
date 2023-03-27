@@ -259,7 +259,7 @@
                            <p class="text-dark" style="margin-bottom: -20px;">Logo de l'entreprise</p>
                            <div class="form" style="height:200px;">
                               @if(isset($companyInfo->logo) && !empty($companyInfo->logo))
-                                 <img  style="height:150px" width="150px" src="{{ asset('storage/images/logo/'.$companyInfo->logo) }}" alt="">
+                                 <img  style="height:150px" width="150px" src="{{asset('storage/images/logos/'.$companyInfo->logo)}}" alt="">
                               @else
                                  <div class="form-row">
                                     <input class="file-input" type="file" name="logo" hidden>

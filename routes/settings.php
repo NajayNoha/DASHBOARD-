@@ -51,3 +51,7 @@ Route::post('settings/payment-methods/change-active/{id}', [PaymentMethodControl
 Route::get('settings/users', [UserSettingController::class, 'users'])->name('settings.users');
 Route::get('settings/users/create', [UserSettingController::class, 'createUser'])->name('settings.users.create');
 Route::get('settings/users/edit/{id}', [UserSettingController::class, 'editUser'])->name('settings.users.edit');
+Route::post('settings/users/store', [UserSettingController::class, 'storeUser'])->name('settings.users.store');
+Route::post('settings/users/change-active/{id}',[UserSettingController::class, 'changeActive'])->name('settings.users.change-active');
+Route::post('settings/users/change-password/{id}',[UserSettingController::class, 'changePassword'])->name('settings.users.change-password');
+Route::post('settings/users/update/{id}',[UserSettingController::class, 'updateUser'])->name('settings.users.update');

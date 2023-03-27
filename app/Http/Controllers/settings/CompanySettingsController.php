@@ -74,8 +74,8 @@ class CompanySettingsController extends Controller
                 $file = $request->file('logo');
                 $extension = $file->getClientOriginalExtension();
                 $filename = time() . '.' . $extension;
-                $path = $file->storeAs('public/images/logo', $filename);
-                $company ->logo = $filename;
+                $file->storeAs('public/images/logos', $filename);
+                $company -> logo = $filename;
             }
             
             $save = $company -> save();
