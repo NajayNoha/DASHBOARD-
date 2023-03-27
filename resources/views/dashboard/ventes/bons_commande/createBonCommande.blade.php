@@ -3,9 +3,9 @@
 @section("content")
 <div class="content-body">
    <div class="container-fluid">
-      <form action="#"  enctype="application/x-www-form-urlencoded" onsubmit="event.preventDefault()">
+      <form method="POST" action="create-boncommand"  enctype="application/x-www-form-urlencoded" onsubmit="event.preventDefault()">
 
-         <div class="row page-titles mx-0">
+         <div class="row page-titles mx-0 ">
             <div class="col-sm-6 p-md-0">
                <div class="welcome-text">
                      <h4>Bons de commande </h4>
@@ -53,7 +53,7 @@
                         <div class="form-row">
                            <div class="form-group col-md-12">
                                  <label class="text-dark fs-4">Bon de commande #</label>
-                                 <input type="text" class="form-control" value="{{ $id }}"  disabled  name="id"  style="border:1px solid rgba(88, 100, 170, 1)" readonly>
+                                 <input type="text" class="form-control" value="{{ 'BC0' . $id }}"  disabled  name="id"  style="border:1px solid rgba(88, 100, 170, 1)" readonly>
                            </div>
                         </div>
                      </div>
@@ -103,7 +103,14 @@
                   </div>
                   <div class="card-body">
                      <div class="basic-form">
-                        <p class="text-dark">Facturer à  </p>
+                        <p class="text-dark">Facturer à {{  old('client')  }}</p>
+                        <p>
+                            @foreach ($clients as $client)
+                                @if ($client->id == old('client'))
+                                    {{ $client->adresse1 }}
+                                @endif
+                            @endforeach
+                        </p>
                         <div class="form-row">
                            <!-- Button trigger modal -->
                            <button class="btn btn-primary col-md-12" data-toggle="modal" data-target="#basicModal1">MODIFIER L'ADRESSE</button>
@@ -174,40 +181,40 @@
 
                                           <div class="basic-form">
                                              <div class="form-row">
-                                                <div class="form-group col-md-6">
+                                                {{-- <div class="form-group col-md-6">
                                                    <label class="text-dark fs-4">Libellé de l'adresse</label>
-                                                   <input type="text" class="form-control"  placeholder="Libellé de l'adresse" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
-                                                </div>
+                                                   <input type="text" name="libel_adresse" class="form-control"  placeholder="Libellé de l'adresse" name="adresse_lib" style="border:1px solid rgba(88, 100, 170, 1)">
+                                                </div> --}}
 
-                                                <div class="form-group col-md-6">
+                                                {{-- <div class="form-group col-md-6">
                                                    <label class="text-dark fs-4">Téléphone</label>
                                                    <input type="text" class="form-control" placeholder="Téléphone" name="adresse_tel" style="border:1px solid rgba(88, 100, 170, 1)">
-                                                </div>
+                                                </div> --}}
                                           </div>
                                           <div class="form-row">
-                                             <div class="form-group col-md-12">
+                                             {{-- <div class="form-group col-md-12">
                                                 <label class="text-dark fs-4">Pays</label>
                                                 <select id="inputState" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
                                                    <option selected>Morroco</option>
                                                    <option>Afghanistan</option>
                                                    <option>Albania</option>
                                                 </select>
-                                             </div>
+                                             </div> --}}
                                           </div>
 
                                           <div class="form-row">
                                              <div class="form-group col-md-12">
-                                                <label class="text-dark fs-4">Address 1</label>
-                                                <input type="text" class="form-control"  name="adresse1" placeholder="Address 1" style="border:1px solid rgba(88, 100, 170, 1)">
+                                                <label class="text-dark fs-4">Address </label>
+                                                <input type="text" class="form-control"  name="adresse" placeholder="Address 1" style="border:1px solid rgba(88, 100, 170, 1)">
                                              </div>
                                           </div>
 
-                                          <div class="form-row">
+                                          {{-- <div class="form-row">
                                              <div class="form-group col-md-12">
                                                 <label class="text-dark fs-4">Address 2</label>
                                                 <input type="text" class="form-control"  name="adresse1" placeholder="Address 2" style="border:1px solid rgba(88, 100, 170, 1)">
                                              </div>
-                                          </div>
+                                          </div> --}}
 
 
                                           <div class="form-row">
@@ -224,7 +231,7 @@
                                     </div>
                                     <div class="modal-footer">
                                           <button type="button" class="btn btn-outline-danger px-4"  data-dismiss="modal">ANNULER</button>
-                                          <button type="button" class="btn text-white" style="background: #57ae74">ENREGISTRER</button>
+                                          <button type="button" class="btn text-white" style="background: #57ae74" data-dismiss="modal">ENREGISTRER</button>
                                     </div>
                                  </div>
                               </div>
@@ -261,47 +268,50 @@
                         <div class="form-row">
                            <div class="form-group col-md-3">
                               <label for="" class="text-dark fs-4">Devise</label>
-                              <select class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
-                                 <option value="client 1">MAD</option>
-                                 <option value="client 2">USD</option>
+                              <select name="devise" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
+                                 <option value="">MAD</option>
+                                 <option value="">USD</option>
                               </select>
                            </div>
                            <div class="form-group col-md-3">
                               <label for="" class="text-dark fs-4">Remise </label>
-                              <input type="text" class="form-control" placeholder="Remise" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" name="remise" class="form-control" placeholder="Remise" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                            <div class="form-group col-md-3">
                               <label for="" class="text-dark fs-4">Type de remise</label>
-                              <input type="text" class="form-control" placeholder="Type de remise" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" name="type_remise" class="form-control" placeholder="Type de remise" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                            <div class="form-group col-md-3">
-                              <label for="" class="text-dark fs-4">Taxes</label>
-                              <select class="js-example-theme-multiple" name="states[]" multiple="multiple" style="border:1px solid rgba(88, 100, 170, 1)" >
-                                 <option value="taxe1">taxe 1</option>
-                                 <option value="taxe2">taxe 2</option>
-                           </select>
+                              {{-- <label for="" class="text-dark fs-4">Taxes</label>
+                              <select class="" name="taxe" >
+                                <option value=""></option>
+                                <option value="taxe1">taxe 1</option>
+                                @foreach ($taxes as $taxe)
+                                   <option value='{{ $taxe->id }}' > {{ $taxe->name }} </option>
+                                @endforeach
+                              </select> --}}
                            </div>
                            <div class="form-group col-md-3">
                               <label for="" class="text-dark fs-4">Niveau de prix</label>
-                              <select class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <select name="niv_prix" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
                                  <option value="Whole Price">Whole Price</option>
-                                 <option value="">Recommended Retail Price/option>
+                                 <option value="">Recommended Retail Price </option>
                               </select>
                            </div>
                            <div class="form-group col-md-3 d-flex align-items-center pt-3">
                               <div class="basic-form" id="taxeProduit_switch" style="margin-right: 5px;">
                                  <div class="btnSwitch">
                                     <label class="toggle">
-                                       <input type="checkbox">
+                                       <input type="checkbox" name="inclure_taxe_prix_uni">
                                        <span class="slider"></span>
                                     </label>
                                  </div>
                               </div>
-                              <label for="" class="text-dark fs-4">Inclure les taxes dans les prix unitaires</label>
+                              <label for="" class="text-dark fs-4">Inclure la taxe dans les prix unitaires</label>
                            </div>
                            <div class="form-group col-md-3">
                               <label for="" class="text-dark fs-4">Taux de change</label>
-                              <input type="text" value="10" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <input type="text" name="taux_change" value="10" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
                            </div>
                         </div>
                      </div>
