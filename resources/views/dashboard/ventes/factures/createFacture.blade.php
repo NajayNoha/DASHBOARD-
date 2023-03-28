@@ -11,8 +11,8 @@
                      <h4>Factures</h4>
                </div>
                <ol class="breadcrumb mt-3">
-                  <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . 'ventes/factures')}}">Factures</a></li>
-                  <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . 'ventes/factures/ajouter-facture')}}">Créer</a></li>
+                  <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/ventes/factures')}}">Factures</a></li>
+                  <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/ventes/factures/ajouter-facture')}}">Créer</a></li>
                </ol>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">

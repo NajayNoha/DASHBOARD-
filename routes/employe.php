@@ -89,7 +89,7 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
 
         Route::get('employe/ventes/devis/edit/{id}',[VentesController::class,'devisProfile'])->name('employe/ventes/devis/devisProfile');
 
-        Route::get('employe/ventes/devis/pdf',[VentesController::class,'imprimerPdf'])->name('ventes/devis/pdf');
+        Route::get('employe/ventes/devis/pdf',[VentesController::class,'imprimerPdf'])->name('employe/ventes/devis/pdf');
 
 
         // //Bons de commande

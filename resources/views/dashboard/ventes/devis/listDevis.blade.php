@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="mb-2">
-            <a href="{{route(auth()->user()->role . 'ventes/devis/create_devis')}}" class="btn px-4 text-white" style="background: #57ae74;">
+            <a href="{{route(auth()->user()->role . '/ventes/devis/create_devis')}}" class="btn px-4 text-white" style="background: #57ae74;">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2" style="margin-left: 5px;text-transform: uppercase">CRÉER</span></a>
         </div>
 
@@ -39,7 +39,7 @@
                                           <div class="mt-2 mb-2">
                                              <span class="btn btn-light">sélectionner une opération</span>
                                              <button class="btn btn-outline-danger px-3" style="margin: 0 10px;">Supprimer</button>
-                                             <a class="btn btn-outline-primary px-3" href="{{route(auth()->user()->role . 'ventes/devis/pdf')}}">Telecharger le PDF</a>
+                                             <a class="btn btn-outline-primary px-3" href="{{route(auth()->user()->role . '/ventes/devis/pdf')}}">Telecharger le PDF</a>
                                           </div>
                                           <!-- START BUTTON -->
                                        </td>
@@ -71,7 +71,7 @@
                                           <span class="btn btn-success text-white">accepté</span>
                                         </td>
                                         <td class="d-flix gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -88,7 +88,7 @@
                                          <span class="btn btn-success text-white">accepté</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -105,7 +105,7 @@
                                          <span class="btn btn-success text-white">accepté</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -122,7 +122,7 @@
                                          <span class="btn btn-success text-white">accepté</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -139,7 +139,7 @@
                                          <span class="btn btn-warning text-white">En attente</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -156,7 +156,7 @@
                                          <span class="btn btn-success text-white">accepté</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -173,7 +173,7 @@
                                          <span class="btn btn-success text-white">accepter et transforme</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/devis/devisProfile',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
