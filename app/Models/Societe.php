@@ -24,5 +24,8 @@ class Societe extends Model
         'twitter',
         'id_country'
     ];
-    
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
