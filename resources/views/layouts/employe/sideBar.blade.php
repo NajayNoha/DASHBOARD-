@@ -45,7 +45,7 @@
                     </li>
                     {{-- <li><a href="{{Route('rapports')}}" aria-expanded="false"><i class="bi bi-bar-chart-fill"></i><span
                                 class="nav-text">Rapports</span></a></li> --}}
-                    @if (Auth::user()->role == "admin")
+                    {{-- @if (Auth::user()->role == "admin") --}}
                         <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-person-gear"></i><span class="nav-text">Paramètres</span></a>
                             <ul aria-expanded="false">
                                 <li><a href="{{Route('setting.company-settings.create')}}">Paramétres de l'entreprise</a></li>
@@ -58,7 +58,7 @@
                                 <li><a href="{{Route('settings.users')}}">Utilisateurs</a></li>
                             </ul>
                         </li>
-                    @endif
+                    {{-- @endif --}}
 
         </ul>
     </div>

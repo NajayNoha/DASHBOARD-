@@ -35,7 +35,7 @@ class RouteServiceProvider extends ServiceProvider
             *web
             */
             Route::middleware('web')
-                ->middleware([GetUserCompanies::class])
+                ->middleware([ \App\Http\Middleware\GetUserCompanies::class])
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('web')
@@ -56,6 +56,7 @@ class RouteServiceProvider extends ServiceProvider
             *Settings
             */
             Route::middleware('web')
+                ->middleware([\App\Http\Middleware\UserRoleMiddleware::class, 'user-role:admin'])
                 ->group(base_path('routes/settings.php'));
             /*
             *rapports
