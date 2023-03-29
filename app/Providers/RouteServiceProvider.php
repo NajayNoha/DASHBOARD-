@@ -35,7 +35,7 @@ class RouteServiceProvider extends ServiceProvider
             *web
             */
             Route::middleware('web')
-                ->middleware([ \App\Http\Middleware\GetUserCompanies::class])
+                ->middleware('companies-session')
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('web')
