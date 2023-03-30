@@ -1,8 +1,8 @@
-
-
-
 @extends('...layouts.app')
-
+@section('css')
+       {{-- SELECT --}}
+       <link rel="stylesheet" href={{asset("vendor/select2/css/select2.min.css")}}>
+@endsection
 @section("content")
 <div class="content-body">
     <!-- row -->
@@ -63,7 +63,7 @@
                                                     <td></td>
                                                 @endif
                                             <td>
-                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/services/edit',$item->id)}}">
+                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route(auth()->user()->role .'/produits-et-services/services/edit',$item->id)}}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
                                                 <a href="{{url('delete-service/'.$item->id)}}" style="text-decoration:none;color:white">
@@ -75,16 +75,6 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
-                                {{-- <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </tfoot> --}}
                             </table>
                         </div>
                     </div>
@@ -94,6 +84,17 @@
 </div>
 
 {{-- <div>
-
 </div> --}}
+@endsection
+
+@section('scripts')
+       <!-- Required vendors -->
+       <script src={{asset("vendor/global/global.min.js")}}></script>
+       <script src={{asset("js/quixnav-init.js")}}></script>
+       <script src={{asset("js/custom.min.js")}}></script>
+       
+   
+       <script src={{asset("vendor/select2/js/select2.full.min.js")}}></script>
+       <script src={{asset("js/plugins-init/select2-init.js")}}></script>
+
 @endsection

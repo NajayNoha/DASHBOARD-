@@ -1,6 +1,6 @@
 
 @extends('...layouts.app')
-
+<link rel="stylesheet" href={{asset("vendor/select2/css/select2.min.css")}}>
 @section("content")
 <div class="content-body">
    <div class="container-fluid">
@@ -181,19 +181,4 @@
 
    </div>
 </div>
-@endsection
-@section('css')
-       {{-- SELECT --}}
-       <link rel="stylesheet" href="./../../vendor/select2/css/select2.min.css">
-@endsection
-@section('scripts')
-       <!-- Required vendors -->
-       <script src="./../../vendor/global/global.min.js"></script>
-       <script src="./../../js/quixnav-init.js"></script>
-       <script src="./../../js/custom.min.js"></script>
-       
-   
-       <script src="./../../vendor/select2/js/select2.full.min.js"></script>
-       <script src="./../../js/plugins-init/select2-init.js"></script>
-
 @endsection

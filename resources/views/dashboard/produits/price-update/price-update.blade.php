@@ -1,5 +1,3 @@
-
-
 @extends('...layouts.app')
 @section('title')
 Mise à jour des prix
@@ -13,15 +11,10 @@ Mise à jour des prix
             <div class="welcome-text">
                   <h4>Mise à jour des prix</h4>
             </div>
-            {{-- <ol class="breadcrumb mt-3">
-               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/produits-et-services/liste-produits')}}">Produits</a></li>
-               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/produits-et-services/produits/edit',1)}}">produit1</a></li>
-               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/produits-et-services/produits/edit',1)}}">Modifier</a></li>
-            </ol> --}}
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-               <div class="btns mb-3 text-right">
-                  <a  href="{{route(auth()->user()->role . '/produits-et-services/liste-produits')}}" class="btn btn-danger px-4" style="font-weight: bolder">ANNULER</a>
+               {{-- <div class="btns mb-3 text-right">
+                  <a href="{{Route('/produits-et-services/liste-produits')}}" class="btn btn-danger px-4" style="font-weight: bolder">ANNULER</a>
                   <button type="submit" class="btn  text-white px-4" style="font-weight: bolder;background: #57ae74;">ENREGISTRER</button>
                </div> --}}
          </div>
@@ -86,6 +79,5 @@ Mise à jour des prix
 </div>
 
 {{-- <div>
-
 </div> --}}
 @endsection

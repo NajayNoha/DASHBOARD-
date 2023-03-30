@@ -9,7 +9,7 @@ class PriceRule extends Model
 {
     use HasFactory;
     protected $table = 'price_rules';
-    prootected $fillable = [
+    protected $fillable = [
         'id',
         'selection',
         'libelle',
@@ -26,6 +26,6 @@ class PriceRule extends Model
         'lieu_stockage'
     ];
     public function getPriceLevels(){
-        return $this->hasOne(Taxe::class,'id','taxe_id');
+        return $this->hasOne(PriceLevel::class,'id','price_level');
     }
 }

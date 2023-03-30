@@ -5,6 +5,9 @@ use App\Models\Product;
 use App\Models\Country;
 use App\Models\Fournisseur;
 use App\Models\Taxe;
+use App\Models\PriceLevel;
+use App\Models\PriceRule;
+use App\Models\Marque;
 
 use Illuminate\Http\Request;
 
@@ -66,7 +69,6 @@ class ProduitController extends Controller
         $product->poids = $request->poids;
         $product->poids_unit = $request->poids_unit;
         $product->tax = $request->tax;
-        $product->price_level = $request->price_level;
         if($file){
             $newFile = $request->file('image');
             $fileName = time().$newFile->getClientOriginalName();
@@ -181,20 +183,149 @@ class ProduitController extends Controller
 
     //---------------------------         price_rules   -------------------------------------
     public function price_rules(){
-        return view('./dashboard/produits/price-rules/price-rules');
+        $data = PriceRule::with('getPriceLevels')->get();
+        return view('./dashboard/produits/price-rules/price-rules' , ['data'=>$data]);
     }
 
     public function add_price_rule(){
-        return view('./dashboard/produits/price-rules/addPriceRule');
+        $price_levels = PriceLevel::get();
+        return view('./dashboard/produits/price-rules/addPriceRule',compact('price_levels'));
+    }
+    public function save_priceRule(Request $request){
+        $request->validate([
+            'selection'=>'required',
+            'libelle'=>'required',
+            'price_level'=>'required',
+            'price_type'=>'required',
+            'valeur'=>'required'
+        ],[
+            'selection.required'=>'ce champ est obligatoire',
+            'libelle.required'=>'ce champ est obligatoire',
+            'price_level.required'=>'ce champ est obligatoire',
+            'price_type.required'=>'ce champ est obligatoire',
+            'valeur.required'=>'ce champ est obligatoire'
+        ]);
+        $priceRule = new PriceRule();
+        $priceRule->selection = $request->selection;
+        $priceRule->libelle = $request->libelle;
+        $priceRule->price_level = $request->price_level;
+        $priceRule->price_type = $request->price_type;
+        $priceRule->prix_base = $request->base_price;
+        $priceRule->operation = $request->operation;
+        $priceRule->valeur = $request->valeur;
+        if($request->has('toggle_season')){
+            $priceRule->saison = $request->saison;
+        }else{
+            $priceRule->saison = null;
+        }
+        if($request->has('devise_toggle')){
+            $priceRule->devise = $request->devise;
+        }else{
+            $priceRule->devise = null;
+        }
+        if($request->has('clientTag_toggle')){
+            $priceRule->tag_client = $request->clientTag;
+        }else{
+            $priceRule->tag_client = null;
+        }
+        if($request->has('toggle_period')){
+            $priceRule->date_debut = $request->date_debut;
+            $priceRule->date_fin = $request->date_fin;
+        }else{
+            $priceRule->date_debut = null;
+            $priceRule->date_fin = null;
+        }
+        if($request->has('toggle_lieu')){
+            $priceRule->lieu_stockage = $request->lieu_stockage;
+        }else{
+            $priceRule->lieu_stockage = null;
+        }
+        $priceRule->save();
+        // dd($priceRule);
+        return redirect()->back()->with('success' , "Règle De Prix ajoutée avec succès");
     }
 
-    public function price_rule_profile(){
-        return view('./dashboard/produits/price-rules/priceRuleProfile');
+    public function price_rule_profile($id){
+        $data = PriceRule::where('id',$id)->first();
+        $priceLevels = PriceLevel::get();
+        return view('./dashboard/produits/price-rules/priceRuleProfile', compact('data','priceLevels'));
+    }
+    public function update_priceRule(Request $request){
+        $priceRule = PriceRule::where('id', $request->id)->first();
+        $selection = $request->selection;
+        $libelle = $request->libelle;
+        $price_level = $request->price_level;
+        $price_type = $request->price_type;
+        $prix_base = $request->base_price;
+        $operation = $request->operation;
+        $valeur = $request->valeur;
+        if($request->has('toggle_season')){
+            $saison = $request->saison;
+        }else{
+            $saison = null;
+        }
+        if($request->has('devise_toggle')){
+            $devise = $request->devise;
+        }else{
+            $devise = null;
+        }
+        if($request->has('clientTag_toggle')){
+            $tag_client = $request->clientTag;
+        }else{
+            $tag_client = null;
+        }
+        if($request->has('toggle_period')){
+            $date_debut = $request->date_debut;
+            $date_fin = $request->date_fin;
+        }else{
+            $date_debut = null;
+            $date_fin = null;
+        }
+        if($request->has('toggle_lieu')){
+            $lieu_stockage = $request->lieu_stockage;
+        }else{
+            $lieu_stockage = null;
+        }
+        $priceRule->update([
+            'selection'=>$selection,
+            'libelle'=>$libelle,
+            'price_level'=>$price_level,
+            'price_type'=>$price_type,
+            'prix_base'=>$prix_base,
+            'operation'=>$operation,
+            'valeur'=>$valeur,
+            'saison'=>$saison,
+            'devise'=>$devise,
+            'tag_client'=>$tag_client,
+            'date_debut'=>$date_debut,
+            'date_fin'=>$date_fin,
+            'lieu_stockage'=>$lieu_stockage
+        ]);
+        return redirect()->back()->with('success' , 'Règle de prix modifiée avec succès');
+    }
+    public function delete_priceRule($id){
+        PriceRule::where('id',$id)->delete();
+        return redirect()->back()->with('success','Règle De Prix supprimée avec succès');
     }
 
     // -----------------------   product_tags -----------------------------------------
 
     public function product_tags(){
         return view('/dashboard/produits/products_settings/product_tags');
+    }
+    public function ajouter_marque(Request $request){
+        // dd($request);
+        $name = $request->name;
+        if($name == null){
+            return response()->json([
+                'status'=>'error',
+                'message'=>'veuillez entrer un libelle valide'
+            ]);
+        }
+        // $marque = new Marque();
+        return response()->json([
+            'status'=>'success',
+            'message'=>'Brand added successfully'
+        ]);
     }
 }

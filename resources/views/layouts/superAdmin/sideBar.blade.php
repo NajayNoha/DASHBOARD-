@@ -15,7 +15,7 @@
                     <li><a href=" {{route( Auth::user()->role .  '/contacts/clients')}}">Clients</a></li>
                     <li><a href="{{Route( Auth::user()->role . '/contacts/fournisseurs')}}">Fournisseurs</a></li>
                     <li><a href="{{ Route( Auth::user()->role .'/contacts/employes')}}">Employés</a></li>
-                    <li><a href="#">Paramètres des contacts</a></li>
+                    {{-- <li><a href="#">Paramètres des contacts</a></li> --}}
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -24,9 +24,8 @@
                     <li><a href="{{Route( Auth::user()->role . '/produits-et-services/liste-produits')}}">Produits</a></li>
                     <li><a href="{{ Route( Auth::user()->role .'/produits-et-services/produits/services')}}">Services</a></li>
                     <li><a href="{{Route( Auth::user()->role . '/produits-et-services/price-update/edit')}}">Mise à jour des prix</a></li>
-                    <li><a href="./chart-chartist.html">Lots</a></li>
                     <li><a href="{{Route( Auth::user()->role . '/produits-et-services/regles-de-prix/list')}}">Règles de prix</a></li>
-                    <li><a href="{{Route( Auth::user()->role . '/produits-et-services/products-settings/product-tags')}}">Paramètres des produits</a></li>
+                    {{-- <li><a href="{{Route( Auth::user()->role . '/produits-et-services/products-settings/product-tags')}}">Paramètres des produits</a></li> --}}
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-cart-dash"></i>

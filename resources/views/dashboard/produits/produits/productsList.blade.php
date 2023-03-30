@@ -52,7 +52,7 @@
                                             <td>{{$item->price}}</td>
                                             <td>{{$item->getFournisseur->name}}</td>
                                             <td>
-                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route('/produits-et-services/produits/edit',$item->id)}}">
+                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route(auth()->user()->role ."/produits-et-services/produits/edit",$item->id)}}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
                                                 <a href="{{url('delete-produit/'.$item->id)}}" style="text-decoration:none;color:white">

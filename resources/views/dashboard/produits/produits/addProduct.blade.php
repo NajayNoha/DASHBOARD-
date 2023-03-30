@@ -1,15 +1,3 @@
-{{-- MESSAGES --}}
-{{-- ERROR --}}
-{{-- <div class="alert alert-danger solid alert-dismissible fade show">
-   <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
-   </button>
-   <strong>Error!</strong> le nom du client ne doit pas etre vide
-</div> --}}
-{{-- MESSAGE SUCCESS --}}
-{{-- <div class="alert alert-success solid alert-dismissible fade show">
-   <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
-   </button> WOW! Eveything looks OK
-</div> --}}
 @extends('...layouts.app')
 @section("content")
 <div class="content-body">
