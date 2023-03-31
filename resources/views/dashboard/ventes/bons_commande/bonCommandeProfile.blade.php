@@ -1,6 +1,6 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
 
    <div class="container-fluid">
@@ -23,7 +23,7 @@
                     PDF
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ventes/Bons-livraison/pdf')}}">Voir le PDF</a>
+                    <a class="dropdown-item" href="{{route(auth()->user()->role . 'ventes/Bons-livraison/pdf')}}">Voir le PDF</a>
                     <a class="dropdown-item" href="#">Télécharger le PDF</a>
                   </div>
                 </div>

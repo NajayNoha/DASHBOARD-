@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('permissions', function (Blueprint $table) {
-            $table->foreignId('company_id')->constrained('companies');
+            $table->foreignId('societe_id')->constrained('societe');
             $table->foreignId('user_id')->constrained();
         });
     }

@@ -1,6 +1,6 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
@@ -55,27 +55,33 @@
                                                     class="fa-solid fa-pen-to-square"></i></a>
                                         </td>
                                     </tr>
+                                    @foreach ($admins as $admin)
                                     <tr>
-                                        <td>khalid lafhal</td>
-                                        <td>lafhalkhalid22@gmail.com</td>
-                                        <td>0616105263</td>
+                                        <td>{{$admin->nom}} {{$admin->prenom}}</td>
+                                        <td>{{$admin->email}}</td>
+                                        <td>{{$admin->tele}}</td>
                                         <td>
-                                            <div class="basic-form" id="taxeProduit_switch">
-                                                <div class="btnSwitch">
-                                                    <label class="toggle">
-                                                        <input type="checkbox">
-                                                        <span class="slider"></span>
-                                                    </label>
+                                            <form action="{{Route('settings.users.change-active',$admin->id)}}" method="POST" class="checkbox">
+                                                @csrf
+                                                <div class="basic-form" id="taxeProduit_switch">
+                                                    <div class="btnSwitch">
+                                                        <label class="toggle">
+                                                            <input type="checkbox" {{$admin->actif ? 'checked':''}} onchange='changeActif({{$admin->id}})'>
+                                                            <span class="slider"></span>
+                                                        </label>
+                                                    </div>
+                                                    <input type="text" name='actif' value='{{$admin->actif}}' hidden>
+                                                    <button type="submit" hidden id='btnSubmit{{$admin->id}}'>Submit</button>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </td>
                                         <td class="d-grid gap-4">
-                                            <a href="{{Route('settings.users.edit',1)}}" class="btn text-white"
+                                            <a href="{{Route('settings.users.edit',$admin->id)}}" class="btn text-white"
                                                 style="background: rgba(88, 100, 170, 1)"><i
                                                     class="fa-solid fa-pen-to-square"></i></a>
                                         </td>
                                     </tr>
-
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -96,11 +102,11 @@
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <h6 class="text-dark fs-4">Utilisateurs actifs</h6>
-                                <strong>1</strong>
+                                <strong>@isset($nbrUsersActif) {{$nbrUsersActif}} @endisset</strong>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <h6 class="text-dark fs-4">Nombre d'utilisateur</h6>
-                                <strong>2</strong>
+                                <strong>{{$admins->count()}}</strong>
                             </li>
                         </ul>
                     </div>
@@ -109,7 +115,12 @@
             </div>
         </div>
     </div>
-
+    <script>
+        function changeActif(id) {
+           const btnSubmit = document.getElementById('btnSubmit' + id);
+           btnSubmit.click();
+        }
+     </script>
     {{-- <div>
 
 </div> --}}

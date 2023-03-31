@@ -1,6 +1,6 @@
 @extends('...layouts.app')
 
-@section("ClientContent")
+@section("content")
 <div class="content-body">
    <!-- row -->
    <div class="container-fluid">

@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table ->string('nom')->nullable();
             $table -> string('prenom')->nullable();
+            $table -> string('nom_affichage')->nullable();
             $table ->string('email')->unique();
-            $table ->string('tel')->nullable();
+            $table ->string('tele',15)->nullable();
+            $table ->integer('actif')->default(1);
+            $table ->foreignId('id_user')->constrained('users','id');
             $table -> string('langue')->nullable();
             $table->timestamps();
         });
