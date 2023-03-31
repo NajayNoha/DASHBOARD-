@@ -45,7 +45,7 @@ class VentesController extends Controller
 
     //Bons de commande
     public function bonsCommande(){
-        $data = ['client'=>"nohayla"];
+        $data = [];
         $data = Bon_commande::all();
         return view('./dashboard/ventes/bons_commande/bonsCommande', [ "data" => $data]);
     }

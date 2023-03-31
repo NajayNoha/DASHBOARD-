@@ -13,7 +13,7 @@
             </div>
             <ol class="breadcrumb mt-2">
                <li class="breadcrumb-item"><a href="{{Route(auth()->user()->role . '/contacts/employes')}}">Employes</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role . auth()->user()->role . '/contacts/employes/profile',1)}}">Modifier</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role . '/contacts/employes/profile',1)}}">Modifier</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-3 mt-sm-0 d-flex">

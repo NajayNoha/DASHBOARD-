@@ -22,12 +22,11 @@
             </div>
         </div>
         <div class="mb-2">
-            <a href="{{route(auth()->user()->role . 'ventes/factures/ajouter-facture')}}" class="btn px-4 text-white" style="background: #57ae74;">
+            <a href="{{route(auth()->user()->role . '/ventes/factures/ajouter-facture')}}" class="btn px-4 text-white" style="background: #57ae74;">
                 <i class="fa-solid fa-plus"></i> <span class="ms-2" style="margin-left: 5px;text-transform: uppercase">CRÉER</span></a>
         </div>
 
         {{-- TABLE --}}
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -36,7 +35,6 @@
                            <!--start form -->
                            <form action="#" >
                             <table id="example" class="display" style="min-width: 845px">
-
                                 <thead>
                                     <tr>
                                        <td colspan="6">
@@ -44,7 +42,7 @@
                                           <div class="mt-2 mb-2">
                                              <span class="btn btn-light">sélectionner une opération</span>
                                              <button class="btn btn-outline-danger px-3" style="margin: 0 10px;">Supprimer</button>
-                                             <a class="btn btn-outline-primary px-3" href="{{route(auth()->user()->role . 'ventes/factures/pdf')}}">Telecharger le PDF</a>
+                                             <a class="btn btn-outline-primary px-3" href="{{route(auth()->user()->role . '/ventes/factures/pdf')}}">Telecharger le PDF</a>
                                           </div>
                                           <!-- START BUTTON -->
                                        </td>
@@ -77,7 +75,7 @@
                                           <span class="badge badge-warning text-white px-4 py-2 fs-3 ">Non payé</span>
                                         </td>
                                         <td class="d-flix gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -94,7 +92,7 @@
                                           <span class="badge badge-warning text-white px-4 py-2 fs-3 ">Non payé</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -111,7 +109,7 @@
                                           <span class="badge badge-warning text-white px-4 py-2 fs-3 ">payé</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -128,7 +126,7 @@
                                           <span class="badge badge-warning text-white px-4 py-2 fs-3 ">Non payé</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -145,7 +143,7 @@
                                           <span class="badge badge-warning text-white px-4 py-2 fs-3 ">Non payé</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -162,7 +160,7 @@
                                           <span class="badge badge-warning text-white px-4 py-2 fs-3 ">Non payé</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>
@@ -179,7 +177,7 @@
                                           <span class="badge badge-warning text-white px-4 py-2 fs-3 ">Non payé</span>
                                        </td>
                                        <td class="d-flix  gap-4">
-                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . 'ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                         <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/factures/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                        </td>
                                     </tr>

@@ -8,27 +8,28 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('taxes', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('logo');
-            $table->string('adress');
-            $table->integer('tel');
-            $table->string('email');
-            $table->string('website');
-            $table->string('type');
+            $table->string('abreviation');
+            $table->integer('taux');
+            $table ->integer('actif')->default(1);
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('taxes');
     }
 };

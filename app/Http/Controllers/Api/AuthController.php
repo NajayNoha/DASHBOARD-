@@ -37,7 +37,7 @@ class AuthController extends Controller
             'type_user'=>$request->type_user,
         ]);
         
-        return redirect('dashboard/contacts/clients');
+        return redirect('contacts/clients');
     }
 
     public function login(Request $request){
@@ -61,6 +61,6 @@ class AuthController extends Controller
             'user' => $user,
             'token' => $token,
         ];
-        return view('dashboard/contacts/clients');
+        return redirect('contacts/clients');
     }
 }

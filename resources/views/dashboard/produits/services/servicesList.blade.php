@@ -1,8 +1,8 @@
-
-
-
 @extends('...layouts.app')
-
+@section('css')
+       {{-- SELECT --}}
+       <link rel="stylesheet" href={{asset("vendor/select2/css/select2.min.css")}}>
+@endsection
 @section("content")
 <div class="content-body">
     <!-- row -->
@@ -27,7 +27,12 @@
         </div>
 
         {{-- TABLE --}}
-
+        @if (Session::has('success'))
+            <div class="alert alert-success solid alert-dismissible fade show">
+               <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+               </button> {{Session::get('success')}}
+            </div>
+         @endif
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -41,77 +46,35 @@
                                     <tr>
                                         <th>référence</th>
                                         <th>Nom</th>
+                                        <th>Prix</th>
+                                        <th>Taxe</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Herrod Chandler</td>
-                                        <td>Sales Assistant</td>
-                                        <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rhona Davidson</td>
-                                        <td>Integration Specialist</td>
-                                        <td class="d-grid gap-4">
-                                          <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Colleen Hurst</td>
-                                        <td>Javascript Developer</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sonya Frost</td>
-                                        <td>Software Engineer</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jena Gaines</td>
-                                        <td>Office Manager</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quinn Flynn</td>
-                                        <td>Support Lead</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Charde Marshall</td>
-                                        <td>Regional Director</td>
-                                        <td class="d-grid gap-4">
-                                            <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/produits-et-services/services/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                    @foreach ($data as $item)
+                                        <tr>
+                                            <td>{{$item->reference}}</td>
+                                            <td>{{$item->nom}}</td>
+                                            <td>{{$item->prix}}</td>
+                                            @if ($item->getTaxes != null)
+                                                <td>{{$item->getTaxes->taux}}</td>
+                                                @else
+                                                    <td></td>
+                                                @endif
+                                            <td>
+                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route(auth()->user()->role .'/produits-et-services/services/edit',$item->id)}}">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="{{url('delete-service/'.$item->id)}}" style="text-decoration:none;color:white">
+                                                    <button class="btn btn-danger">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
-                                {{-- <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </tfoot> --}}
                             </table>
                         </div>
                     </div>
@@ -121,6 +84,17 @@
 </div>
 
 {{-- <div>
-
 </div> --}}
+@endsection
+
+@section('scripts')
+       <!-- Required vendors -->
+       <script src={{asset("vendor/global/global.min.js")}}></script>
+       <script src={{asset("js/quixnav-init.js")}}></script>
+       <script src={{asset("js/custom.min.js")}}></script>
+       
+   
+       <script src={{asset("vendor/select2/js/select2.full.min.js")}}></script>
+       <script src={{asset("js/plugins-init/select2-init.js")}}></script>
+
 @endsection

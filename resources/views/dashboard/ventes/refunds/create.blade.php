@@ -11,8 +11,8 @@
                      <h4>Devis</h4>
                </div>
                <ol class="breadcrumb mt-3">
-                  <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . 'ventes/devis/list')}}">Devis</a></li>
-                  <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . 'ventes/devis/create_devis')}}">Créer</a></li>
+                  <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/ventes/devis/list')}}">Devis</a></li>
+                  <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/ventes/devis/create_devis')}}">Créer</a></li>
                </ol>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -203,7 +203,6 @@
                                                 <input type="text" class="form-control"  name="adresse1" placeholder="Address 2" style="border:1px solid rgba(88, 100, 170, 1)">
                                              </div>
                                           </div>
-
 
                                           <div class="form-row">
                                              <div class="form-group col-md-6">
@@ -473,7 +472,6 @@
          <!--**********************************
             start Fichiers attachés
          ***********************************-->
-
          <div class="row">
             <!-- start File -->
             <div class="col-md-12">

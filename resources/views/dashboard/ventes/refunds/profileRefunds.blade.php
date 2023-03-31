@@ -12,7 +12,7 @@
                   <h4>Remboursements  </h4>
             </div>
             <ol class="breadcrumb mt-3">
-               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . 'ventes/refunds')}}">Remboursements </a></li>
+               <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/ventes/refunds')}}">Remboursements </a></li>
                <li class="breadcrumb-item active"><a href="#">R0000001</a></li>
             </ol>
          </div>
@@ -24,7 +24,7 @@
                     PDF
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{route(auth()->user()->role . 'ventes/refunds/pdf')}}">Voir le PDF</a>
+                    <a class="dropdown-item" href="{{route(auth()->user()->role . '/ventes/refunds/pdf')}}">Voir le PDF</a>
                     <a class="dropdown-item" href="#">Télécharger le PDF</a>
                   </div>
                 </div>
@@ -54,7 +54,7 @@
               <div class="bg-primary p-2 text-white mb-2 rounded">
                 <h5 class="m-0 text-white ">Créé à partir de</h5>
                 <hr class="bg-white">
-                <a href="{{route(auth()->user()->role . 'ventes/product-returns/profile',1)}}" class="btn text-white w-100" style="background: #6f7ac2">S000004</a>
+                <a href="{{route(auth()->user()->role . '/ventes/product-returns/profile',1)}}" class="btn text-white w-100" style="background: #6f7ac2">S000004</a>
               </div>
 
             </div>
@@ -64,7 +64,6 @@
                 <div class="custom-tab-1">
                     <div class="tab-content">
                         <div id="bonlivraison" class="tab-pane fade active show">
-
                           <div class="card mt-3">
                             <div class="card-body">
                               <div class="basic-form">
@@ -127,7 +126,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         <tr scope="row">
                                             <td>p1</td>
                                             <td>0.00 MAD</td>

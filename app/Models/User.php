@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Company;
+use App\Models\Societe;
 
 
 class User extends Authenticatable
@@ -23,13 +23,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nom',
-        'prenom',
+        'name',
         'email',
         'password',
-        'type_user',
+        'role',
     ];
 
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -54,8 +54,8 @@ class User extends Authenticatable
             get: fn($value) => ['employe', 'admin', "superAdmin"][$value]
         );
     }
-    public function companies()
+    public function societes()
     {
-        return $this->belongsToMany(Company::class);
+        return $this->belongsToMany(Societe::class);
     }
 }

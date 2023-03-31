@@ -13,7 +13,7 @@
             </div>
             <ol class="breadcrumb mt-3">
                <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/ventes/bons-commande')}}">Bons de livraison</a></li>
-               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . 'ventes/Bons-livraison/profileBonsLivraison',1)}}">SH0000001</a></li>
+               <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/ventes/Bons-livraison/profileBonsLivraison',1)}}">SH0000001</a></li>
             </ol>
          </div>
          <div class="col-md-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex" style="gap:10px;">
@@ -24,7 +24,7 @@
                     PDF
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{route(auth()->user()->role . 'ventes/Bons-livraison/pdf')}}">Voir le PDF</a>
+                    <a class="dropdown-item" href="{{route(auth()->user()->role . '/ventes/Bons-livraison/pdf')}}">Voir le PDF</a>
                     <a class="dropdown-item" href="#">Télécharger le PDF</a>
                   </div>
                 </div>
@@ -54,7 +54,7 @@
               <div class="bg-primary p-2 text-white mb-2 rounded">
                 <h5 class="m-0 text-white ">Créé à partir de</h5>
                 <hr class="bg-white">
-                <a href="{{route(auth()->user()->role . 'ventes/product-returns/profile',1)}}" class="btn text-white w-100" style="background: #6f7ac2">S000004</a>
+                <a href="{{route(auth()->user()->role . '/ventes/product-returns/profile',1)}}" class="btn text-white w-100" style="background: #6f7ac2">S000004</a>
               </div>
 
               <div class="bg-primary p-2 text-white mb-2 rounded">
@@ -75,7 +75,6 @@
                     </ul>
                     <div class="tab-content">
                         <div id="bonlivraison" class="tab-pane fade active show">
-
                           <div class="card mt-3">
                             <div class="card-body">
                               <div class="basic-form">
@@ -137,7 +136,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         <tr scope="row">
                                             <td>
                                               0258341

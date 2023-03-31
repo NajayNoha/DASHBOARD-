@@ -3,12 +3,13 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\VentesController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth' , "user-role:employe"])->group(function()
     {
-        // Route::get('/home',[ HomeController::class, "employeHome"])->name('home.employe');
+        // Route::get('employe/home',[ HomeController::class, "index"])->name('home.employe');
         Route::get('employe/contacts/clients', [ContactController::class, 'clients'])->name('employe/contacts/clients');
         Route::get('employe/contacts/ajouter_client', [ContactController::class, 'add_client'])->name('employe/contacts/ajouter_client');
         Route::get('employe/contacts/client/{id}', [ContactController::class, 'client_profile'])->name('employe/contacts/client');
@@ -24,18 +25,23 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
         // PRODUCTS
         Route::get('employe/produits-et-services/liste-produits', [ ProductController::class, 'produits'])->name('employe/produits-et-services/liste-produits');
         Route::get('employe/produits-et-services/produits/ajouter-produit', [ProduitController::class, 'add_product'])->name('employe/produits-et-services/produits/ajouter-produit');
-        Route::get('employe/produits-et-services/produits/{id}', [ProduitController::class, 'product_profile'])->name('employe/produits-et-services/produits/{id}');
-
+        Route::get('employe/produits-et-services/produits/{id}', [ProduitController::class, 'product_profile'])->name('employe/produits-et-services/edit');
         // SERVICES
-        Route::get('employe/produits-et-services/services/liste-services', [ProduitController::class, 'services'])->name('employe/produits-et-services/produits/services');
-        Route::get('employe/produits-et-services/services/ajouter_service', [ProduitController::class, 'add_services'])->name('employe/produits-et-services/services/ajouter_service');
-        Route::get('employe/produits-et-services/services/{id}', [ProduitController::class, 'service_profile'])->name('employe/produits-et-services/services/{id}');
+        Route::get('employe/produits-et-services/services/liste-services', [ServiceController::class, 'services'])->name('employe/produits-et-services/produits/services');
+
+        Route::get('employe/produits-et-services/service/ajouter_service', [ServiceController::class, 'add_service'])->name('employe/produits-et-services/service/ajouter_service');
+        
+        Route::get('employe/produits-et-services/services/{id}', [ServiceController::class, 'service_profile'])->name('employe/produits-et-services/services/edit');
+        
+        Route::get('delete-service/{id}',[ServiceController::class , 'delete_service']);
+
         // MISE A JOUR DES PRIX
 
         //---------------------------         price-update   -------------------------------------
 
         Route::get('employe/produits-et-services/mise-a-jour-prix',[ProduitController::class,'price_update'])->name('employe/produits-et-services/price-update/edit');
-
+        Route::post('/save_update',[ProduitController::class , 'save_price_update']);
+        
         //---------------------------         price_rules   -------------------------------------
         Route::get('employe/produits-et-services/regles-de-prix',[ProduitController::class,'price_rules'])->name('employe/produits-et-services/regles-de-prix/list');
 
@@ -47,8 +53,6 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
 
         // MISE A JOUR DES PRIX
         Route::get('employe/produits-et-services/maj_prix', [ProduitController::class, 'maj_prix'])->name('employe/produits-et-services/maj_prix');
-
-
 
         Route::get('employe/produits-et-services/liste-produits', [ ProduitController::class, 'produits'])->name('employe/produits-et-services/liste-produits');
 
@@ -56,13 +60,6 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
 
         Route::get('employe/produits-et-services/produits/{id}', [ProduitController::class, 'product_profile'])->name('employe/produits-et-services/produits/edit');
 
-        // SERVICES
-        Route::get('employe/produits-et-services/services/liste-services', [ProduitController::class, 'services'])->name('employe/produits-et-services/produits/services');
-
-        Route::get('employe/produits-et-services/service/ajouter_service', [ProduitController::class, 'add_service'])->name('employe/produits-et-services/service/ajouter_service');
-
-        Route::get('employe/produits-et-services/services/{id}', [ProduitController::class, 'service_profile'])->name('employe/produits-et-services/services/edit');
-
 
         //---------------------------         price-update   -------------------------------------
 
@@ -75,6 +72,7 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
 
         Route::get('employe/produits-et-services/regles-de-prix/{id}',[ProduitController::class,'price_rule_profile'])->name('employe/produits-et-services/regles-de-prix/edit');
 
+        //---------------------------         product-tags   -------------------------------------
         Route::get('employe/produits-et-services/products-settings/product-tags',[ProduitController::class,'product_tags'])->name('employe/produits-et-services/products-settings/product-tags');
 
         // MISE A JOUR DES PRIX
@@ -82,14 +80,13 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
 
 
         // VENTES
-        //
         Route::get('employe/ventes/devis/list',[VentesController::class,'list_devis'])->name('employe/ventes/devis/list');
 
         Route::get('employe/ventes/devis/ajouter_devis',[VentesController::class,'create_devis'])->name('employe/ventes/devis/create_devis');
 
         Route::get('employe/ventes/devis/edit/{id}',[VentesController::class,'devisProfile'])->name('employe/ventes/devis/devisProfile');
 
-        Route::get('employe/ventes/devis/pdf',[VentesController::class,'imprimerPdf'])->name('ventes/devis/pdf');
+        Route::get('employe/ventes/devis/pdf',[VentesController::class,'imprimerPdf'])->name('employe/ventes/devis/pdf');
 
 
         // //Bons de commande

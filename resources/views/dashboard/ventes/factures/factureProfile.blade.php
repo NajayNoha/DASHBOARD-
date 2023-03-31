@@ -11,9 +11,9 @@
                      <h4>Factures</h4>
                </div>
                <ol class="breadcrumb mt-3">
-                  <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . 'ventes/factures')}}">Factures</a></li>
+                  <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/ventes/factures')}}">Factures</a></li>
                   <li class="breadcrumb-item"><a href="#">E000012</a></li>
-                  <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . 'ventes/factures/ajouter-facture')}}"> Modifier</a></li>
+                  <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/ventes/factures/ajouter-facture')}}"> Modifier</a></li>
                </ol>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -102,7 +102,6 @@
                   </div>
                   <div class="card-body">
                      <div class="basic-form">
-
                         <div class="form-row">
 
                            <div class="form-group col-md-12">
@@ -121,7 +120,6 @@
                               </select>
                           </div>
                         </div>
-
                         <!-- start Facturer à -->
                         <p class="text-dark fs-2 mt-3">Facturer à</p>
                         <div class="">
@@ -131,7 +129,6 @@
                            <p class="text-dark m-0">MORROCO</p>
                         </div>
                         <!-- end  Facturer à -->
-
                         <div class="form-row mt-2">
                            <!-- Button trigger modal -->
                            <button class="btn btn-primary col-md-12" data-toggle="modal" data-target="#basicModal1">MODIFIER L'ADRESSE</button>
@@ -189,7 +186,6 @@
                         <p class="text-dark m-0">MOROCCO</p>
                         <p class="text-dark m-0">Téléphone : 064834822</p>
                      </div>
-
                         <div class="form-row">
                            <!-- Button trigger modal -->
                            <button class="btn btn-primary col-md-12" data-toggle="modal" data-target="#basicModal1">MODIFIER L'ADRESSE</button>
@@ -242,7 +238,6 @@
                                                 <input type="text" class="form-control"  name="adresse1" placeholder="Address 2" style="border:1px solid rgba(88, 100, 170, 1)">
                                              </div>
                                           </div>
-
 
                                           <div class="form-row">
                                              <div class="form-group col-md-6">
@@ -511,7 +506,6 @@
          <!--**********************************
             start Fichiers attachés
          ***********************************-->
-
          {{-- <div class="row"> --}}
             <!-- start File -->
             <div class="col-md-12">
