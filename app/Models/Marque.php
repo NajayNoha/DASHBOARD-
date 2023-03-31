@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class ProductTaxe extends Pivot
+class Marque extends Model
 {
     use HasFactory;
+    protected $table='marque';
+    $protected $fillable = ['id','name'];
 }

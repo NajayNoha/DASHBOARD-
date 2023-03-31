@@ -6,11 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\Controller;
-// use App\Http\Controllers\ProduitController;
-// use App\Http\Controllers\VentesController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\VentesController;
 use Illuminate\Routing\Events\Routing;
 

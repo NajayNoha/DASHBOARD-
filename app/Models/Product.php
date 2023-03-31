@@ -32,4 +32,12 @@ class Product extends Model
     {
         return $this->belongsToMany(Taxe::class , 'product_tax' , 'id_product' , 'id_taxe');
     }
+    public function factures()
+    {
+        return $this->belongsToMany(Facture::class)->withPivot('quantity');
+    }
+    public function bon_commandes()
+    {
+        return $this->belongsToMany(Bon_commande::class);
+    }
 }

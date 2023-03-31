@@ -7,22 +7,10 @@
    <div class="container-fluid">
       <form action="/save_priceRule" method="POST"  enctype="application/x-www-form-urlencoded">
          @csrf
-            <div class="row page-titles mx-0">
-                <div class="col-sm-6 p-md-0">
-                    <div class="welcome-text">
-                        <h4>règle de prix</h4>
-                    </div>
-                    <ol class="breadcrumb mt-3">
-                    <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/list')}}">Règles de prix </a></li>
-                    <li class="breadcrumb-item active"><a href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/create')}}">Creer</a></li>
-                    </ol>
-                </div>
-                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                    <div class="btns mb-3 text-right">
-                        <button type="reset" class="btn btn-danger px-4" style="font-weight: bolder">ANNULER</button>
-                        <button type="submit" class="btn  text-white px-4" style="font-weight: bolder;background: #57ae74;">AJOUTER</button>
-                    </div>
-                </div>
+      <div class="row page-titles mx-0">
+         <div class="col-sm-6 p-md-0">
+            <div class="welcome-text">
+                  <h4>règle de prix</h4>
             </div>
             <ol class="breadcrumb mt-3">
                <li class="breadcrumb-item"><a href="{{route(auth()->user()->role . '/produits-et-services/regles-de-prix/list')}}">Règles de prix </a></li>
@@ -286,9 +274,9 @@
        {{-- <script src="./../../vendor/global/global.min.js"></script>
        <script src="./../../js/quixnav-init.js"></script>
        <script src="./../../js/custom.min.js"></script> --}}
+       
+   
+       {{-- <script src="./../../vendor/select2/js/select2.full.min.js"></script> --}}
+       {{-- <script src="./../../js/plugins-init/select2-init.js"></script> --}}
 
-
-       <script src="./../../vendor/select2/js/select2.full.min.js"></script>
-       <script src="./../../js/plugins-init/select2-init.js"></script>
-
-@endsection
+{{-- @endsection --}}
