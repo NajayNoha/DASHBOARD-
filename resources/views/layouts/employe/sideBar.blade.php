@@ -3,13 +3,14 @@
     <div class="quixnav-scroll">
         <ul class="metismenu" id="menu">
             <li class="nav-label first">Menu Principal</li>
-            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-speedometer"></i>
-                <span class="nav-text">Tableau de bord</span></a>
-                <ul aria-expanded="false">
-                    <li><a href="./index.html">Tableau de bord 1</a></li>
-                    <li><a href="./index2.html">Tableau de bord 2</a></li>
-                </ul>
-            </li>
+            {{-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-speedometer"></i> --}}
+                {{-- <span class="nav-text">Tableau de bord</span></a> --}}
+                {{-- <ul aria-expanded="false"> --}}
+                    
+                    {{-- <li><a href="./index.html">Tableau de bord 2</a></li> --}}
+                {{-- </ul> --}}
+            {{-- </li> --}}
+            <li><a href="{{route( Auth::user()->role . '/dashboard')}}"><i class="bi bi-speedometer"></i>Tableau de bord</a></li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                 <i class="bi bi-person-rolodex"></i><span class="nav-text">Contacts</span></a>
                 <ul aria-expanded="false">
@@ -42,8 +43,11 @@
                     <li><a href="./ui-media-object.html">Abonnements</a></li>
                 </ul>
             </li>
-            <li><a href="widget-basic.html" aria-expanded="false"><i class="bi bi-bar-chart-fill"></i><span
-                        class="nav-text">Rapports</span></a></li>
+            <li>
+                <a href="widget-basic.html" aria-expanded="false"><i class="bi bi-bar-chart-fill"></i><span
+                        class="nav-text">Rapports</span>
+                </a>
+            </li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-person-gear"></i><span class="nav-text">Paramètres</span></a>
                 <ul aria-expanded="false">
                     <li><a href="./form-element.html">Paramétres de l'entreprise</a></li>

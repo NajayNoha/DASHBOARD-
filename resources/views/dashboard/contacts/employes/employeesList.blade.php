@@ -50,7 +50,9 @@
                                         <th>Email</th>
                                         <th>Téléphone</th>
                                         <th>Ville</th>
+                                        @if (auth()->user()->role != 'employe')
                                         <th>Action</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,14 +64,16 @@
                                             <td>{{$emp->email}}</td>
                                             <td>{{$emp->tel}}</td>
                                             <td>{{$emp->city}}</td>
-                                            <td>
-                                                <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/contacts/employes/profile',$emp->id)}}">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="{{url('delete-employe/'.$emp->id)}}" style="text-decoration:none;color:white">
-                                                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                                </a>
-                                            </td>
+                                            @if (auth()->user()->role != 'employe')
+                                                <td>
+                                                    <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/contacts/employes/profile',$emp->id)}}">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </a>
+                                                    <a href="{{url('delete-employe/'.$emp->id)}}" style="text-decoration:none;color:white">
+                                                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                                    </a>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>

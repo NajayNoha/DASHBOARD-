@@ -40,7 +40,7 @@
                                           <div class="mt-2 mb-2">
                                              <span class="btn btn-light">sélectionner une opération</span>
                                              <button class="btn btn-outline-danger px-3" style="margin: 0 10px;">Supprimer</button>
-                                             <a class="btn btn-outline-primary px-3" href="{{route(auth()->user()->role . 'ventes/Bons-livraison/pdf')}}">Telecharger le PDF</a>
+                                             <a class="btn btn-outline-primary px-3" href="{{route(auth()->user()->role . '/ventes/Bons-livraison/pdf')}}">Telecharger le PDF</a>
                                           </div>
                                           <!-- START BUTTON -->
                                        </td>

@@ -27,6 +27,7 @@ Route::post('/save_priceRule',[ProduitController::class , 'save_priceRule']);
 Route::get('delete-pricerule/{id}',[ProduitController::class , 'delete_priceRule']);
 Route::post('update_priceRule',[ProduitController::class , 'update_priceRule']);
 Route::post('ajouter_marque',[ProduitController::class , 'ajouter_marque']);
+Route::post('/save_update',[ProduitController::class , 'save_price_update']);
 
 Auth::routes();
 
