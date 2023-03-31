@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_tax', function (Blueprint $table) {
+        Schema::create('marque', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_product');
-            $table->foreign('id_product')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('id_taxe');
-            $table->foreign('id_taxe')->references('id')->on('taxes')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_tax');
+        Schema::dropIfExists('marque');
     }
 };

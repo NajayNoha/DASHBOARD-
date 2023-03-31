@@ -1,11 +1,8 @@
-
 @extends('...layouts.app')
-
 @section("content")
 <div class="content-body">
    <div class="container-fluid">
       <form action="/sauvegarder_produit" method="POST" enctype="multipart/form-data">
-
          @csrf
       <div class="row page-titles mx-0">
          <div class="col-sm-6 p-md-0">
@@ -43,7 +40,7 @@
                            <div class="form-row">
                               <div class="form-group col-md-12">
                                  <label class="text-dark fs-4">Nom</label>
-                                 <input type="text" class="form-control"  placeholder="Nom" name="name" style="border:1px solid rgba(88, 100, 170, 1)">
+                                 <input type="text" class="form-control"  placeholder="Nom" name="name" style="border:1px solid rgba(88, 100, 170, 1)" value="{{old('name')}}">
                               </div>
                            </div>
                            @error('name')
@@ -58,7 +55,7 @@
                            <div class="form-row">
                                  <div class="form-group col-md-12">
                                     <label class="text-dark fs-4">SKU</label>
-                                    <input type="text" class="form-control"  placeholder="SKU" name="sku"  style="border:1px solid rgba(88, 100, 170, 1)">
+                                    <input type="text" class="form-control"  placeholder="SKU" name="sku"  style="border:1px solid rgba(88, 100, 170, 1)" value="{{old('sku')}}">
                                  </div>
                            </div>
                            @error('sku')
@@ -73,7 +70,7 @@
                            <div class="form-row">
                               <div class="form-group col-md-12">
                                  <label class="text-dark fs-4">Description</label>
-                                 <textarea class="form-control" rows="4" id="comment" name="description" style="border:1px solid rgba(88, 100, 170, 1)" ></textarea>
+                                 <textarea class="form-control" rows="4" id="comment" name="description" style="border:1px solid rgba(88, 100, 170, 1)" value="{{old('description')}}" ></textarea>
                               </div>
                            </div>
                            @error('description')
@@ -101,12 +98,12 @@
                            <div class="form-group col-md-12">
                               <div class="form-row d-flex">
                                  <div class="form-group col">
-                                    <label class="text-dark fs-4">Prix de gros</label>
-                                    <input type="number" class="form-control"  name="price" placeholder="prix de gros" style="border:1px solid rgba(88, 100, 170, 1)">
+                                    <label class="text-dark fs-4">Prix de vente</label>
+                                    <input type="number" class="form-control"  name="price" placeholder="prix de gros" style="border:1px solid rgba(88, 100, 170, 1)" value="{{old('price')}}">
                                  </div>
                                  <div class="form-group mt-2" style="margin-left: 5px;">
                                     <label class="text-dark fs-4"></label>
-                                    <select id="inputState" class="form-control" name="devise" style="border:1px solid rgba(88, 100, 170, 1);background: rgba(88, 100, 170, 1);color:#ffff ; ">
+                                    <select id="inputState" class="form-control" name="devise1" style="border:1px solid rgba(88, 100, 170, 1);background: rgba(88, 100, 170, 1);color:#ffff ; ">
                                        <option selected style="background:#ffffff;color: black">MAD</option>
                                        <option style="background:#ffffff;color: black">USD</option>
                                     </select>
@@ -143,7 +140,7 @@
                                  </div>
                                  <div class="form-group mt-2" style="margin-left: 5px;">
                                     <label class="text-dark fs-4"></label>
-                                    <select id="inputState" name="devise" class="form-control" style="border:1px solid rgba(88, 100, 170, 1);background: rgba(88, 100, 170, 1);color:#ffff ; ">
+                                    <select id="inputState" name="devise2" class="form-control" style="border:1px solid rgba(88, 100, 170, 1);background: rgba(88, 100, 170, 1);color:#ffff ; ">
                                        <option selected style="background:#ffffff;color: black">MAD</option>
                                        <option style="background:#ffffff;color: black">USD</option>
                                     </select>
@@ -165,6 +162,26 @@
                </div>
                {{-------------------- START Address -------------------------}}
 
+               <div class="card">
+                  <div class="card-header">
+                     <h2 class="card-title dislay-4">Niveau de prix</h2>
+                  </div>
+                  <div class="card-body">
+                     <div class="basic-form">
+                        <div class="form-row">
+                           <div class="form-group col-md-12">
+                              <div class="form-row d-flex">
+                                 <div class="form-group col">
+                                    <label class="text-dark fs-4">Niveau de prix</label>
+                                    <input type="number" class="form-control"  name="price_level" placeholder="Niveau de prix" style="border:1px solid rgba(88, 100, 170, 1)">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
                {{--------------------- START FILE  ----------------------------}}
                <div class="card" id="file">
                   <div class="card-header">
@@ -180,7 +197,7 @@
                               <p>Images</p>
                            </div>
                         </div>
-                        <img class="img-fluid" src="" id="output" alt="" width="100" height="100" hidden>
+                        <img class="img-fluid" src="" id="output" alt="" width="200" height="200" style="margin-left: 100px" hidden>
                      </div>
                   </div>
                </div>
@@ -196,22 +213,21 @@
 
                {{------------------  Fournisseur   ------------------------}}
                <div class="card" style="position: relative">
+                  <a
+                  style="background: rgba(88, 100, 170, 1);padding:8px
+                        ;border-radius: 50%;
+                        cursor: pointer;
+                        color:#ffffff ;
+                        max-width: max-content;
+                        position: absolute;
+                        transform: translate(-50% ,50%);
+                        top: -12%;
+                        left: 50%;
+                        " href="{{route(auth()->user()->role . '/contacts/fournisseurs/ajouter_fournisseur')}}"
+                        >
+                        <i class="fa-solid fa-plus" style="font-size: 1.2rem;"></i>
+                  </a>
                   <div class="card-header d-flex">
-                     <a
-                     style="background: rgba(88, 100, 170, 1);
-                           padding:8px;
-                           border-radius: 50%;
-                           cursor: pointer;
-                           color:#ffffff;
-                           max-width: max-content;
-                           position: absolute;
-                           transform: translate(-50% ,50%);
-                           top: -12%;
-                           left: 50%;"
-                           href="{{route(auth()->user()->role . '/contacts/fournisseurs/ajouter_fournisseur')}}"
-                           >
-                           <i class="fa-solid fa-plus" style="font-size: 1.2rem;"></i>
-                     </a>
                      <h2 class="card-title dislay-4">Fournisseur</h2>
                   </div>
                   <div class="card-body">
@@ -235,7 +251,7 @@
 
             </div>
 
-
+   
             <div class="col-md-4">
                {{-- APPLIQUE TAXE --}}
 
@@ -262,9 +278,8 @@
                                  Taxes par defaut
                               </label>
                               <select class="select2-with-label-multiple js-states" id="id_label_multiple"
-                                 multiple="multiple" style="border:1px solid rgba(88, 100, 170, 1)" disabled>
-                                 {{-- <option value="taxe 1" class="text-dark">taxe 1</option>
-                                 <option value="taxe 2" class="text-dark">taxe 2</option> --}}
+                                 style="border:1px solid rgba(88, 100, 170, 1)" name="tax" disabled>
+                                 <option selected></option>
                                  @foreach ($taxes as $item)
                                      <option value="{{$item->id}}">{{$item->nom}}</option>
                                  @endforeach
@@ -317,7 +332,7 @@
                         <div class="form-row">
                            <div class="form-group col-md-12">
                               <label class="text-dark fs-4">Pays d'origine</label>
-                              <select id="inputState" class="form-control" style="border:1px solid rgba(88, 100, 170, 1)">
+                              <select id="inputState" class="form-control" name="pays_origine" style="border:1px solid rgba(88, 100, 170, 1)">
                                  @foreach ($countries as $data)
                                      <option value="{{$data->sortname}}">{{$data->name}}</option>
                                  @endforeach
@@ -353,8 +368,8 @@
                      <div>
                   </div>
                      </div>
-
-
+            
+            
                   </div>
                </div>
                {{-------------------- END Detailed information--------------------------}}
@@ -365,7 +380,7 @@
       </div>
 
       </form>
-
+      
    </div>
 </div>
 @endsection
@@ -378,8 +393,8 @@
        <script src="./../../vendor/global/global.min.js"></script>
        <script src="./../../js/quixnav-init.js"></script>
        <script src="./../../js/custom.min.js"></script>
-
-
+       
+   
        <script src="./../../vendor/select2/js/select2.full.min.js"></script>
        <script src="./../../js/plugins-init/select2-init.js"></script>
 

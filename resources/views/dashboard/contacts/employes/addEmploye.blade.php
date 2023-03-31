@@ -23,8 +23,10 @@
                   <li class="breadcrumb-item active"><a href="javascript:void(0)">Employe</a></li>
                </ol> --}}
                <div class="btns mb-3 text-right">
-                  <button type="reset" class="btn btn-danger px-4" style="font-weight: bolder">CANCEL</button>
-                  <button type="submit" class="btn btn-success text-white px-4" style="font-weight: bolder">AJOUTER</button>
+                  <button type="reset" class="btn btn-danger text-white px-4">CANCEL</button>
+                  <button type="reset" class="btn btn-sucess text-white px-4">AJOUTER</button>
+                  {{-- <button type="reset" class="btn btn-danger px-4" style="" >CANCEL</button>
+                  <button type="submit" class="btn btn-success text-white px-4" style="font-weight: bolder">AJOUTER</button> --}}
                </div>
          </div>
       </div>

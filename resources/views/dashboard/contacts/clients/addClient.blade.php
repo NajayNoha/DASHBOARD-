@@ -24,18 +24,6 @@
                </div>
          </div>
       </div>
-         {{-- MESSAGES --}}
-         {{-- ERROR --}}
-         {{-- <div class="alert alert-danger solid alert-dismissible fade show">
-            <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
-            </button>
-            <strong>Error!</strong> le nom du client ne doit pas etre vide
-        </div> --}}
-        {{-- MESSAGE SUCCESS --}}
-         {{-- <div class="alert alert-success solid alert-dismissible fade show">
-            <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
-            </button> WOW! Eveything looks OK
-         </div> --}}
          @if (Session::has('success'))
          <div class="alert alert-success solid alert-dismissible fade show">
             <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
@@ -216,24 +204,6 @@
                   </div>
                </div>
                {{-------------------- START Address -------------------------}}
-
-               {{--------------------- START FILE  ----------------------------}}
-               <div class="card" id="file">
-                  <div class="card-header">
-                        <h4 class="card-title">Fichiers attachés</h4>
-                  </div>
-                  <div class="card-body">
-                     <div class="basic-form">
-                        <div class="form">
-                           <div class="form-row">
-                              <input class="file-input" type="file" name="file" hidden>
-                              <i class="fas fa-cloud-upload-alt"></i>
-                              <p>Ajouter un nouveau fichier </p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
 
             </div>
 

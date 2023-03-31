@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('employes', function (Blueprint $table) {
             $table->id();
-            $table->string('identifient', 30)->unique();
             $table->string('firstName')->nullable(false);
             $table->string('lastName')->nullable(false);
             $table->string('email')->nullable(false);

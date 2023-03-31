@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
     {{-- DATA TABLE  --}}
-    <link href="../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href={{asset('vendor/datatables/css/jquery.dataTables.min.css')}} rel="stylesheet">
+    <link href={{asset('css/style.css')}} rel="stylesheet">
 
     <!-- Summernote -->
     <link href="./../../vendor/summernote/summernote.css" rel="stylesheet">

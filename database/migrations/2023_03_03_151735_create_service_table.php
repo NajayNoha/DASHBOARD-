@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('nom');
             $table->string('reference');
             $table->integer('prix');
-            $table->string('description');
-            $table->integer('taxe_id');
+            $table->string('devise_prix');
+            $table->string('description')->nullable();
+            $table->unsignedBigInteger('taxe_id')->nullable();
+            $table->foreign('taxe_id')->references('id')->on('taxes')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

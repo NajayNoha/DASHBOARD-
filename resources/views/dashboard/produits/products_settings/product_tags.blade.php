@@ -1,5 +1,3 @@
-
-
 @extends('...layouts.app')
 
 @section("content")
@@ -25,7 +23,7 @@
         <div class="mb-3">
             <!-- Button trigger modal -->
             <button type="button" class="btn text-white px-4 text-white"  style="background: #57ae74;"   data-toggle="modal" data-target="#basicModal1">
-               <i class="fa-solid fa-plus"></i>
+               <i class="fa-solid fa-plus"></i> 
                <span class="ms-2">Create</span>
             </button>
             <!-- Modal -->
@@ -38,21 +36,41 @@
                            </button>
                      </div>
                      <div class="modal-body">
-                        <form action="#">
+                        <form method="POST" action="/ajouter_marque" onsubmit="return onSubmitForm(this);">
+                           @csrf
                            <div class="basic-form">
                               <div class="form-row">
                                  <div class="form-group col-md-12 text-left">
                                     <label for="" class="text-dark fs-4">Libellé</label>
-                                    <input type="text" value="Libellé" class="form-control">
+                                    <input type="text" name="name" class="form-control">
                                  </div>
                               </div>
+                              <div class="form-row">
+                                 @error('name')
+                                     <span class="text-danger">{{$message}}</span>
+                                 @enderror
+                              </div>
                            </div>
-                        </form>
+                        
                      </div>
                      <div class="modal-footer">
-                           <button type="button" class="btn btn-outline-danger px-4"  data-dismiss="modal">ANNULER</button>
-                           <button type="button" class="btn text-white" style="background: #57ae74">ENREGISTRER</button>
+                           <button type="reset" class="btn btn-outline-danger px-4"  data-dismiss="modal">ANNULER</button>
+                           <button type="submit" class="btn text-white" style="background: #57ae74">ENREGISTRER</button>
                      </div>
+                     </form>
+                     <script>
+                        const onSubmitForm = (form)=>{
+                           var ajax = new XMLHttpRequest();
+                           ajax.open("POST", form.getAttribute("action") , true);
+                           ajax.onreadystatechange = function(){
+                                 var data = JSON.parse(this.responseText);
+                                 alert(data.status + " - " + data.message);
+                           }
+                           var formData = new FormData(form);
+                           ajax.send(formData);
+                           return false;
+                        }
+                     </script>
                   </div>
                </div>
             </div>
@@ -80,14 +98,14 @@
                           <table id="example" class="display" style="min-width: 700px">
                               <thead>
                                   <tr>
-                                      <th style="width: 50%;">Nome</th>
-                                      <th style="width: 50%;" class="text-right">Action</th>
+                                      <th style="width: 50%">Nom</th>
+                                      <th style="width: 50%" class="text-center">Action</th>
                                   </tr>
                               </thead>
                               <tbody>
                                   <tr>
                                       <td>Nom</td>
-                                      <td class="text-right">
+                                      <td class="text-center">
                                        <!-- Button trigger modal -->
                                        <button type="button" class="btn text-white"  style="background: rgba(88, 100, 170, 1)"   data-toggle="modal" data-target="#basicModal"><i class="fa-solid fa-pen-to-square"></i></button>
                                        <!-- Modal -->
@@ -137,4 +155,3 @@
 
 </div> --}}
 @endsection
-

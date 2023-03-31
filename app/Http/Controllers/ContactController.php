@@ -101,8 +101,9 @@ class ContactController extends Controller
     }
     public function client_profile($id)
     {
+        $countries = Country::get();
         $data = Client::where('id' , '=' , $id)->first();
-        return view('./dashboard/contacts/clients/clientProfile', compact('data'));
+        return view('./dashboard/contacts/clients/clientProfile', compact('data' , 'countries'));
     }
 
     public function update_client(Request $request)
