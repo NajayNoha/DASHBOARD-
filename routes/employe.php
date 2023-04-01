@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth' , "user-role:employe"])->group(function()
     {
+        Route::get('employe/dashboard',[HomeController::class , 'dashboard'])->name('employe/dashboard');
         // Route::get('employe/home',[ HomeController::class, "index"])->name('home.employe');
         Route::get('employe/contacts/clients', [ContactController::class, 'clients'])->name('employe/contacts/clients');
         Route::get('employe/contacts/ajouter_client', [ContactController::class, 'add_client'])->name('employe/contacts/ajouter_client');
@@ -40,7 +41,7 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
         //---------------------------         price-update   -------------------------------------
 
         Route::get('employe/produits-et-services/mise-a-jour-prix',[ProduitController::class,'price_update'])->name('employe/produits-et-services/price-update/edit');
-        Route::post('/save_update',[ProduitController::class , 'save_price_update']);
+        
         
         //---------------------------         price_rules   -------------------------------------
         Route::get('employe/produits-et-services/regles-de-prix',[ProduitController::class,'price_rules'])->name('employe/produits-et-services/regles-de-prix/list');
