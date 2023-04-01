@@ -178,12 +178,12 @@
                               <select id="inputState" class="form-control" name="pays" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->pays}}">
                                  <option>Pays</option>
                                  @foreach ($countries as $item)
-                                 
+
                                     @if ($item->sortname == $data->pays)
                                        <option value="{{$item->sortname}}" selected>{{$item->name}}</option>
                                     @else
                                        <option value="{{$item->sortname}}">{{$item->name}}</option>
-                                    @endif                                 
+                                    @endif
                                     {{-- <option value="{{$item->sortname}}" @if($item->sortname == $data->pays) selected @endif>{{$item->name}}</option> --}}
                                  @endforeach
                               </select>
