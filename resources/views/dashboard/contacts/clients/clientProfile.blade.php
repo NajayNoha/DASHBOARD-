@@ -13,7 +13,7 @@
             <ol class="breadcrumb mt-3">
                <li class="breadcrumb-item"><a href="#">Clients</a></li>
                <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role .'/contacts/clients')}}">client</a></li>
-               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role . '/contacts/clients/profile',$data->id)}}">Modifier</a></li>
+               <li class="breadcrumb-item active"><a href="{{Route(auth()->user()->role . '/contacts/clients',$data->id)}}">Modifier</a></li>
             </ol>
          </div>
          <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -178,12 +178,12 @@
                               <select id="inputState" class="form-control" name="pays" style="border:1px solid rgba(88, 100, 170, 1)" value="{{$data->pays}}">
                                  <option>Pays</option>
                                  @foreach ($countries as $item)
-                                 
+
                                     @if ($item->sortname == $data->pays)
                                        <option value="{{$item->sortname}}" selected>{{$item->name}}</option>
                                     @else
                                        <option value="{{$item->sortname}}">{{$item->name}}</option>
-                                    @endif                                 
+                                    @endif
                                     {{-- <option value="{{$item->sortname}}" @if($item->sortname == $data->pays) selected @endif>{{$item->name}}</option> --}}
                                  @endforeach
                               </select>

@@ -23,12 +23,12 @@ return new class extends Migration
             $table->integer('pourcentage');
             $table->string('taxes');
             $table->string('price_level');
-            $table->date('date_facturation')->nullable(false);
+            $table->date('date_facturation');
             $table->string('adresse_facturation')->nullable(false);
             $table->string('cout_livraison');
             $table->string('taxes_livraison');
+            $table->date('date_livraison') ;
             $table->string('adresse_livraison')->nullable(false);
-            $table->string('products')->nullable(false);
             $table->string('notes');
             $table->timestamps();
         });

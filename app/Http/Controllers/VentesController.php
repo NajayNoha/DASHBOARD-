@@ -57,8 +57,51 @@ class VentesController extends Controller
     public function createBonCommande(){
         $clients = Client::all();
         $id =  Bon_commande::all()->count() +1 ;
-        // $taxes = Ta
-        return view('./dashboard/ventes/bons_commande/createBonCommande', ["clients" => $clients, "id"=>$id]);
+        $taxes = [];
+        $devise = [];
+        $products = [];
+        $niveaux_prix = [];
+        $data = [
+            "clients" => $clients,
+            "id"=>$id,
+            "taxes" => $taxes,
+            'products'=>$products,
+            'niveaux_prix' => $niveaux_prix,
+            'devise' => $devise
+        ];
+        return view('./dashboard/ventes/bons_commande/createBonCommande', $data);
+    }
+    public function store_bon_command(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|unique:bon_commandes,identifiant',
+            'client' => 'required',
+            'date_liv' => 'required',
+            'adresse' => 'required',
+            'date_fac' => 'required',
+            'adress_livraison' => 'required',
+            'postalCode' => 'required',
+            'devise' => 'required'
+        ], [
+            'id.required' => 'ce champ est obligatoire',
+            'client.required' => 'ce champ est obligatoire',
+            'date_liv.required' => 'ce champ est obligatoire',
+            'adresse.required' => 'ce champ est obligatoire',
+            'postalCode.required' => 'ce champ est obligatoire',
+            'adresse.required' => 'ce champ est obligatoire',
+            'devise.required' => 'ce champ est obligatoire',
+            'date_fac.required' => 'ce champ est obligatoire'
+        ]);
+        $bon_command = new Bon_commande;
+        $bon_command->identifiant = $request->id;
+        $bon_command->client = $request->client;
+        $bon_command->reference = $request->ref;
+        $bon_command->attention = $request->attention;
+        $bon_command->devise = $request->devise;
+        $bon_command->taxe = $request->taxes;
+        $bon_command->price_level = $request->client;
+        $bon_command->client = $request->client;
+
     }
     public function editBoncommande($id){
         return view('./dashboard/ventes/bons_commande/editBonCommande');

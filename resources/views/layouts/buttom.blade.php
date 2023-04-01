@@ -1,3 +1,6 @@
+
+@yield('scripts')
+
 <!-- Required vendors -->
 <script src="{{asset('vendor/global/global.min.js')}}"></script>
 <script src="{{asset('js/quixnav-init.js')}}"></script>
