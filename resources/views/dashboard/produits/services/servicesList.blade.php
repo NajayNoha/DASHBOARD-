@@ -66,7 +66,7 @@
                                                 <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route(auth()->user()->role .'/produits-et-services/services/edit',$item->id)}}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
-                                                <a href="{{url('delete-service/'.$item->id)}}" style="text-decoration:none;color:white">
+                                                <a href="{{url(auth()->user()->role .'delete-service/'.$item->id)}}" style="text-decoration:none;color:white">
                                                     <button class="btn btn-danger">
                                                         <i class="fa-solid fa-trash"></i>
                                                     </button>
@@ -92,8 +92,8 @@
        <script src={{asset("vendor/global/global.min.js")}}></script>
        <script src={{asset("js/quixnav-init.js")}}></script>
        <script src={{asset("js/custom.min.js")}}></script>
-       
-   
+
+
        <script src={{asset("vendor/select2/js/select2.full.min.js")}}></script>
        <script src={{asset("js/plugins-init/select2-init.js")}}></script>
 

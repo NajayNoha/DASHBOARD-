@@ -4,8 +4,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ventes\BonCommandController;
 use App\Http\Controllers\VentesController;
 use Illuminate\Support\Facades\Route;
+
+use function Ramsey\Uuid\v1;
 
 Route::middleware(['auth' , "user-role:employe"])->group(function()
     {
@@ -30,9 +33,9 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
         Route::get('employe/produits-et-services/services/liste-services', [ServiceController::class, 'services'])->name('employe/produits-et-services/produits/services');
 
         Route::get('employe/produits-et-services/service/ajouter_service', [ServiceController::class, 'add_service'])->name('employe/produits-et-services/service/ajouter_service');
-        
+
         Route::get('employe/produits-et-services/services/{id}', [ServiceController::class, 'service_profile'])->name('employe/produits-et-services/services/edit');
-        
+
         Route::get('delete-service/{id}',[ServiceController::class , 'delete_service']);
 
         // MISE A JOUR DES PRIX
@@ -41,7 +44,7 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
 
         Route::get('employe/produits-et-services/mise-a-jour-prix',[ProduitController::class,'price_update'])->name('employe/produits-et-services/price-update/edit');
         Route::post('/save_update',[ProduitController::class , 'save_price_update']);
-        
+
         //---------------------------         price_rules   -------------------------------------
         Route::get('employe/produits-et-services/regles-de-prix',[ProduitController::class,'price_rules'])->name('employe/produits-et-services/regles-de-prix/list');
 
@@ -80,6 +83,7 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
 
 
         // VENTES
+        // Devis
         Route::get('employe/ventes/devis/list',[VentesController::class,'list_devis'])->name('employe/ventes/devis/list');
 
         Route::get('employe/ventes/devis/ajouter_devis',[VentesController::class,'create_devis'])->name('employe/ventes/devis/create_devis');
@@ -89,14 +93,14 @@ Route::middleware(['auth' , "user-role:employe"])->group(function()
         Route::get('employe/ventes/devis/pdf',[VentesController::class,'imprimerPdf'])->name('employe/ventes/devis/pdf');
 
 
-        // //Bons de commande
-        Route::get('employe/ventes/bons-commande/ajouter-bon-commande',[VentesController::class,'createBonCommande'])->name('employe/ventes/bons-commande/ajouter-bon-commande');
-        Route::get('employe/ventes/bons-commande/{id}',[VentesController::class,'bonCommandeProfile'])->name('employe/ventes/bons-commande/profile');
-        Route::get('employe/ventes/bons-commande',[VentesController::class,'bonsCommande'])->name('employe/ventes/bons-commande');
-        Route::get('employe/ventes/bons-commande/edit/{id}',[VentesController::class,'editBoncommande'])->name('employe/ventes/bons-commande/edit');
-        Route::get('employe/ventes/bons-commande/pdf',[VentesController::class,'imprimerPdfBonCommande'])->name('employe/ventes/bons-commande/pdf');
+        // Bons de commande
+        Route::get('employe/ventes/bons-commande/ajouter-bon-commande',[BonCommandController::class,'createBonCommande'])->name('employe/ventes/bons-commande/ajouter-bon-commande');
+        Route::get('employe/ventes/bons-commande/{id}',[BonCommandController::class,'bonCommandeProfile'])->name('employe/ventes/bons-commande/profile');
+        Route::get('employe/ventes/bons-commande',[BonCommandController::class,'bonsCommande'])->name('employe/ventes/bons-commande');
+        Route::get('employe/ventes/bons-commande/edit/{id}',[BonCommandController::class,'editBoncommande'])->name('employe/ventes/bons-commande/edit');
+        Route::get('employe/ventes/bons-commande/pdf',[BonCommandController::class,'imprimerPdfBonCommande'])->name('employe/ventes/bons-commande/pdf');
 
-        // //Bons de livraisons
+        // Bons de livraisons
         Route::get('employe/ventes/bons-livraison/ajouter-bon-livrason',[VentesController::class,'createBonLivraison'])->name('employe/ventes/bons-livraison/ajouter-bon-livraison');
         Route::get('employe/ventes/bons-livraison/{id}',[VentesController::class,'bonLivraisonProfile'])->name('employe/ventes/bons-livraison/profile');
         Route::get('employe/ventes/bons-livraison',[VentesController::class,'bonsLivraison'])->name('employe/ventes/bons-livraison');

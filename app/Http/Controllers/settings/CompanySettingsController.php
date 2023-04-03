@@ -44,7 +44,7 @@ class CompanySettingsController extends Controller
             if($save){
                 return back()->with('success','Vos paramètres ont été mis à jour.');
             }else{
-                return back()->with('fail','');
+                return back()->with('fail','sauvegard echec ');
             }
         }
         return back();
@@ -69,6 +69,7 @@ class CompanySettingsController extends Controller
             $company -> ville= $request -> ville;
             $company -> facebook= $request -> facebook;
             $company -> twitter= $request -> twitter;
+            
 
             if ($request->hasFile('logo')) {
                 $file = $request->file('logo');
@@ -77,7 +78,7 @@ class CompanySettingsController extends Controller
                 $file->storeAs('public/images/logos', $filename);
                 $company -> logo = $filename;
             }
-            
+
             $save = $company -> save();
 
             if($save){
@@ -85,6 +86,6 @@ class CompanySettingsController extends Controller
             }else{
                 return redirect()->route('setting.company-settings.create')->with('fail','');
             }
-        
+
     }
 }
