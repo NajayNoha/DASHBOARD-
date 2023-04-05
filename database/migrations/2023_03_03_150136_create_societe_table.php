@@ -28,9 +28,9 @@ return new class extends Migration
             $table -> string('facebook')->nullable();
             $table -> string('twitter')->nullable();
             // // Valeurs par défaut
-            // $table -> foreignId('id_taxe')->constrained('','id');
-            // $table -> foreignId('id_niveau_prix_vente')->constrained('');
-            // $table -> foreignId('id_niveau_prix_achat')->constrained();
+            $table -> foreignId('taxe_id')->constrained()->nullable(true);
+            $table -> foreignId('niveau_prix_id')->constrained('niveau_prix')->nullable(true);
+            $table->foreignId('admin_id')->constrained('admins');
             $table->timestamps();
         });
     }

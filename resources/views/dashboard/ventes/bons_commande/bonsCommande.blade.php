@@ -84,7 +84,7 @@
                                         </td>
                                         <td class="d-flix  gap-4">
                                             <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{route(auth()->user()->role . '/ventes/bons-commande/edit',1)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a class="btn text-white" style="background:  #57ae74;" href="{{route(auth()->user()->role . '/ventes/bons-commande/profile',1)}}">show</a>
+                                            <a class="btn text-white" style="background:  #57ae74;" href="{{route(auth()->user()->role . '/ventes/bons-commande',1)}}">show</a>
                                         </td>
                                         </tr>
                                     @endforeach

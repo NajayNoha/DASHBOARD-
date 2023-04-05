@@ -59,12 +59,12 @@
                                             <td>{{$client->tel}}</td>
                                             <td>{{$client->city}}</td>
                                             <td>
-                                                <a href="{{url('/contacts/clients/'.$client->id)}}" style="text-decoration:none;color:white">
+                                                <a href="{{url(auth()->user()->role .'/contacts/client', $client->id)}}" style="text-decoration:none;color:white">
                                                     <button class="btn text-white" style="background: rgba(88, 100, 170, 1)">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </button>
                                                 </a>
-                                                <a href="{{url('delete-client/'.$client->id)}}" style="text-decoration:none;color:white">
+                                                <a href="{{url(auth()->user()->role .'delete-client/'.$client->id)}}" style="text-decoration:none;color:white">
                                                     <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                                 </a>
                                             </td>

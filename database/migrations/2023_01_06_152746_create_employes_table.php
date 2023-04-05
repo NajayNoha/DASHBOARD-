@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('city')->nullable(false);
             $table->string('employer')->nullable(false);
             $table->string('position')->nullable(false);
+            $table->foreignId('admin_id')->constrained();
             $table->timestamps();
         });
     }

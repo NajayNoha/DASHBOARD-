@@ -71,7 +71,7 @@
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </button>
                                                 </a>
-                                                <a href="{{url('delete-fournisseur/'.$item->id)}}" style="text-decoration:none;color:white">
+                                                <a href="{{url(auth()->user()->role .'delete-fournisseur/'.$item->id)}}" style="text-decoration:none;color:white">
                                                     <button class="btn btn-danger">
                                                         <i class="fa-solid fa-trash"></i>
                                                     </button>

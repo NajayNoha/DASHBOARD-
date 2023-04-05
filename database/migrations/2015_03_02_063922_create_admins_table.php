@@ -23,6 +23,7 @@ return new class extends Migration
             $table ->integer('actif')->default(1);
             $table ->foreignId('id_user')->constrained('users','id');
             $table -> string('langue')->nullable();
+            $table -> integer('nb_societe')->default(1);
             $table->timestamps();
         });
     }

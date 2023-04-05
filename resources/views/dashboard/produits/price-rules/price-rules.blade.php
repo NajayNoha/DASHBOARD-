@@ -66,7 +66,7 @@
                                                 <a class="btn text-white" style="background: rgba(88, 100, 170, 1)" href="{{Route(auth()->user()->role ."/produits-et-services/regles-de-prix/edit",$item->id)}}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
-                                                <a href="{{url('delete-pricerule/'.$item->id)}}" style="text-decoration:none;color:white">
+                                                <a href="{{url(auth()->user()->role .'delete-pricerule/'.$item->id)}}" style="text-decoration:none;color:white">
                                                     <button class="btn btn-danger">
                                                         <i class="fa-solid fa-trash"></i>
                                                     </button>
