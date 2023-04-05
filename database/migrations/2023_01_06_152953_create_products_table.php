@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('pays_origine');
             $table->string('poids');
             $table->string('poids_unit');
+            $table->foreignId('admin_id')->constrained();
             $table->timestamps();
         });
     }
